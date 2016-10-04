@@ -15,6 +15,8 @@
 		F8019A5B1DA44341009DF55D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8019A5A1DA44341009DF55D /* Assets.xcassets */; };
 		F8019A5E1DA44341009DF55D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8019A5C1DA44341009DF55D /* LaunchScreen.storyboard */; };
 		F8019A691DA44341009DF55D /* SPSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8019A681DA44341009DF55D /* SPSTests.swift */; };
+		F8019A761DA44749009DF55D /* Proposal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8019A751DA44749009DF55D /* Proposal.swift */; };
+		F8019A781DA447C8009DF55D /* Proposal+SWXMLHash.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8019A771DA447C8009DF55D /* Proposal+SWXMLHash.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,12 +40,14 @@
 		F8019A531DA44341009DF55D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8019A551DA44341009DF55D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F8019A581DA44341009DF55D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		F8019A5A1DA44341009DF55D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F8019A5A1DA44341009DF55D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
 		F8019A5D1DA44341009DF55D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		F8019A5F1DA44341009DF55D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F8019A5F1DA44341009DF55D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
 		F8019A641DA44341009DF55D /* SPSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SPSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8019A681DA44341009DF55D /* SPSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPSTests.swift; sourceTree = "<group>"; };
 		F8019A6A1DA44341009DF55D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F8019A751DA44749009DF55D /* Proposal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Proposal.swift; sourceTree = "<group>"; };
+		F8019A771DA447C8009DF55D /* Proposal+SWXMLHash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Proposal+SWXMLHash.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,9 +116,9 @@
 				F8019A531DA44341009DF55D /* AppDelegate.swift */,
 				F8019A551DA44341009DF55D /* ViewController.swift */,
 				F8019A571DA44341009DF55D /* Main.storyboard */,
-				F8019A5A1DA44341009DF55D /* Assets.xcassets */,
 				F8019A5C1DA44341009DF55D /* LaunchScreen.storyboard */,
-				F8019A5F1DA44341009DF55D /* Info.plist */,
+				F8019A741DA4473E009DF55D /* Model layer */,
+				F8019A731DA44707009DF55D /* Resources */,
 			);
 			path = SPS;
 			sourceTree = "<group>";
@@ -126,6 +130,24 @@
 				F8019A6A1DA44341009DF55D /* Info.plist */,
 			);
 			path = SPSTests;
+			sourceTree = "<group>";
+		};
+		F8019A731DA44707009DF55D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F8019A5A1DA44341009DF55D /* Assets.xcassets */,
+				F8019A5F1DA44341009DF55D /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		F8019A741DA4473E009DF55D /* Model layer */ = {
+			isa = PBXGroup;
+			children = (
+				F8019A751DA44749009DF55D /* Proposal.swift */,
+				F8019A771DA447C8009DF55D /* Proposal+SWXMLHash.swift */,
+			);
+			path = "Model layer";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -333,7 +355,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8019A561DA44341009DF55D /* ViewController.swift in Sources */,
+				F8019A781DA447C8009DF55D /* Proposal+SWXMLHash.swift in Sources */,
 				F8019A541DA44341009DF55D /* AppDelegate.swift in Sources */,
+				F8019A761DA44749009DF55D /* Proposal.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SWXMLHash
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let session = URLSession(configuration: URLSessionConfiguration.default)
+        session.dataTask(with: URL(string: "https://apple.github.io/swift-evolution/")!) { (data, response, error) in
+            if let error = error {
+                print("error: \(error)")
+                return
+            }
+            
+            do {
+                let xml = SWXMLHash.parse(data!)
+                let proposals: [Proposal] = try xml["proposals"]["proposal"].value()
+                print(proposals)
+            } catch let error {
+                print("error: \(error)")
+            }
+        }.resume()
+        
+        
+        
         return true
     }
 
