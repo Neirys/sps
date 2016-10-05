@@ -9,14 +9,16 @@
 import Foundation
 import SWXMLHash
 
-class ProposalsStatusService {
-    
-    // MARK: Enums
-    
-    enum RequestError: Error {
-        case underlying(Error)
-        case missingData
-    }
+enum ProposalsStatusServiceError: Error {
+    case underlying(Error)
+    case missingData
+}
+
+protocol ProposalsStatusServiceProtocol {
+    func request(completionHandler: @escaping (Result<[Proposal], ProposalsStatusServiceError>) -> Void)
+}
+
+class ProposalsStatusService: ProposalsStatusServiceProtocol {
     
     // MARK: Properties
     
@@ -30,7 +32,7 @@ class ProposalsStatusService {
     
     // MARK: Public methods
     
-    func request(completionHandler: @escaping (Result<[Proposal], RequestError>) -> Void) {
+    func request(completionHandler: @escaping (Result<[Proposal], ProposalsStatusServiceError>) -> Void) {
         session.dataTask(with: URL(string: "https://apple.github.io/swift-evolution/")!) { (data, response, error) in
             if let error = error {
                 completionHandler(.failure(.underlying(error)))

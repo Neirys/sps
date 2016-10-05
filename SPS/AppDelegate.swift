@@ -7,15 +7,17 @@
 //
 
 import UIKit
-import SWXMLHash
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    // MARK: Properties
 
     var window: UIWindow?
-
-    private let service = ProposalsStatusService()
-
+    
+    // MARK: UIApplicationDelegate conformance
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         return true
     }
