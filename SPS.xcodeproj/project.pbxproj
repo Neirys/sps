@@ -19,6 +19,8 @@
 		F8019A781DA447C8009DF55D /* Proposal+SWXMLHash.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8019A771DA447C8009DF55D /* Proposal+SWXMLHash.swift */; };
 		F8019A7D1DA588FA009DF55D /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8019A7C1DA588FA009DF55D /* Result.swift */; };
 		F8019A801DA58A2B009DF55D /* ProposalsStatusService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8019A7F1DA58A2B009DF55D /* ProposalsStatusService.swift */; };
+		F8019A821DA5962C009DF55D /* Proposal+Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8019A811DA5962C009DF55D /* Proposal+Realm.swift */; };
+		F8019A841DA59D48009DF55D /* RealmObjectConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8019A831DA59D48009DF55D /* RealmObjectConvertible.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,8 @@
 		F8019A771DA447C8009DF55D /* Proposal+SWXMLHash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Proposal+SWXMLHash.swift"; sourceTree = "<group>"; };
 		F8019A7C1DA588FA009DF55D /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		F8019A7F1DA58A2B009DF55D /* ProposalsStatusService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProposalsStatusService.swift; sourceTree = "<group>"; };
+		F8019A811DA5962C009DF55D /* Proposal+Realm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Proposal+Realm.swift"; sourceTree = "<group>"; };
+		F8019A831DA59D48009DF55D /* RealmObjectConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmObjectConvertible.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,8 +154,10 @@
 		F8019A741DA4473E009DF55D /* Model layer */ = {
 			isa = PBXGroup;
 			children = (
+				F8019A831DA59D48009DF55D /* RealmObjectConvertible.swift */,
 				F8019A751DA44749009DF55D /* Proposal.swift */,
 				F8019A771DA447C8009DF55D /* Proposal+SWXMLHash.swift */,
+				F8019A811DA5962C009DF55D /* Proposal+Realm.swift */,
 			);
 			path = "Model layer";
 			sourceTree = "<group>";
@@ -388,7 +394,9 @@
 				F8019A7D1DA588FA009DF55D /* Result.swift in Sources */,
 				F8019A781DA447C8009DF55D /* Proposal+SWXMLHash.swift in Sources */,
 				F8019A801DA58A2B009DF55D /* ProposalsStatusService.swift in Sources */,
+				F8019A841DA59D48009DF55D /* RealmObjectConvertible.swift in Sources */,
 				F8019A541DA44341009DF55D /* AppDelegate.swift in Sources */,
+				F8019A821DA5962C009DF55D /* Proposal+Realm.swift in Sources */,
 				F8019A761DA44749009DF55D /* Proposal.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
