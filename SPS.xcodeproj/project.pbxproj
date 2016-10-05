@@ -17,6 +17,8 @@
 		F8019A691DA44341009DF55D /* SPSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8019A681DA44341009DF55D /* SPSTests.swift */; };
 		F8019A761DA44749009DF55D /* Proposal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8019A751DA44749009DF55D /* Proposal.swift */; };
 		F8019A781DA447C8009DF55D /* Proposal+SWXMLHash.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8019A771DA447C8009DF55D /* Proposal+SWXMLHash.swift */; };
+		F8019A7D1DA588FA009DF55D /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8019A7C1DA588FA009DF55D /* Result.swift */; };
+		F8019A801DA58A2B009DF55D /* ProposalsStatusService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8019A7F1DA58A2B009DF55D /* ProposalsStatusService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +50,8 @@
 		F8019A6A1DA44341009DF55D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F8019A751DA44749009DF55D /* Proposal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Proposal.swift; sourceTree = "<group>"; };
 		F8019A771DA447C8009DF55D /* Proposal+SWXMLHash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Proposal+SWXMLHash.swift"; sourceTree = "<group>"; };
+		F8019A7C1DA588FA009DF55D /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		F8019A7F1DA58A2B009DF55D /* ProposalsStatusService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProposalsStatusService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,7 +121,9 @@
 				F8019A551DA44341009DF55D /* ViewController.swift */,
 				F8019A571DA44341009DF55D /* Main.storyboard */,
 				F8019A5C1DA44341009DF55D /* LaunchScreen.storyboard */,
+				F8019A7E1DA58A0C009DF55D /* Network Layer */,
 				F8019A741DA4473E009DF55D /* Model layer */,
+				F8019A7A1DA588E4009DF55D /* Common */,
 				F8019A731DA44707009DF55D /* Resources */,
 			);
 			path = SPS;
@@ -148,6 +154,30 @@
 				F8019A771DA447C8009DF55D /* Proposal+SWXMLHash.swift */,
 			);
 			path = "Model layer";
+			sourceTree = "<group>";
+		};
+		F8019A7A1DA588E4009DF55D /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				F8019A7B1DA588F2009DF55D /* Enums */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		F8019A7B1DA588F2009DF55D /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				F8019A7C1DA588FA009DF55D /* Result.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		F8019A7E1DA58A0C009DF55D /* Network Layer */ = {
+			isa = PBXGroup;
+			children = (
+				F8019A7F1DA58A2B009DF55D /* ProposalsStatusService.swift */,
+			);
+			path = "Network Layer";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -355,7 +385,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8019A561DA44341009DF55D /* ViewController.swift in Sources */,
+				F8019A7D1DA588FA009DF55D /* Result.swift in Sources */,
 				F8019A781DA447C8009DF55D /* Proposal+SWXMLHash.swift in Sources */,
+				F8019A801DA58A2B009DF55D /* ProposalsStatusService.swift in Sources */,
 				F8019A541DA44341009DF55D /* AppDelegate.swift in Sources */,
 				F8019A761DA44749009DF55D /* Proposal.swift in Sources */,
 			);
