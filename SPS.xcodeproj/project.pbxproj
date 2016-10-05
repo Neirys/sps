@@ -21,6 +21,7 @@
 		F8019A801DA58A2B009DF55D /* ProposalsStatusService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8019A7F1DA58A2B009DF55D /* ProposalsStatusService.swift */; };
 		F8019A821DA5962C009DF55D /* Proposal+Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8019A811DA5962C009DF55D /* Proposal+Realm.swift */; };
 		F8019A841DA59D48009DF55D /* RealmObjectConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8019A831DA59D48009DF55D /* RealmObjectConvertible.swift */; };
+		F8019A861DA59EEF009DF55D /* ProposalsStatusSynchronizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8019A851DA59EEF009DF55D /* ProposalsStatusSynchronizer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		F8019A7F1DA58A2B009DF55D /* ProposalsStatusService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProposalsStatusService.swift; sourceTree = "<group>"; };
 		F8019A811DA5962C009DF55D /* Proposal+Realm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Proposal+Realm.swift"; sourceTree = "<group>"; };
 		F8019A831DA59D48009DF55D /* RealmObjectConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmObjectConvertible.swift; sourceTree = "<group>"; };
+		F8019A851DA59EEF009DF55D /* ProposalsStatusSynchronizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProposalsStatusSynchronizer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				F8019A7F1DA58A2B009DF55D /* ProposalsStatusService.swift */,
+				F8019A851DA59EEF009DF55D /* ProposalsStatusSynchronizer.swift */,
 			);
 			path = "Network Layer";
 			sourceTree = "<group>";
@@ -390,6 +393,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8019A861DA59EEF009DF55D /* ProposalsStatusSynchronizer.swift in Sources */,
 				F8019A561DA44341009DF55D /* ViewController.swift in Sources */,
 				F8019A7D1DA588FA009DF55D /* Result.swift in Sources */,
 				F8019A781DA447C8009DF55D /* Proposal+SWXMLHash.swift in Sources */,
