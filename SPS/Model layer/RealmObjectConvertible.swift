@@ -23,3 +23,11 @@ extension Sequence where Self.Iterator.Element: RealmObjectConvertible {
         }
     }
 }
+
+extension Realm {
+    func write<Object: RealmObjectConvertible>(adding objects: [Object], update: Bool) throws {
+        try self.write {
+            objects.add(inRealm: self, update: update)()
+        }
+    }
+}

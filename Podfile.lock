@@ -1,9 +1,9 @@
 PODS:
-  - Realm (2.0.1):
-    - Realm/Headers (= 2.0.1)
-  - Realm/Headers (2.0.1)
-  - RealmSwift (2.0.1):
-    - Realm (= 2.0.1)
+  - Realm (2.0.2):
+    - Realm/Headers (= 2.0.2)
+  - Realm/Headers (2.0.2)
+  - RealmSwift (2.0.2):
+    - Realm (= 2.0.2)
   - SWXMLHash (3.0.2)
 
 DEPENDENCIES:
@@ -11,8 +11,8 @@ DEPENDENCIES:
   - SWXMLHash (~> 3.0.0)
 
 SPEC CHECKSUMS:
-  Realm: 0557ee0e4ab4f0936c90e370056d1ed6265f93d6
-  RealmSwift: 64e00af79bdcd7d2a7a23fdc1cb3faf22b80ae4c
+  Realm: 0f5a194af0b7e6158b83db41b4ee1a00be7ddf1a
+  RealmSwift: 0eb5070d851cba7c66e841ca756d83609dc78bc8
   SWXMLHash: e0f6935971f01b06fb228cf435510d998ecde647
 
 PODFILE CHECKSUM: d34755ca54040130f6d2e6f92303c069756fe46b
