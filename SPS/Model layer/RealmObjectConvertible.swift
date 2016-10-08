@@ -15,19 +15,14 @@ protocol RealmObjectConvertible {
     func makeRealmObject() -> RealmObject
 }
 
-extension Sequence where Self.Iterator.Element: RealmObjectConvertible {
-    func add(inRealm realm: Realm, update: Bool) -> () -> Void {
-        return {
-            let realmObjects = self.map { $0.makeRealmObject() }
-            realm.add(realmObjects, update: update)
-        }
-    }
-}
-
 extension Realm {
-    func write<Object: RealmObjectConvertible>(adding objects: [Object], update: Bool) throws {
-        try self.write {
-            objects.add(inRealm: self, update: update)()
-        }
+    func add<R: RealmObjectConvertible>(_ object: R, update: Bool = false) {
+        let realmObject = object.makeRealmObject()
+        self.add(realmObject, update: update)
+    }
+    
+    func add<S: Sequence>(_ objects: S, update: Bool = false) where S.Iterator.Element: RealmObjectConvertible {
+        let realmObjets = objects.map { $0.makeRealmObject() }
+        self.add(realmObjets, update: update)
     }
 }
