@@ -10,6 +10,37 @@ import Foundation
 import RxSwift
 import RealmSwift
 
+class RealmObserver<E>: ObserverType {
+    
+    // MARK: Properties
+    
+    let realm: Realm
+    let writes: (Realm, E) -> Void
+    
+    // MARK: Initializers
+    
+    init(realm: Realm, writes: @escaping (Realm, E) -> Void) {
+        self.realm = realm
+        self.writes = writes
+    }
+    
+    init(configuration: Realm.Configuration = Realm.Configuration.defaultConfiguration, writes: @escaping (Realm, E) -> Void) {
+        self.realm = try! Realm(configuration: configuration)
+        self.writes = writes
+    }
+    
+    // MARK: ObserverType conformance
+    
+    func on(_ event: Event<E>) {
+        switch event {
+        case .next(let element):
+            writes(realm, element)
+        default:
+            break
+        }
+    }
+}
+
 extension RealmCollection {
     func toArray() -> [Element] {
         let collection = AnyRealmCollection(self)
@@ -60,5 +91,43 @@ extension Observable where Element: RealmCollection {
                 token.stop()
             }
         }
+    }
+}
+
+extension Realm {
+    static func add<O: Object>(configuration: Realm.Configuration = Realm.Configuration.defaultConfiguration,
+                    update: Bool = false) -> AnyObserver<O> {
+        return RealmObserver(configuration: configuration) { realm, element in
+            try! realm.write {
+                realm.add(element, update: update)
+            }
+        }.asObserver()
+    }
+    
+    static func add<S: Sequence>(configuration: Realm.Configuration = Realm.Configuration.defaultConfiguration,
+                    update: Bool = false) -> AnyObserver<S> where S.Iterator.Element: Object {
+        return RealmObserver(configuration: configuration) { realm, element in
+            try! realm.write {
+                realm.add(element, update: update)
+            }
+        }.asObserver()
+    }
+    
+    static func add<O: RealmObjectConvertible>(configuration: Realm.Configuration = Realm.Configuration.defaultConfiguration,
+                    update: Bool = false) -> AnyObserver<O> {
+        return RealmObserver(configuration: configuration) { realm, element in
+            try! realm.write {
+                realm.add(element, update: update)
+            }
+        }.asObserver()
+    }
+    
+    static func add<S: Sequence>(configuration: Realm.Configuration = Realm.Configuration.defaultConfiguration,
+                    update: Bool = false) -> AnyObserver<S> where S.Iterator.Element: RealmObjectConvertible {
+        return RealmObserver(configuration: configuration) { realm, element in
+            try! realm.write {
+                realm.add(element, update: update)
+            }
+        }.asObserver()
     }
 }
