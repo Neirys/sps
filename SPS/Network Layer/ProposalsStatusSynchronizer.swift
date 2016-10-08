@@ -32,6 +32,12 @@ class ProposalsStatusSynchronizer: ProposalsStatusSynchronizerType {
             .subscribeOn(ConcurrentDispatchQueueScheduler.init(queue: DispatchQueue.global()))
             .do(onNext: { proposals in
                 let realm = try! Realm()
+                let proposalsInDB = realm.objects(Proposal.RealmObject.self).toArray()
+                let diffs = differential(from: proposalsInDB, to: proposals)
+                print(diffs)
+            })
+            .do(onNext: { proposals in
+                let realm = try! Realm()
                 try! realm.write {
                     realm.add(proposals, update: true)
                 }

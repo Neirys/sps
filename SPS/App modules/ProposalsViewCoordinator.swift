@@ -21,6 +21,7 @@ class ProposalsViewCoordinator {
     
     // MARK: Initializers
     
+    // TODO: Unit tests
     init(realm: Realm) {
         let results = realm.objects(Proposal.RealmObject.self)
         

@@ -32,6 +32,7 @@
 		F84C31651DA98E960013AD2C /* ProposalStatus+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84C31641DA98E960013AD2C /* ProposalStatus+UI.swift */; };
 		F84C31671DA9946B0013AD2C /* Section+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84C31661DA9946B0013AD2C /* Section+Rx.swift */; };
 		F84C31691DA9A3C80013AD2C /* ProposalViewModel+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84C31681DA9A3C80013AD2C /* ProposalViewModel+Rx.swift */; };
+		F868D6C81DA9B4D900D7C1C3 /* Proposal+Differential.swift in Sources */ = {isa = PBXBuildFile; fileRef = F868D6C71DA9B4D900D7C1C3 /* Proposal+Differential.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		F84C31641DA98E960013AD2C /* ProposalStatus+UI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ProposalStatus+UI.swift"; sourceTree = "<group>"; };
 		F84C31661DA9946B0013AD2C /* Section+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Section+Rx.swift"; sourceTree = "<group>"; };
 		F84C31681DA9A3C80013AD2C /* ProposalViewModel+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ProposalViewModel+Rx.swift"; sourceTree = "<group>"; };
+		F868D6C71DA9B4D900D7C1C3 /* Proposal+Differential.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Proposal+Differential.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +185,7 @@
 				F8019A811DA5962C009DF55D /* Proposal+Realm.swift */,
 				F8019A771DA447C8009DF55D /* Proposal+SWXMLHash.swift */,
 				F84C31641DA98E960013AD2C /* ProposalStatus+UI.swift */,
+				F868D6C71DA9B4D900D7C1C3 /* Proposal+Differential.swift */,
 			);
 			path = "Model layer";
 			sourceTree = "<group>";
@@ -465,6 +468,7 @@
 				F8019A8D1DA90A3A009DF55D /* ProposalsViewCoordinator.swift in Sources */,
 				F84C31651DA98E960013AD2C /* ProposalStatus+UI.swift in Sources */,
 				F84C31691DA9A3C80013AD2C /* ProposalViewModel+Rx.swift in Sources */,
+				F868D6C81DA9B4D900D7C1C3 /* Proposal+Differential.swift in Sources */,
 				F8019A761DA44749009DF55D /* Proposal.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
