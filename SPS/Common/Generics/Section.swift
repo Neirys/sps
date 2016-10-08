@@ -9,6 +9,6 @@
 import Foundation
 
 struct Section<Element> {
-    let title: String
-    let elements: [Element]
+    var title: String
+    var elements: [Element]
 }

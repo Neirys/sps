@@ -9,6 +9,7 @@
 import UIKit
 import RealmSwift
 import RxSwift
+import RxDataSources
 
 class ProposalsViewController: UIViewController {
     
@@ -26,11 +27,23 @@ class ProposalsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        viewCoordinator.proposals
-            .drive(tableView.rx.items(cellIdentifier: "ProposalCellID")) { index, proposal, cell in
-                cell.textLabel?.text = proposal.name
-                cell.detailTextLabel?.text = proposal.id
-            }
+        title = "Proposal Status"
+        
+        let dataSource = RxTableViewSectionedReloadDataSource<Section<ProposalViewModel>>()
+        
+        dataSource.configureCell = { dataSource, tableView, indexPath, proposal in
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ProposalCellID", for: indexPath)
+            cell.textLabel?.text = proposal.name
+            cell.detailTextLabel?.text = proposal.id
+            return cell
+        }
+        
+        dataSource.titleForHeaderInSection = { dataSource, index in
+            return dataSource.sectionModels[index].title
+        }
+        
+        viewCoordinator.proposalSections
+            .drive(tableView.rx.items(dataSource: dataSource))
             .addDisposableTo(disposeBag)
         
         tableView.rx.modelSelected(ProposalViewModel.self)
@@ -38,11 +51,6 @@ class ProposalsViewController: UIViewController {
                 self.performSegue(withIdentifier: "ProposalDetailSegueID", sender: proposal)
             })
             .addDisposableTo(disposeBag)
-        
-        viewCoordinator.proposalSections
-            .drive (onNext: { sections -> Void in
-                sections.map { $0.title }.forEach { print($0) }
-            })
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

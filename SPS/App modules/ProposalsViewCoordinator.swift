@@ -10,22 +10,19 @@ import Foundation
 import RealmSwift
 import RxSwift
 import RxCocoa
+import RxDataSources
 
 class ProposalsViewCoordinator {
     
     // MARK: Properties
 
     // outputs
-    let proposals: Driver<[ProposalViewModel]>
     let proposalSections: Driver<[Section<ProposalViewModel>]>
     
     // MARK: Initializers
     
     init(realm: Realm) {
         let results = realm.objects(Proposal.RealmObject.self)
-        self.proposals = Observable.arrayFrom(results)
-            .map { $0.map(ProposalViewModel.init) }
-            .asDriver(onErrorJustReturn: [])
         
         self.proposalSections = Observable.arrayFrom(results)
             // separate proposals by status
