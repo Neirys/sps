@@ -28,6 +28,8 @@
 		F8019A921DA91EBD009DF55D /* ProposalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8019A911DA91EBD009DF55D /* ProposalViewModel.swift */; };
 		F8019A941DA938A4009DF55D /* ProposalDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8019A931DA938A4009DF55D /* ProposalDetailViewController.swift */; };
 		F84C31601DA9753C0013AD2C /* ApplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84C315F1DA9753C0013AD2C /* ApplicationController.swift */; };
+		F84C31631DA97D610013AD2C /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84C31621DA97D610013AD2C /* Section.swift */; };
+		F84C31651DA98E960013AD2C /* ProposalStatus+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84C31641DA98E960013AD2C /* ProposalStatus+UI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +72,8 @@
 		F8019A911DA91EBD009DF55D /* ProposalViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProposalViewModel.swift; sourceTree = "<group>"; };
 		F8019A931DA938A4009DF55D /* ProposalDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProposalDetailViewController.swift; sourceTree = "<group>"; };
 		F84C315F1DA9753C0013AD2C /* ApplicationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationController.swift; sourceTree = "<group>"; };
+		F84C31621DA97D610013AD2C /* Section.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
+		F84C31641DA98E960013AD2C /* ProposalStatus+UI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ProposalStatus+UI.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,8 +176,9 @@
 			children = (
 				F8019A831DA59D48009DF55D /* RealmObjectConvertible.swift */,
 				F8019A751DA44749009DF55D /* Proposal.swift */,
-				F8019A771DA447C8009DF55D /* Proposal+SWXMLHash.swift */,
 				F8019A811DA5962C009DF55D /* Proposal+Realm.swift */,
+				F8019A771DA447C8009DF55D /* Proposal+SWXMLHash.swift */,
+				F84C31641DA98E960013AD2C /* ProposalStatus+UI.swift */,
 			);
 			path = "Model layer";
 			sourceTree = "<group>";
@@ -181,6 +186,7 @@
 		F8019A7A1DA588E4009DF55D /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				F84C31611DA97D5A0013AD2C /* Generics */,
 				F8019A8E1DA9194C009DF55D /* Extensions */,
 				F8019A7B1DA588F2009DF55D /* Enums */,
 			);
@@ -221,6 +227,14 @@
 				F8019A8F1DA91956009DF55D /* Realm+Rx.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F84C31611DA97D5A0013AD2C /* Generics */ = {
+			isa = PBXGroup;
+			children = (
+				F84C31621DA97D610013AD2C /* Section.swift */,
+			);
+			path = Generics;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -440,7 +454,9 @@
 				F8019A901DA91956009DF55D /* Realm+Rx.swift in Sources */,
 				F8019A541DA44341009DF55D /* AppDelegate.swift in Sources */,
 				F8019A821DA5962C009DF55D /* Proposal+Realm.swift in Sources */,
+				F84C31631DA97D610013AD2C /* Section.swift in Sources */,
 				F8019A8D1DA90A3A009DF55D /* ProposalsViewCoordinator.swift in Sources */,
+				F84C31651DA98E960013AD2C /* ProposalStatus+UI.swift in Sources */,
 				F8019A761DA44749009DF55D /* Proposal.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

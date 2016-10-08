@@ -38,6 +38,11 @@ class ProposalsViewController: UIViewController {
                 self.performSegue(withIdentifier: "ProposalDetailSegueID", sender: proposal)
             })
             .addDisposableTo(disposeBag)
+        
+        viewCoordinator.proposalSections
+            .drive (onNext: { sections -> Void in
+                sections.map { $0.title }.forEach { print($0) }
+            })
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
