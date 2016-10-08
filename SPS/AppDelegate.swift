@@ -14,11 +14,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: Properties
 
     var window: UIWindow?
+    
+    private let applicationController: ApplicationControllerType = ApplicationController(proposalsStatusService: ProposalsStatusService())
 
     // MARK: UIApplicationDelegate conformance
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        return true
+        return applicationController.application(application, didFinishLaunchingWithOptions: launchOptions)
+    }
+    
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        applicationController.applicationDidBecomeActive(application)
     }
 }
 

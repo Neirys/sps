@@ -14,18 +14,13 @@ class RealmObserver<E>: ObserverType {
     
     // MARK: Properties
     
-    let realm: Realm
+    let configuration: Realm.Configuration
     let writes: (Realm, E) -> Void
     
     // MARK: Initializers
     
-    init(realm: Realm, writes: @escaping (Realm, E) -> Void) {
-        self.realm = realm
-        self.writes = writes
-    }
-    
     init(configuration: Realm.Configuration = Realm.Configuration.defaultConfiguration, writes: @escaping (Realm, E) -> Void) {
-        self.realm = try! Realm(configuration: configuration)
+        self.configuration = configuration
         self.writes = writes
     }
     
@@ -34,6 +29,7 @@ class RealmObserver<E>: ObserverType {
     func on(_ event: Event<E>) {
         switch event {
         case .next(let element):
+            let realm = try! Realm(configuration: configuration)
             writes(realm, element)
         default:
             break
