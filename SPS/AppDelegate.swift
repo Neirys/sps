@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         #if DEBUG
             let service = RandomProposalsStatusService()
             let synchronizer = ProposalsStatusSynchronizer(proposalsStatusService: service)
-            let debugSynchronizer = PeriodicProposalsStatusSynchronizer(synchronizer: synchronizer, period: 10)
+            let debugSynchronizer = PeriodicProposalsStatusSynchronizer(synchronizer: synchronizer, period: 2)
             
             return ApplicationController(proposalsStatusSynchronizer: debugSynchronizer)
         #else

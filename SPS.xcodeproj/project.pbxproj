@@ -31,6 +31,7 @@
 		F84C31631DA97D610013AD2C /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84C31621DA97D610013AD2C /* Section.swift */; };
 		F84C31651DA98E960013AD2C /* ProposalStatus+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84C31641DA98E960013AD2C /* ProposalStatus+UI.swift */; };
 		F84C31671DA9946B0013AD2C /* Section+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84C31661DA9946B0013AD2C /* Section+Rx.swift */; };
+		F84C31691DA9A3C80013AD2C /* ProposalViewModel+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84C31681DA9A3C80013AD2C /* ProposalViewModel+Rx.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,7 @@
 		F84C31621DA97D610013AD2C /* Section.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		F84C31641DA98E960013AD2C /* ProposalStatus+UI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ProposalStatus+UI.swift"; sourceTree = "<group>"; };
 		F84C31661DA9946B0013AD2C /* Section+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Section+Rx.swift"; sourceTree = "<group>"; };
+		F84C31681DA9A3C80013AD2C /* ProposalViewModel+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ProposalViewModel+Rx.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,6 +220,7 @@
 				F8019A8A1DA90A1C009DF55D /* ProposalsViewController.swift */,
 				F8019A8C1DA90A3A009DF55D /* ProposalsViewCoordinator.swift */,
 				F8019A911DA91EBD009DF55D /* ProposalViewModel.swift */,
+				F84C31681DA9A3C80013AD2C /* ProposalViewModel+Rx.swift */,
 				F8019A931DA938A4009DF55D /* ProposalDetailViewController.swift */,
 			);
 			path = "App modules";
@@ -461,6 +464,7 @@
 				F84C31631DA97D610013AD2C /* Section.swift in Sources */,
 				F8019A8D1DA90A3A009DF55D /* ProposalsViewCoordinator.swift in Sources */,
 				F84C31651DA98E960013AD2C /* ProposalStatus+UI.swift in Sources */,
+				F84C31691DA9A3C80013AD2C /* ProposalViewModel+Rx.swift in Sources */,
 				F8019A761DA44749009DF55D /* Proposal.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

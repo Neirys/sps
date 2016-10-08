@@ -7,8 +7,14 @@
 //
 
 import Foundation
+import RxDataSources
 
 struct Section<Element> {
+    var title: String
+    var elements: [Element]
+}
+
+struct AnimatableSection<Element: IdentifiableType & Equatable> {
     var title: String
     var elements: [Element]
 }

@@ -17,7 +17,7 @@ class ProposalsViewCoordinator {
     // MARK: Properties
 
     // outputs
-    let proposalSections: Driver<[Section<ProposalViewModel>]>
+    let proposalSections: Driver<[AnimatableSection<ProposalViewModel>]>
     
     // MARK: Initializers
     
@@ -51,12 +51,12 @@ class ProposalsViewCoordinator {
                 }
             }
             // transform them to minimal data for our table view
-            .map { proposals -> [Section<ProposalViewModel>] in
+            .map { proposals -> [AnimatableSection<ProposalViewModel>] in
                 return proposals.map { proposal in
                     let version = proposal.key.swiftVersion != nil ? " (Swift \(proposal.key.swiftVersion!))"  : ""
                     let title = proposal.key.status.displayName + version
                     let proposalViewModels = proposal.value.map { ProposalViewModel($0) }
-                    return Section(title: title, elements: proposalViewModels)
+                    return AnimatableSection(title: title, elements: proposalViewModels)
                 }
             }
             .asDriver(onErrorJustReturn: [])

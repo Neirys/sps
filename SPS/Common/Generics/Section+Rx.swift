@@ -19,3 +19,21 @@ extension Section: SectionModelType {
         self.elements = items
     }
 }
+
+extension AnimatableSection: AnimatableSectionModelType {
+    typealias Item = Element
+    typealias Identity = String
+    
+    var identity: String {
+        return title
+    }
+    
+    var items: [Element] {
+        return elements
+    }
+    
+    init(original: AnimatableSection<Element>, items: [Element]) {
+        self = original
+        self.elements = items
+    }
+}

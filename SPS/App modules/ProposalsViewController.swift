@@ -29,7 +29,7 @@ class ProposalsViewController: UIViewController {
 
         title = "Proposal Status"
         
-        let dataSource = RxTableViewSectionedReloadDataSource<Section<ProposalViewModel>>()
+        let dataSource = RxTableViewSectionedAnimatedDataSource<AnimatableSection<ProposalViewModel>>()
         
         dataSource.configureCell = { dataSource, tableView, indexPath, proposal in
             let cell = tableView.dequeueReusableCell(withIdentifier: "ProposalCellID", for: indexPath)
