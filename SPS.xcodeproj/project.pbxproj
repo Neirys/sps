@@ -26,6 +26,7 @@
 		F8019A8D1DA90A3A009DF55D /* ProposalsViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8019A8C1DA90A3A009DF55D /* ProposalsViewCoordinator.swift */; };
 		F8019A901DA91956009DF55D /* Realm+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8019A8F1DA91956009DF55D /* Realm+Rx.swift */; };
 		F8019A921DA91EBD009DF55D /* ProposalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8019A911DA91EBD009DF55D /* ProposalViewModel.swift */; };
+		F8019A941DA938A4009DF55D /* ProposalDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8019A931DA938A4009DF55D /* ProposalDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 		F8019A8C1DA90A3A009DF55D /* ProposalsViewCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProposalsViewCoordinator.swift; sourceTree = "<group>"; };
 		F8019A8F1DA91956009DF55D /* Realm+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Realm+Rx.swift"; sourceTree = "<group>"; };
 		F8019A911DA91EBD009DF55D /* ProposalViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProposalViewModel.swift; sourceTree = "<group>"; };
+		F8019A931DA938A4009DF55D /* ProposalDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProposalDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +207,7 @@
 				F8019A8A1DA90A1C009DF55D /* ProposalsViewController.swift */,
 				F8019A8C1DA90A3A009DF55D /* ProposalsViewCoordinator.swift */,
 				F8019A911DA91EBD009DF55D /* ProposalViewModel.swift */,
+				F8019A931DA938A4009DF55D /* ProposalDetailViewController.swift */,
 			);
 			path = "App modules";
 			sourceTree = "<group>";
@@ -422,6 +425,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8019A8B1DA90A1C009DF55D /* ProposalsViewController.swift in Sources */,
+				F8019A941DA938A4009DF55D /* ProposalDetailViewController.swift in Sources */,
 				F8019A861DA59EEF009DF55D /* ProposalsStatusSynchronizer.swift in Sources */,
 				F8019A561DA44341009DF55D /* ViewController.swift in Sources */,
 				F8019A7D1DA588FA009DF55D /* Result.swift in Sources */,

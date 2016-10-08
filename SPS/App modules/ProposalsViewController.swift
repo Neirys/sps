@@ -25,12 +25,25 @@ class ProposalsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         viewCoordinator.proposals
             .drive(tableView.rx.items(cellIdentifier: "ProposalCellID")) { index, proposal, cell in
                 cell.textLabel?.text = proposal.name
                 cell.detailTextLabel?.text = proposal.id
             }
             .addDisposableTo(disposeBag)
+        
+        tableView.rx.modelSelected(ProposalViewModel.self)
+            .subscribe(onNext: { proposal in
+                self.performSegue(withIdentifier: "ProposalDetailSegueID", sender: proposal)
+            })
+            .addDisposableTo(disposeBag)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let navigationController = segue.destination as? UINavigationController,
+            let proposalDetailViewController = navigationController.topViewController as? ProposalDetailViewController,
+            let proposal = sender as? ProposalViewModel else { return }
+        proposalDetailViewController.proposal = proposal
     }
 }
