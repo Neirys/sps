@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RxSwift
 
 protocol ApplicationControllerType {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool
@@ -17,15 +18,17 @@ class ApplicationController: ApplicationControllerType {
     
     // MARK: Properties
     
-    let proposalsStatusSynchronizer: ProposalsStatusSynchronizer
+    private let disposeBag = DisposeBag()
+    
+    let proposalsStatusSynchronizer: ProposalsStatusSynchronizerType
     
     // MARK: Initializers
     
-    init(proposalsStatusSynchronizer: ProposalsStatusSynchronizer) {
+    init(proposalsStatusSynchronizer: ProposalsStatusSynchronizerType) {
         self.proposalsStatusSynchronizer = proposalsStatusSynchronizer
     }
     
-    init(proposalsStatusService: ProposalsStatusService) {
+    init(proposalsStatusService: ProposalsStatusServiceType) {
         self.proposalsStatusSynchronizer = ProposalsStatusSynchronizer(proposalsStatusService: proposalsStatusService)
     }
     
@@ -37,5 +40,7 @@ class ApplicationController: ApplicationControllerType {
     
     func applicationDidBecomeActive(_ application: UIApplication) {
         proposalsStatusSynchronizer.synchronize()
+            .subscribe()
+            .addDisposableTo(disposeBag)
     }
 }

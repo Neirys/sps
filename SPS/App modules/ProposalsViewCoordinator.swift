@@ -60,6 +60,7 @@ class ProposalsViewCoordinator {
                 }
             }
             .asDriver(onErrorJustReturn: [])
+            .debug()
     }
 }
 

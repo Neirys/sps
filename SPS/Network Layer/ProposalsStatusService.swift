@@ -11,11 +11,11 @@ import SWXMLHash
 import RxSwift
 import RxCocoa
 
-protocol ProposalsStatusServiceProtocol {
+protocol ProposalsStatusServiceType {
     func request() -> Observable<[Proposal]>
 }
 
-class ProposalsStatusService: ProposalsStatusServiceProtocol {
+class ProposalsStatusService: ProposalsStatusServiceType {
     
     // MARK: Properties
     
