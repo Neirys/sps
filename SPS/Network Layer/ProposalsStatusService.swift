@@ -8,14 +8,11 @@
 
 import Foundation
 import SWXMLHash
-
-enum ProposalsStatusServiceError: Error {
-    case underlying(Error)
-    case missingData
-}
+import RxSwift
+import RxCocoa
 
 protocol ProposalsStatusServiceProtocol {
-    func request(completionHandler: @escaping (Result<[Proposal], ProposalsStatusServiceError>) -> Void)
+    func request() -> Observable<[Proposal]>
 }
 
 class ProposalsStatusService: ProposalsStatusServiceProtocol {
@@ -32,26 +29,15 @@ class ProposalsStatusService: ProposalsStatusServiceProtocol {
     
     // MARK: Public methods
     
-    func request(completionHandler: @escaping (Result<[Proposal], ProposalsStatusServiceError>) -> Void) {
-        session.dataTask(with: URL(string: "https://apple.github.io/swift-evolution/")!) { (data, response, error) in
-            if let error = error {
-                completionHandler(.failure(.underlying(error)))
-                return
-            }
-            
-            guard let data = data else {
-                completionHandler(.failure(.missingData))
-                return
-            }
-            
-            do {
+    func request() -> Observable<[Proposal]> {
+        let url = URL(string: "https://apple.github.io/swift-evolution/")!
+        let request = URLRequest(url: url)
+        
+        return session.rx.data(request)
+            .map { data in
                 let xml = SWXMLHash.parse(data)
                 let proposals: [Proposal] = try xml["proposals"]["proposal"].value()
-                
-                completionHandler(.success(proposals))
-            } catch let error {
-                completionHandler(.failure(.underlying(error)))
+                return proposals
             }
-        }.resume()
     }
 }
