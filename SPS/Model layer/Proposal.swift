@@ -8,7 +8,15 @@
 
 import Foundation
 
-struct Proposal {
+protocol ProposalType {
+    var id: String { get }
+    var status: Proposal.Status { get }
+    var swiftVersion: String? { get }
+    var name: String { get }
+    var filename: String { get }
+}
+
+struct Proposal: ProposalType {
     enum Status: String {
         case implemented
         case accepted

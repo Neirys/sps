@@ -10,7 +10,18 @@ import Foundation
 import RxSwift
 import RealmSwift
 
+extension RealmCollection {
+    func toArray() -> [Element] {
+        let collection = AnyRealmCollection(self)
+        return Array(collection)
+    }
+}
+
 extension Observable where Element: RealmCollection {
+    static func arrayFrom(_ collection: Element) -> Observable<[Element.Element]> {
+        return from(collection).map { $0.toArray() }
+    }
+    
     static func from(_ collection: Element) -> Observable<Element> {
         return Observable<Element>.create { observer in
             let token = collection.addNotificationBlock { changes in

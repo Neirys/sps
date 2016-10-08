@@ -25,6 +25,7 @@
 		F8019A8B1DA90A1C009DF55D /* ProposalsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8019A8A1DA90A1C009DF55D /* ProposalsViewController.swift */; };
 		F8019A8D1DA90A3A009DF55D /* ProposalsViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8019A8C1DA90A3A009DF55D /* ProposalsViewCoordinator.swift */; };
 		F8019A901DA91956009DF55D /* Realm+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8019A8F1DA91956009DF55D /* Realm+Rx.swift */; };
+		F8019A921DA91EBD009DF55D /* ProposalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8019A911DA91EBD009DF55D /* ProposalViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		F8019A8A1DA90A1C009DF55D /* ProposalsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProposalsViewController.swift; sourceTree = "<group>"; };
 		F8019A8C1DA90A3A009DF55D /* ProposalsViewCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProposalsViewCoordinator.swift; sourceTree = "<group>"; };
 		F8019A8F1DA91956009DF55D /* Realm+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Realm+Rx.swift"; sourceTree = "<group>"; };
+		F8019A911DA91EBD009DF55D /* ProposalViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProposalViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +204,7 @@
 			children = (
 				F8019A8A1DA90A1C009DF55D /* ProposalsViewController.swift */,
 				F8019A8C1DA90A3A009DF55D /* ProposalsViewCoordinator.swift */,
+				F8019A911DA91EBD009DF55D /* ProposalViewModel.swift */,
 			);
 			path = "App modules";
 			sourceTree = "<group>";
@@ -424,6 +427,7 @@
 				F8019A7D1DA588FA009DF55D /* Result.swift in Sources */,
 				F8019A781DA447C8009DF55D /* Proposal+SWXMLHash.swift in Sources */,
 				F8019A801DA58A2B009DF55D /* ProposalsStatusService.swift in Sources */,
+				F8019A921DA91EBD009DF55D /* ProposalViewModel.swift in Sources */,
 				F8019A841DA59D48009DF55D /* RealmObjectConvertible.swift in Sources */,
 				F8019A901DA91956009DF55D /* Realm+Rx.swift in Sources */,
 				F8019A541DA44341009DF55D /* AppDelegate.swift in Sources */,

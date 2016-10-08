@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-class RealmProposal: Object {
+class RealmProposal: Object, ProposalType {
     dynamic var id: String = ""
     dynamic var rawStatus: String = ""
     dynamic var swiftVersion: String? = nil

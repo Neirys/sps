@@ -7,10 +7,30 @@
 //
 
 import UIKit
+import RealmSwift
+import RxSwift
 
-class ProposalsViewController: UITableViewController {
+class ProposalsViewController: UIViewController {
+    
+    // MARK: IBOutlets
+    
+    @IBOutlet private weak var tableView: UITableView!
     
     // MARK: Properties
     
-    private let viewCoordinator = ProposalsViewCoordinator()
+    private let disposeBag = DisposeBag()
+    private let viewCoordinator = ProposalsViewCoordinator(realm: try! Realm())
+    
+    // MARK: Life cycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        viewCoordinator.proposals
+            .drive(tableView.rx.items(cellIdentifier: "ProposalCellID")) { index, proposal, cell in
+                cell.textLabel?.text = proposal.name
+                cell.detailTextLabel?.text = proposal.id
+            }
+            .addDisposableTo(disposeBag)
+    }
 }
