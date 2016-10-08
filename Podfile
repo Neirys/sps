@@ -8,6 +8,8 @@ target 'SPS' do
   # Pods for SPS
   pod 'SWXMLHash', '~> 3.0.0'
   pod 'RealmSwift'
+  pod 'RxSwift',    '3.0.0-beta.2'
+  pod 'RxCocoa',    '3.0.0-beta.2'
 
   post_install do |installer|
   	installer.pods_project.targets.each do |target|
