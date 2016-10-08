@@ -39,3 +39,21 @@ class ProposalsStatusSynchronizer: ProposalsStatusSynchronizerType {
             .debug()
     }
 }
+
+#if DEBUG
+    class PeriodicProposalsStatusSynchronizer: ProposalsStatusSynchronizerType {
+        let synchronizer : ProposalsStatusSynchronizerType
+        let period: RxTimeInterval
+        
+        init(synchronizer: ProposalsStatusSynchronizerType, period: RxTimeInterval) {
+            self.synchronizer = synchronizer
+            self.period = period
+        }
+        
+        func synchronize() -> Observable<[Proposal]> {
+            return Observable<Int>.interval(period, scheduler: ConcurrentDispatchQueueScheduler.init(queue: DispatchQueue.global()))
+                .startWith(0)
+                .flatMapLatest { _ in return self.synchronizer.synchronize() }
+        }
+    }
+#endif

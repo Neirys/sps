@@ -15,7 +15,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
-    private let applicationController: ApplicationControllerType = ApplicationController(proposalsStatusService: ProposalsStatusService())
+    private let applicationController: ApplicationControllerType = {
+        #if DEBUG
+            let service = ProposalsStatusService()
+            let synchronizer = ProposalsStatusSynchronizer(proposalsStatusService: service)
+            let debugSynchronizer = PeriodicProposalsStatusSynchronizer(synchronizer: synchronizer, period: 10)
+            
+            return ApplicationController(proposalsStatusSynchronizer: debugSynchronizer)
+        #else
+            return ApplicationController(proposalsStatusService: ProposalsStatusService())
+        #endif
+    }()
 
     // MARK: UIApplicationDelegate conformance
     
