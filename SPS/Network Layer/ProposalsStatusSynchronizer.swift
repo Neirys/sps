@@ -45,6 +45,9 @@ class ProposalsStatusSynchronizer: ProposalsStatusSynchronizerType {
                 }
                 .flatMapLatest { changes in
                     return Realm.write { realm in
+                        let realmChanges = changes.map { RealmProposalChange($0) }
+                        realm.add(realmChanges)
+
                         let addsOrUpdates = changes.filter { $0.addOrUpdate }.map { RealmProposal(proposal: $0.proposal) }
                         realm.add(addsOrUpdates, update: true)
 

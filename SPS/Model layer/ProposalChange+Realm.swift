@@ -66,7 +66,7 @@ extension RealmProposalChange {
 }
 
 extension RealmProposalChange {
-    convenience init(change: ProposalChange) {
+    convenience init(_ change: ProposalChange) {
         switch change {
         case .add(let proposal):
             self.init(proposal: proposal, changeType: .add, fromStatus: nil, toStatus: nil)
