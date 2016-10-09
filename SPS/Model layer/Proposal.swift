@@ -36,3 +36,9 @@ struct Proposal: ProposalType {
     let name: String
     let filename: String
 }
+
+extension Proposal {
+    init(_ proposal: ProposalType) {
+        self.init(id: proposal.id, status: proposal.status, swiftVersion: proposal.swiftVersion, name: proposal.name, filename: proposal.filename)
+    }
+}

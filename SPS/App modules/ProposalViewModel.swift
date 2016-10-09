@@ -17,7 +17,7 @@ class ProposalViewModel {
     // MARK: Initializers
     
     init(_ proposal: ProposalType) {
-        self.proposal = proposal
+        self.proposal = Proposal(proposal)
     }
     
     // MARK: Computed properties

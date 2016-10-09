@@ -12,6 +12,35 @@ enum ProposalChange {
     case add(proposal: ProposalType)
     case delete(proposal: ProposalType)
     case update(proposal: ProposalType, fromStatus: Proposal.Status, toStatus: Proposal.Status)
+    
+    var proposal: ProposalType {
+        switch self {
+        case .add(let proposal):
+            return proposal
+        case .delete(let proposal):
+            return proposal
+        case .update(let proposal, _, _):
+            return proposal
+        }
+    }
+    
+    var addOrUpdate: Bool {
+        switch self {
+        case .add, .update:
+            return true
+        default:
+            return false
+        }
+    }
+    
+    var delete: Bool {
+        switch self {
+        case .delete:
+            return true
+        default:
+            return false
+        }
+    }
 }
 
 // very bad differential with no optimization at all but yeah, i'm lazy

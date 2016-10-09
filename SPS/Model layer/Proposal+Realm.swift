@@ -37,7 +37,7 @@ extension RealmProposal {
 }
 
 extension RealmProposal {
-    convenience init(proposal: Proposal) {
+    convenience init(proposal: ProposalType) {
         self.init(
             id: proposal.id,
             rawStatus: proposal.status.rawValue,

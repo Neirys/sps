@@ -11,7 +11,7 @@ import RxSwift
 import RealmSwift
 
 protocol ProposalsStatusSynchronizerType {
-    func synchronize() -> Observable<[Proposal]>
+    func synchronize() -> Observable<Void>
 }
 
 class ProposalsStatusSynchronizer: ProposalsStatusSynchronizerType {
@@ -27,21 +27,32 @@ class ProposalsStatusSynchronizer: ProposalsStatusSynchronizerType {
         self.proposalsStatusService = proposalsStatusService
     }
     
-    func synchronize() -> Observable<[Proposal]> {
+    func synchronize() -> Observable<Void> {
         return proposalsStatusService.request()
             .subscribeOn(ConcurrentDispatchQueueScheduler.init(queue: DispatchQueue.global()))
-            .do(onNext: { proposals in
+            .map { proposals -> [ProposalChange] in
                 let realm = try! Realm()
+                realm.refresh()
                 let proposalsInDB = realm.objects(Proposal.RealmObject.self).toArray()
                 let diffs = differential(from: proposalsInDB, to: proposals)
-                print(diffs)
-            })
-            .do(onNext: { proposals in
+
+                return diffs
+            }
+            .do(onNext: { changes in
                 let realm = try! Realm()
+                realm.refresh()
+                
                 try! realm.write {
-                    realm.add(proposals, update: true)
+                    let addsOrUpdates = changes.filter { $0.addOrUpdate }.map { RealmProposal(proposal: $0.proposal) }
+                    realm.add(addsOrUpdates, update: true)
+                    
+                    let deleteIds = changes.filter { $0.delete }.map { $0.proposal.id }
+                    let predicate = NSPredicate(format: "id IN %@", deleteIds)
+                    let toDelete = realm.objects(Proposal.RealmObject.self).filter(predicate)
+                    realm.delete(toDelete)
                 }
             })
+            .map { _ in return }
             .debug()
     }
 }
@@ -56,7 +67,7 @@ class ProposalsStatusSynchronizer: ProposalsStatusSynchronizerType {
             self.period = period
         }
         
-        func synchronize() -> Observable<[Proposal]> {
+        func synchronize() -> Observable<Void> {
             return Observable<Int>.interval(period, scheduler: ConcurrentDispatchQueueScheduler.init(queue: DispatchQueue.global()))
                 .startWith(0)
                 .flatMapLatest { _ in return self.synchronizer.synchronize() }
