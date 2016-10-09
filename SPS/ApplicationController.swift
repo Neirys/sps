@@ -31,6 +31,10 @@ class ApplicationController: NSObject, ApplicationControllerType {
         super.init()
         
         self.splitViewController.delegate = self
+        
+        // TODO: find a better / safer way that injection
+        let masterViewController = (splitViewController.viewControllers[0] as! UINavigationController).topViewController as! ProposalsViewController
+        masterViewController.inject(proposalsStatusSynchronizer: proposalsStatusSynchronizer)
     }
     
     convenience init(splitViewController: UISplitViewController, proposalsStatusService: ProposalsStatusServiceType) {

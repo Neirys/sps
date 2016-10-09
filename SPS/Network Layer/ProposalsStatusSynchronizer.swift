@@ -24,7 +24,7 @@ class ProposalsStatusSynchronizer: ProposalsStatusSynchronizerType {
     
     // MARK: Initializers
     
-    init(proposalsStatusService: ProposalsStatusServiceType) {
+    init(proposalsStatusService: ProposalsStatusServiceType = ProposalsStatusService()) {
         self.proposalsStatusService = proposalsStatusService
     }
     

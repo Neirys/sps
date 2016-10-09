@@ -16,11 +16,12 @@ class ProposalsViewController: UIViewController {
     // MARK: IBOutlets
     
     @IBOutlet private weak var tableView: UITableView!
+    private var refreshControl: UIRefreshControl!
     
     // MARK: Properties
     
     private let disposeBag = DisposeBag()
-    private let viewCoordinator = ProposalsViewCoordinator(realm: try! Realm())
+    private var viewCoordinator: ProposalsViewCoordinator!
     
     // MARK: Life cycle
     
@@ -31,7 +32,7 @@ class ProposalsViewController: UIViewController {
         
         tableView.delegate = self
         
-        let refreshControl = UIRefreshControl()
+        refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         tableView.addSubview(refreshControl)
         
@@ -66,10 +67,23 @@ class ProposalsViewController: UIViewController {
         proposalDetailViewController.proposal = proposal
     }
     
+    // WARNING: should be called before viewDidLoad, crash otherwise
+    func inject(proposalsStatusSynchronizer: ProposalsStatusSynchronizerType) {
+        viewCoordinator = ProposalsViewCoordinator(realm: try! Realm(), proposalsStatusSynchronizer: proposalsStatusSynchronizer)
+    }
+    
     // MARK: Methods
     
     private dynamic func refresh() {
-        print("refresh")
+        let (observableFactory, activity) = viewCoordinator.synchronize()
+        
+        observableFactory()
+            .subscribe()
+            .addDisposableTo(disposeBag)
+        
+        activity
+            .drive(refreshControl.rx.refreshing)
+            .addDisposableTo(disposeBag)
     }
 }
 

@@ -15,6 +15,8 @@ import RxDataSources
 class ProposalsViewCoordinator {
     
     // MARK: Properties
+    
+    private let proposalsStatusSynchronizer: ProposalsStatusSynchronizerType
 
     // outputs
     let proposalSections: Driver<[AnimatableSection<ProposalViewModel>]>
@@ -22,7 +24,9 @@ class ProposalsViewCoordinator {
     // MARK: Initializers
     
     // TODO: Unit tests
-    init(realm: Realm) {
+    init(realm: Realm, proposalsStatusSynchronizer: ProposalsStatusSynchronizerType) {
+        self.proposalsStatusSynchronizer = proposalsStatusSynchronizer
+        
         let results = realm.objects(Proposal.RealmObject.self)
         
         self.proposalSections = Observable.arrayFrom(results)
@@ -62,6 +66,12 @@ class ProposalsViewCoordinator {
             }
             .asDriver(onErrorJustReturn: [])
             .debug()
+    }
+    
+    // MARK: Methods
+    
+    func synchronize() -> (observableFactory: () -> Observable<Void>, activity: Driver<Bool>) {
+        return proposalsStatusSynchronizer.synchronize()
     }
 }
 
