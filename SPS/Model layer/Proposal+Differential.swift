@@ -12,6 +12,7 @@ enum ProposalChange {
     case add(proposal: ProposalType)
     case delete(proposal: ProposalType)
     case update(proposal: ProposalType, fromStatus: Proposal.Status, toStatus: Proposal.Status)
+    case unknown(proposal: ProposalType)
     
     var proposal: ProposalType {
         switch self {
@@ -20,6 +21,8 @@ enum ProposalChange {
         case .delete(let proposal):
             return proposal
         case .update(let proposal, _, _):
+            return proposal
+        case .unknown(let proposal):
             return proposal
         }
     }
