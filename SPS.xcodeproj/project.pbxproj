@@ -35,6 +35,7 @@
 		F868D6C81DA9B4D900D7C1C3 /* Proposal+Differential.swift in Sources */ = {isa = PBXBuildFile; fileRef = F868D6C71DA9B4D900D7C1C3 /* Proposal+Differential.swift */; };
 		F868D6CA1DAA41E400D7C1C3 /* RGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = F868D6C91DAA41E400D7C1C3 /* RGB.swift */; };
 		F868D6CC1DAA429E00D7C1C3 /* UIColor+RGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = F868D6CB1DAA429E00D7C1C3 /* UIColor+RGB.swift */; };
+		F868D6D31DAA4B4E00D7C1C3 /* ProposalsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F868D6D21DAA4B4E00D7C1C3 /* ProposalsTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,7 @@
 		F868D6C71DA9B4D900D7C1C3 /* Proposal+Differential.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Proposal+Differential.swift"; sourceTree = "<group>"; };
 		F868D6C91DAA41E400D7C1C3 /* RGB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGB.swift; sourceTree = "<group>"; };
 		F868D6CB1DAA429E00D7C1C3 /* UIColor+RGB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+RGB.swift"; sourceTree = "<group>"; };
+		F868D6D21DAA4B4E00D7C1C3 /* ProposalsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProposalsTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,11 +226,10 @@
 		F8019A891DA909F1009DF55D /* App modules */ = {
 			isa = PBXGroup;
 			children = (
-				F8019A8A1DA90A1C009DF55D /* ProposalsViewController.swift */,
-				F8019A8C1DA90A3A009DF55D /* ProposalsViewCoordinator.swift */,
 				F8019A911DA91EBD009DF55D /* ProposalViewModel.swift */,
 				F84C31681DA9A3C80013AD2C /* ProposalViewModel+Rx.swift */,
-				F8019A931DA938A4009DF55D /* ProposalDetailViewController.swift */,
+				F868D6D01DAA4ACE00D7C1C3 /* Proposals  */,
+				F868D6D11DAA4B1100D7C1C3 /* Proposal detail */,
 			);
 			path = "App modules";
 			sourceTree = "<group>";
@@ -250,6 +251,24 @@
 				F868D6C91DAA41E400D7C1C3 /* RGB.swift */,
 			);
 			path = Generics;
+			sourceTree = "<group>";
+		};
+		F868D6D01DAA4ACE00D7C1C3 /* Proposals  */ = {
+			isa = PBXGroup;
+			children = (
+				F8019A8A1DA90A1C009DF55D /* ProposalsViewController.swift */,
+				F8019A8C1DA90A3A009DF55D /* ProposalsViewCoordinator.swift */,
+				F868D6D21DAA4B4E00D7C1C3 /* ProposalsTableViewCell.swift */,
+			);
+			path = "Proposals ";
+			sourceTree = "<group>";
+		};
+		F868D6D11DAA4B1100D7C1C3 /* Proposal detail */ = {
+			isa = PBXGroup;
+			children = (
+				F8019A931DA938A4009DF55D /* ProposalDetailViewController.swift */,
+			);
+			path = "Proposal detail";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -477,6 +496,7 @@
 				F84C31691DA9A3C80013AD2C /* ProposalViewModel+Rx.swift in Sources */,
 				F868D6CA1DAA41E400D7C1C3 /* RGB.swift in Sources */,
 				F868D6C81DA9B4D900D7C1C3 /* Proposal+Differential.swift in Sources */,
+				F868D6D31DAA4B4E00D7C1C3 /* ProposalsTableViewCell.swift in Sources */,
 				F8019A761DA44749009DF55D /* Proposal.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

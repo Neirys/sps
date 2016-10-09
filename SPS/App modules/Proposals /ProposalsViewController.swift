@@ -29,12 +29,13 @@ class ProposalsViewController: UIViewController {
 
         title = "Proposal Status"
         
+        tableView.delegate = self
+        
         let dataSource = RxTableViewSectionedAnimatedDataSource<AnimatableSection<ProposalViewModel>>()
         
         dataSource.configureCell = { dataSource, tableView, indexPath, proposal in
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ProposalCellID", for: indexPath)
-            cell.textLabel?.text = proposal.name
-            cell.detailTextLabel?.text = proposal.id
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ProposalCellID", for: indexPath) as! ProposalsTableViewCell
+            cell.configure(with: proposal)
             return cell
         }
         
@@ -58,5 +59,15 @@ class ProposalsViewController: UIViewController {
             let proposalDetailViewController = navigationController.topViewController as? ProposalDetailViewController,
             let proposal = sender as? ProposalViewModel else { return }
         proposalDetailViewController.proposal = proposal
+    }
+}
+
+extension ProposalsViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
     }
 }

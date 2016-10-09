@@ -39,7 +39,7 @@ extension Proposal.Status {
         }
     }
     
-    var rgb: RGB {
+    var backgroundColor: RGB {
         switch self {
         case .active:       return RGB(41, 125, 228)
         case .accepted:     return RGB(90, 188, 78)
@@ -51,6 +51,15 @@ extension Proposal.Status {
         case .scheduled:    return RGB(120, 184, 251)
         case .returned:     return RGB(241, 182, 183)
         case .unknown:      return RGB(221, 221, 221)
+        }
+    }
+    
+    var textColor: RGB {
+        switch self {
+        case .deferred, .awaiting:
+            return RGB(0, 0, 0)
+        default:
+            return RGB(255, 255, 255)
         }
     }
 }
