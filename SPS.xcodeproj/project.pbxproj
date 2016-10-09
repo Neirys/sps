@@ -33,6 +33,8 @@
 		F84C31671DA9946B0013AD2C /* Section+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84C31661DA9946B0013AD2C /* Section+Rx.swift */; };
 		F84C31691DA9A3C80013AD2C /* ProposalViewModel+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84C31681DA9A3C80013AD2C /* ProposalViewModel+Rx.swift */; };
 		F868D6C81DA9B4D900D7C1C3 /* Proposal+Differential.swift in Sources */ = {isa = PBXBuildFile; fileRef = F868D6C71DA9B4D900D7C1C3 /* Proposal+Differential.swift */; };
+		F868D6CA1DAA41E400D7C1C3 /* RGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = F868D6C91DAA41E400D7C1C3 /* RGB.swift */; };
+		F868D6CC1DAA429E00D7C1C3 /* UIColor+RGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = F868D6CB1DAA429E00D7C1C3 /* UIColor+RGB.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +82,8 @@
 		F84C31661DA9946B0013AD2C /* Section+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Section+Rx.swift"; sourceTree = "<group>"; };
 		F84C31681DA9A3C80013AD2C /* ProposalViewModel+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ProposalViewModel+Rx.swift"; sourceTree = "<group>"; };
 		F868D6C71DA9B4D900D7C1C3 /* Proposal+Differential.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Proposal+Differential.swift"; sourceTree = "<group>"; };
+		F868D6C91DAA41E400D7C1C3 /* RGB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGB.swift; sourceTree = "<group>"; };
+		F868D6CB1DAA429E00D7C1C3 /* UIColor+RGB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+RGB.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -233,6 +237,7 @@
 			isa = PBXGroup;
 			children = (
 				F8019A8F1DA91956009DF55D /* Realm+Rx.swift */,
+				F868D6CB1DAA429E00D7C1C3 /* UIColor+RGB.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -242,6 +247,7 @@
 			children = (
 				F84C31621DA97D610013AD2C /* Section.swift */,
 				F84C31661DA9946B0013AD2C /* Section+Rx.swift */,
+				F868D6C91DAA41E400D7C1C3 /* RGB.swift */,
 			);
 			path = Generics;
 			sourceTree = "<group>";
@@ -453,6 +459,7 @@
 				F8019A8B1DA90A1C009DF55D /* ProposalsViewController.swift in Sources */,
 				F8019A941DA938A4009DF55D /* ProposalDetailViewController.swift in Sources */,
 				F8019A861DA59EEF009DF55D /* ProposalsStatusSynchronizer.swift in Sources */,
+				F868D6CC1DAA429E00D7C1C3 /* UIColor+RGB.swift in Sources */,
 				F84C31671DA9946B0013AD2C /* Section+Rx.swift in Sources */,
 				F8019A561DA44341009DF55D /* ViewController.swift in Sources */,
 				F8019A7D1DA588FA009DF55D /* Result.swift in Sources */,
@@ -468,6 +475,7 @@
 				F8019A8D1DA90A3A009DF55D /* ProposalsViewCoordinator.swift in Sources */,
 				F84C31651DA98E960013AD2C /* ProposalStatus+UI.swift in Sources */,
 				F84C31691DA9A3C80013AD2C /* ProposalViewModel+Rx.swift in Sources */,
+				F868D6CA1DAA41E400D7C1C3 /* RGB.swift in Sources */,
 				F868D6C81DA9B4D900D7C1C3 /* Proposal+Differential.swift in Sources */,
 				F8019A761DA44749009DF55D /* Proposal.swift in Sources */,
 			);

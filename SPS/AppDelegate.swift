@@ -17,11 +17,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private let applicationController: ApplicationControllerType = {
         #if DEBUG
-            let service = RandomProposalsStatusService()
+//            let service = RandomProposalsStatusService()
+            let service = ProposalsStatusService()
             let synchronizer = ProposalsStatusSynchronizer(proposalsStatusService: service)
-            let debugSynchronizer = PeriodicProposalsStatusSynchronizer(synchronizer: synchronizer, period: 10)
+//            let debugSynchronizer = PeriodicProposalsStatusSynchronizer(synchronizer: synchronizer, period: 10)
             
-            return ApplicationController(proposalsStatusSynchronizer: debugSynchronizer)
+            return ApplicationController(proposalsStatusSynchronizer: synchronizer)
         #else
             return ApplicationController(proposalsStatusService: ProposalsStatusService())
         #endif

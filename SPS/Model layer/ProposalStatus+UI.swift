@@ -11,16 +11,16 @@ import Foundation
 extension Proposal.Status {
     var displayOrder: Int {
         switch self {
-        case .accepted: return 4
-        case .active: return 1
-        case .awaiting: return 3
-        case .deferred: return 6
-        case .implemented: return 5
-        case .rejected: return 8
-        case .returned: return 7
-        case .scheduled: return 2
-        case .withdrawn: return 9
-        case .unknown: return 10
+        case .accepted:     return 4
+        case .active:       return 1
+        case .awaiting:     return 3
+        case .deferred:     return 6
+        case .implemented:  return 5
+        case .rejected:     return 8
+        case .returned:     return 7
+        case .scheduled:    return 2
+        case .withdrawn:    return 9
+        case .unknown:      return 10
         }
     }
     
@@ -36,6 +36,21 @@ extension Proposal.Status {
         case .scheduled:    return "Upcoming reviews"
         case .unknown:      return "Unknown status"
         case .withdrawn:    return "Withdrawn"
+        }
+    }
+    
+    var rgb: RGB {
+        switch self {
+        case .active:       return RGB(41, 125, 228)
+        case .accepted:     return RGB(90, 188, 78)
+        case .implemented:  return RGB(49, 144, 33)
+        case .deferred:     return RGB(221, 221, 221)
+        case .rejected:     return RGB(222, 91, 96)
+        case .withdrawn:    return RGB(222, 91, 96)
+        case .awaiting:     return RGB(221, 221, 221)
+        case .scheduled:    return RGB(120, 184, 251)
+        case .returned:     return RGB(241, 182, 183)
+        case .unknown:      return RGB(221, 221, 221)
         }
     }
 }
