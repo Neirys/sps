@@ -41,4 +41,8 @@ extension ProposalDetailViewController: UIWebViewDelegate {
     func webViewDidFinishLoad(_ webView: UIWebView) {
         activityIndicatorView.stopAnimating()
     }
+    
+    func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+        return proposal?.url == request.url
+    }
 }
