@@ -13,6 +13,7 @@ class ProposalDetailViewController: UIViewController {
     // MARK: IBOutlets
     
     @IBOutlet private weak var webView: UIWebView!
+    @IBOutlet fileprivate weak var activityIndicatorView: UIActivityIndicatorView!
     
     // MARK: Properties
     
@@ -24,8 +25,20 @@ class ProposalDetailViewController: UIViewController {
         super.viewDidLoad()
         
         guard let proposal = proposal else { return }
-        
+
         title = proposal.id
+        
+        webView.delegate = self
         webView.loadRequest(URLRequest(url: proposal.url))
+    }
+}
+
+extension ProposalDetailViewController: UIWebViewDelegate {
+    func webViewDidStartLoad(_ webView: UIWebView) {
+        activityIndicatorView.startAnimating()
+    }
+    
+    func webViewDidFinishLoad(_ webView: UIWebView) {
+        activityIndicatorView.stopAnimating()
     }
 }
