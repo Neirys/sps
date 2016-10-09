@@ -31,6 +31,10 @@ class ProposalsViewController: UIViewController {
         
         tableView.delegate = self
         
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        tableView.addSubview(refreshControl)
+        
         let dataSource = RxTableViewSectionedAnimatedDataSource<AnimatableSection<ProposalViewModel>>()
         
         dataSource.configureCell = { dataSource, tableView, indexPath, proposal in
@@ -59,6 +63,12 @@ class ProposalsViewController: UIViewController {
             let proposalDetailViewController = navigationController.topViewController as? ProposalDetailViewController,
             let proposal = sender as? ProposalViewModel else { return }
         proposalDetailViewController.proposal = proposal
+    }
+    
+    // MARK: Methods
+    
+    private dynamic func refresh() {
+        print("refresh")
     }
 }
 
