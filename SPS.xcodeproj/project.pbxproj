@@ -228,7 +228,7 @@
 			children = (
 				F8019A911DA91EBD009DF55D /* ProposalViewModel.swift */,
 				F84C31681DA9A3C80013AD2C /* ProposalViewModel+Rx.swift */,
-				F868D6D01DAA4ACE00D7C1C3 /* Proposals  */,
+				F868D6D01DAA4ACE00D7C1C3 /* Proposals */,
 				F868D6D11DAA4B1100D7C1C3 /* Proposal detail */,
 			);
 			path = "App modules";
@@ -253,14 +253,14 @@
 			path = Generics;
 			sourceTree = "<group>";
 		};
-		F868D6D01DAA4ACE00D7C1C3 /* Proposals  */ = {
+		F868D6D01DAA4ACE00D7C1C3 /* Proposals */ = {
 			isa = PBXGroup;
 			children = (
 				F8019A8A1DA90A1C009DF55D /* ProposalsViewController.swift */,
 				F8019A8C1DA90A3A009DF55D /* ProposalsViewCoordinator.swift */,
 				F868D6D21DAA4B4E00D7C1C3 /* ProposalsTableViewCell.swift */,
 			);
-			path = "Proposals ";
+			path = Proposals;
 			sourceTree = "<group>";
 		};
 		F868D6D11DAA4B1100D7C1C3 /* Proposal detail */ = {
