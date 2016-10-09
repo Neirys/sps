@@ -126,4 +126,18 @@ extension Realm {
             }
         }.asObserver()
     }
+    
+    static func write(configuration: Realm.Configuration = Realm.Configuration.defaultConfiguration, writes: @escaping (Realm) -> Void) -> Observable<Void> {
+        return Observable.create { observer -> Disposable in
+            let realm = try! Realm(configuration: configuration)
+            
+            try! realm.write {
+                writes(realm)
+            }
+            observer.onNext(())
+            observer.onCompleted()
+            
+            return Disposables.create()
+        }
+    }
 }
