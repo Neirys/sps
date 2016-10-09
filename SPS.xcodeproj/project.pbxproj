@@ -36,6 +36,7 @@
 		F868D6CA1DAA41E400D7C1C3 /* RGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = F868D6C91DAA41E400D7C1C3 /* RGB.swift */; };
 		F868D6CC1DAA429E00D7C1C3 /* UIColor+RGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = F868D6CB1DAA429E00D7C1C3 /* UIColor+RGB.swift */; };
 		F868D6D31DAA4B4E00D7C1C3 /* ProposalsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F868D6D21DAA4B4E00D7C1C3 /* ProposalsTableViewCell.swift */; };
+		F8990FB91DAA85BF00008213 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8990FB81DAA85BF00008213 /* ActivityIndicator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +87,7 @@
 		F868D6C91DAA41E400D7C1C3 /* RGB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGB.swift; sourceTree = "<group>"; };
 		F868D6CB1DAA429E00D7C1C3 /* UIColor+RGB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+RGB.swift"; sourceTree = "<group>"; };
 		F868D6D21DAA4B4E00D7C1C3 /* ProposalsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProposalsTableViewCell.swift; sourceTree = "<group>"; };
+		F8990FB81DAA85BF00008213 /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -249,6 +251,7 @@
 				F84C31621DA97D610013AD2C /* Section.swift */,
 				F84C31661DA9946B0013AD2C /* Section+Rx.swift */,
 				F868D6C91DAA41E400D7C1C3 /* RGB.swift */,
+				F8990FB81DAA85BF00008213 /* ActivityIndicator.swift */,
 			);
 			path = Generics;
 			sourceTree = "<group>";
@@ -479,6 +482,7 @@
 				F8019A941DA938A4009DF55D /* ProposalDetailViewController.swift in Sources */,
 				F8019A861DA59EEF009DF55D /* ProposalsStatusSynchronizer.swift in Sources */,
 				F868D6CC1DAA429E00D7C1C3 /* UIColor+RGB.swift in Sources */,
+				F8990FB91DAA85BF00008213 /* ActivityIndicator.swift in Sources */,
 				F84C31671DA9946B0013AD2C /* Section+Rx.swift in Sources */,
 				F8019A561DA44341009DF55D /* ViewController.swift in Sources */,
 				F8019A7D1DA588FA009DF55D /* Result.swift in Sources */,

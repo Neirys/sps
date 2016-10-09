@@ -8,10 +8,11 @@
 
 import Foundation
 import RxSwift
+import RxCocoa
 import RealmSwift
 
 protocol ProposalsStatusSynchronizerType {
-    func synchronize() -> Observable<Void>
+    func synchronize() -> (observable: Observable<Void>, activity: Driver<Bool>)
 }
 
 class ProposalsStatusSynchronizer: ProposalsStatusSynchronizerType {
@@ -27,8 +28,11 @@ class ProposalsStatusSynchronizer: ProposalsStatusSynchronizerType {
         self.proposalsStatusService = proposalsStatusService
     }
     
-    func synchronize() -> Observable<Void> {
-        return proposalsStatusService.request()
+    func synchronize() -> (observable: Observable<Void>, activity: Driver<Bool>) {
+        let activity = ActivityIndicator()
+        let activityDriver: Driver<Bool> = activity.asDriver()
+        
+        let observable = proposalsStatusService.request()
             .subscribeOn(ConcurrentDispatchQueueScheduler.init(queue: DispatchQueue.global()))
             .map { proposals -> [ProposalChange] in
                 let realm = try! Realm()
@@ -53,7 +57,10 @@ class ProposalsStatusSynchronizer: ProposalsStatusSynchronizerType {
                 }
             })
             .map { _ in return }
+            .trackActivity(activity)
             .debug()
+        
+        return (observable, activityDriver)
     }
 }
 
@@ -67,10 +74,13 @@ class ProposalsStatusSynchronizer: ProposalsStatusSynchronizerType {
             self.period = period
         }
         
-        func synchronize() -> Observable<Void> {
-            return Observable<Int>.interval(period, scheduler: ConcurrentDispatchQueueScheduler.init(queue: DispatchQueue.global()))
+        func synchronize() -> (observable: Observable<Void>, activity: Driver<Bool>) {
+            let (observable, activity) = self.synchronizer.synchronize()
+            let periodicObservable = Observable<Int>.interval(period, scheduler: ConcurrentDispatchQueueScheduler.init(queue: DispatchQueue.global()))
                 .startWith(0)
-                .flatMapLatest { _ in return self.synchronizer.synchronize() }
+                .flatMapLatest { _ in return observable }
+            
+            return (periodicObservable, activity)
         }
     }
 #endif
