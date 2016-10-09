@@ -24,6 +24,8 @@ class ProposalDetailViewController: UIViewController {
         super.viewDidLoad()
         
         guard let proposal = proposal else { return }
+        
+        title = proposal.id
         webView.loadRequest(URLRequest(url: proposal.url))
     }
 }

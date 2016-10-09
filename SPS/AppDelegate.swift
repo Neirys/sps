@@ -15,16 +15,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
-    private let applicationController: ApplicationControllerType = {
+    private lazy var applicationController: ApplicationControllerType = {
+        let splitViewController = self.window!.rootViewController as! UISplitViewController
+        
         #if DEBUG
 //            let service = RandomProposalsStatusService()
             let service = ProposalsStatusService()
             let synchronizer = ProposalsStatusSynchronizer(proposalsStatusService: service)
-//            let debugSynchronizer = PeriodicProposalsStatusSynchronizer(synchronizer: synchronizer, period: 10)
+            let debugSynchronizer = PeriodicProposalsStatusSynchronizer(synchronizer: synchronizer, period: 10)
             
-            return ApplicationController(proposalsStatusSynchronizer: synchronizer)
+            return ApplicationController(splitViewController: splitViewController, proposalsStatusSynchronizer: synchronizer)
         #else
-            return ApplicationController(proposalsStatusService: ProposalsStatusService())
+            return ApplicationController(splitViewController: splitViewController, proposalsStatusService: ProposalsStatusService())
         #endif
     }()
 

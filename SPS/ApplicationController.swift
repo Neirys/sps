@@ -9,27 +9,33 @@
 import UIKit
 import RxSwift
 
-protocol ApplicationControllerType {
+protocol ApplicationControllerType: UISplitViewControllerDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool
     func applicationDidBecomeActive(_ application: UIApplication)
 }
 
-class ApplicationController: ApplicationControllerType {
+class ApplicationController: NSObject, ApplicationControllerType {
     
     // MARK: Properties
     
     private let disposeBag = DisposeBag()
-    
-    let proposalsStatusSynchronizer: ProposalsStatusSynchronizerType
+    private let splitViewController: UISplitViewController
+    private let proposalsStatusSynchronizer: ProposalsStatusSynchronizerType
     
     // MARK: Initializers
     
-    init(proposalsStatusSynchronizer: ProposalsStatusSynchronizerType) {
+    init(splitViewController: UISplitViewController, proposalsStatusSynchronizer: ProposalsStatusSynchronizerType) {
+        self.splitViewController = splitViewController
         self.proposalsStatusSynchronizer = proposalsStatusSynchronizer
+        
+        super.init()
+        
+        self.splitViewController.delegate = self
     }
     
-    init(proposalsStatusService: ProposalsStatusServiceType) {
-        self.proposalsStatusSynchronizer = ProposalsStatusSynchronizer(proposalsStatusService: proposalsStatusService)
+    convenience init(splitViewController: UISplitViewController, proposalsStatusService: ProposalsStatusServiceType) {
+        self.init(splitViewController: splitViewController,
+                  proposalsStatusSynchronizer: ProposalsStatusSynchronizer(proposalsStatusService: proposalsStatusService))
     }
     
     // MARK: ApplicationControllerType conformance
