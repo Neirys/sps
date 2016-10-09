@@ -45,8 +45,8 @@ class ApplicationController: NSObject, ApplicationControllerType {
     }
     
     func applicationDidBecomeActive(_ application: UIApplication) {
-        let (observable, _) = proposalsStatusSynchronizer.synchronize()
-        observable.subscribe()
+        let (observableFactory, _) = proposalsStatusSynchronizer.synchronize()
+        observableFactory().subscribe()
             .addDisposableTo(disposeBag)
     }
 }

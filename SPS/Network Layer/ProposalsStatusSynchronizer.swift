@@ -12,7 +12,7 @@ import RxCocoa
 import RealmSwift
 
 protocol ProposalsStatusSynchronizerType {
-    func synchronize() -> (observable: Observable<Void>, activity: Driver<Bool>)
+    func synchronize() -> (observableFactory: () -> Observable<Void>, activity: Driver<Bool>)
 }
 
 class ProposalsStatusSynchronizer: ProposalsStatusSynchronizerType {
@@ -28,11 +28,12 @@ class ProposalsStatusSynchronizer: ProposalsStatusSynchronizerType {
         self.proposalsStatusService = proposalsStatusService
     }
     
-    func synchronize() -> (observable: Observable<Void>, activity: Driver<Bool>) {
+    func synchronize() -> (observableFactory: () -> Observable<Void>, activity: Driver<Bool>) {
         let activity = ActivityIndicator()
         let activityDriver: Driver<Bool> = activity.asDriver()
         
-        let observable = proposalsStatusService.request()
+        let observableFactory = {
+            return self.proposalsStatusService.request()
             .subscribeOn(ConcurrentDispatchQueueScheduler.init(queue: DispatchQueue.global()))
             .map { proposals -> [ProposalChange] in
                 let realm = try! Realm()
@@ -58,9 +59,9 @@ class ProposalsStatusSynchronizer: ProposalsStatusSynchronizerType {
             })
             .map { _ in return }
             .trackActivity(activity)
-            .debug()
+        }
         
-        return (observable, activityDriver)
+        return (observableFactory, activityDriver)
     }
 }
 
@@ -74,11 +75,13 @@ class ProposalsStatusSynchronizer: ProposalsStatusSynchronizerType {
             self.period = period
         }
         
-        func synchronize() -> (observable: Observable<Void>, activity: Driver<Bool>) {
-            let (observable, activity) = self.synchronizer.synchronize()
-            let periodicObservable = Observable<Int>.interval(period, scheduler: ConcurrentDispatchQueueScheduler.init(queue: DispatchQueue.global()))
+        func synchronize() -> (observableFactory: () -> Observable<Void>, activity: Driver<Bool>) {
+            let (observableFactory, activity) = self.synchronizer.synchronize()
+            let periodicObservable = {
+                return Observable<Int>.interval(self.period, scheduler: ConcurrentDispatchQueueScheduler.init(queue: DispatchQueue.global()))
                 .startWith(0)
-                .flatMapLatest { _ in return observable }
+                .flatMapLatest { _ in return observableFactory() }
+            }
             
             return (periodicObservable, activity)
         }
