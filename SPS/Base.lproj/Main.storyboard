@@ -9,7 +9,7 @@
         <!--Proposal Detail View Controller-->
         <scene sceneID="CES-sC-b9b">
             <objects>
-                <viewController id="Idm-11-fY1" customClass="ProposalDetailViewController" customModule="SPS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProposalDetailViewControllerID" id="Idm-11-fY1" customClass="ProposalDetailViewController" customModule="SPS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pAz-af-Wav"/>
                         <viewControllerLayoutGuide type="bottom" id="0ux-1V-sO4"/>
@@ -62,7 +62,7 @@
         <!--Proposals View Controller-->
         <scene sceneID="VTv-Do-Hvb">
             <objects>
-                <viewController id="fK9-Dv-XKM" customClass="ProposalsViewController" customModule="SPS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProposalsViewControllerID" id="fK9-Dv-XKM" customClass="ProposalsViewController" customModule="SPS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="NIi-DR-1ZR"/>
                         <viewControllerLayoutGuide type="bottom" id="7sb-y6-EUa"/>
