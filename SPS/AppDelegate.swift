@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RxSwift
 
 import RealmSwift
 import RxSwift
@@ -41,5 +42,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationDidBecomeActive(_ application: UIApplication) {
         applicationController.applicationDidBecomeActive(application)
+    }
+    
+    private let disposeBag = DisposeBag()
+    
+    func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        let (factory, _) = applicationController.proposalsStatusSynchronizer.synchronize()
+        let observable = factory()
+        observable.subscribe(
+            onNext: { _ in
+                completionHandler(.newData)
+            },
+            onError: { error in
+                completionHandler(.failed)
+            }
+        )
+        .addDisposableTo(disposeBag)
     }
 }

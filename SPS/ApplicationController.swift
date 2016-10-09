@@ -12,6 +12,8 @@ import Fabric
 import Crashlytics
 
 protocol ApplicationControllerType: UISplitViewControllerDelegate {
+    var proposalsStatusSynchronizer: ProposalsStatusSynchronizerType { get }
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool
     func applicationDidBecomeActive(_ application: UIApplication)
 }
@@ -22,7 +24,8 @@ class ApplicationController: NSObject, ApplicationControllerType {
     
     private let disposeBag = DisposeBag()
     private let splitViewController: UISplitViewController
-    private let proposalsStatusSynchronizer: ProposalsStatusSynchronizerType
+    
+    let proposalsStatusSynchronizer: ProposalsStatusSynchronizerType
     
     // MARK: Initializers
     
