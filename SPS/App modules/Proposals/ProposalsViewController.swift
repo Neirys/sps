@@ -58,6 +58,12 @@ class ProposalsViewController: UIViewController {
                 self.performSegue(withIdentifier: "ProposalDetailSegueID", sender: proposal)
             })
             .addDisposableTo(disposeBag)
+        
+        tableView.rx.itemSelected
+            .subscribe(onNext: { indexPath in
+                self.tableView.deselectRow(at: indexPath, animated: true)
+            })
+            .addDisposableTo(disposeBag)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
