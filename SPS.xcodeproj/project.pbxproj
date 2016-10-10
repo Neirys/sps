@@ -28,6 +28,7 @@
 		F8019A921DA91EBD009DF55D /* ProposalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8019A911DA91EBD009DF55D /* ProposalViewModel.swift */; };
 		F8019A941DA938A4009DF55D /* ProposalDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8019A931DA938A4009DF55D /* ProposalDetailViewController.swift */; };
 		F82043F01DAAF9F2006741F8 /* ProposalChange+Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82043EF1DAAF9F2006741F8 /* ProposalChange+Realm.swift */; };
+		F82043F31DAB0993006741F8 /* ProposalsHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82043F21DAB0993006741F8 /* ProposalsHistoryViewController.swift */; };
 		F84C31601DA9753C0013AD2C /* ApplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84C315F1DA9753C0013AD2C /* ApplicationController.swift */; };
 		F84C31631DA97D610013AD2C /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84C31621DA97D610013AD2C /* Section.swift */; };
 		F84C31651DA98E960013AD2C /* ProposalStatus+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84C31641DA98E960013AD2C /* ProposalStatus+UI.swift */; };
@@ -80,6 +81,7 @@
 		F8019A911DA91EBD009DF55D /* ProposalViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProposalViewModel.swift; sourceTree = "<group>"; };
 		F8019A931DA938A4009DF55D /* ProposalDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProposalDetailViewController.swift; sourceTree = "<group>"; };
 		F82043EF1DAAF9F2006741F8 /* ProposalChange+Realm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ProposalChange+Realm.swift"; sourceTree = "<group>"; };
+		F82043F21DAB0993006741F8 /* ProposalsHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProposalsHistoryViewController.swift; sourceTree = "<group>"; };
 		F84C315F1DA9753C0013AD2C /* ApplicationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationController.swift; sourceTree = "<group>"; };
 		F84C31621DA97D610013AD2C /* Section.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		F84C31641DA98E960013AD2C /* ProposalStatus+UI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ProposalStatus+UI.swift"; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 				F84C31681DA9A3C80013AD2C /* ProposalViewModel+Rx.swift */,
 				F868D6D01DAA4ACE00D7C1C3 /* Proposals */,
 				F868D6D11DAA4B1100D7C1C3 /* Proposal detail */,
+				F82043F11DAB0974006741F8 /* Proposals history */,
 			);
 			path = "App modules";
 			sourceTree = "<group>";
@@ -246,6 +249,14 @@
 				F868D6CB1DAA429E00D7C1C3 /* UIColor+RGB.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F82043F11DAB0974006741F8 /* Proposals history */ = {
+			isa = PBXGroup;
+			children = (
+				F82043F21DAB0993006741F8 /* ProposalsHistoryViewController.swift */,
+			);
+			path = "Proposals history";
 			sourceTree = "<group>";
 		};
 		F84C31611DA97D5A0013AD2C /* Generics */ = {
@@ -510,6 +521,7 @@
 				F82043F01DAAF9F2006741F8 /* ProposalChange+Realm.swift in Sources */,
 				F84C31601DA9753C0013AD2C /* ApplicationController.swift in Sources */,
 				F8019A901DA91956009DF55D /* Realm+Rx.swift in Sources */,
+				F82043F31DAB0993006741F8 /* ProposalsHistoryViewController.swift in Sources */,
 				F8019A541DA44341009DF55D /* AppDelegate.swift in Sources */,
 				F8019A821DA5962C009DF55D /* Proposal+Realm.swift in Sources */,
 				F84C31631DA97D610013AD2C /* Section.swift in Sources */,
