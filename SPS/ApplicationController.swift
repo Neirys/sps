@@ -8,6 +8,8 @@
 
 import UIKit
 import RxSwift
+import Fabric
+import Crashlytics
 
 protocol ApplicationControllerType: UISplitViewControllerDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool
@@ -45,6 +47,8 @@ class ApplicationController: NSObject, ApplicationControllerType {
     // MARK: ApplicationControllerType conformance
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]?) -> Bool {
+        Fabric.with([Crashlytics.self])
+        
         return true
     }
     
