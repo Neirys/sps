@@ -36,6 +36,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // MARK: UIApplicationDelegate conformance
     
+    func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]?) -> Bool {
+        return applicationController.application(application, willFinishLaunchingWithOptions: launchOptions)
+    }
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         return applicationController.application(application, didFinishLaunchingWithOptions: launchOptions)
     }
@@ -47,16 +51,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private let disposeBag = DisposeBag()
     
     func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        let (factory, _) = applicationController.proposalsStatusSynchronizer.synchronize()
-        let observable = factory()
-        observable.subscribe(
-            onNext: { _ in
-                completionHandler(.newData)
-            },
-            onError: { error in
-                completionHandler(.failed)
-            }
-        )
-        .addDisposableTo(disposeBag)
+        applicationController.application(application, performFetchWithCompletionHandler: completionHandler)
     }
 }
