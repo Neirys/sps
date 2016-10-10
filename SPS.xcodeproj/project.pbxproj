@@ -474,7 +474,7 @@
 		};
 		F82043F41DAC01DE006741F8 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
@@ -655,6 +655,7 @@
 			baseConfigurationReference = E8CE850440A390A8C680A607 /* Pods-SPS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 4GA57MT5DC;
 				INFOPLIST_FILE = SPS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
