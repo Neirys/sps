@@ -13,11 +13,19 @@ class ProposalChangeViewModel {
     // MARK: Properties
     
     private let change: ProposalChange
+    private let createdAt: Date
+    
+    private lazy var dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "yyMMMd", options: 0, locale: Locale.current)
+        return formatter
+    }()
     
     // MARK: Initializers
     
-    init(_ change: ProposalChange) {
+    init(change: ProposalChange, createdAt: Date) {
         self.change = change
+        self.createdAt = createdAt
     }
     
     // MARK: Computed properties
@@ -54,5 +62,9 @@ class ProposalChangeViewModel {
         case .unknown:
             return "Unknown"
         }
+    }
+    
+    var changeDate: String {
+        return dateFormatter.string(from: createdAt)
     }
 }

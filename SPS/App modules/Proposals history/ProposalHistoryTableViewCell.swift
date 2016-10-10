@@ -15,6 +15,7 @@ class ProposalHistoryTableViewCell: UITableViewCell {
     @IBOutlet private weak var idLabel: UILabel!
     @IBOutlet private weak var changeDescriptionLabel: UILabel!
     @IBOutlet private weak var nameLabel: UILabel!
+    @IBOutlet private weak var changeDateLabel: UILabel!
     
     // MARK: Configuration methods
     
@@ -31,6 +32,7 @@ class ProposalHistoryTableViewCell: UITableViewCell {
         idLabel.text = proposalChange.id
         
         changeDescriptionLabel.text = proposalChange.changeDescription
+        changeDateLabel.text = proposalChange.changeDate
         
         nameLabel.text = proposalChange.name
     }

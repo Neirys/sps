@@ -180,10 +180,16 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="26/12/90" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0yC-Ws-J34">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="Jw2-mN-V2I" secondAttribute="trailing" constant="15" id="66R-iH-IhC"/>
                                                 <constraint firstItem="seU-lX-ObD" firstAttribute="top" secondItem="mUB-9g-uOV" secondAttribute="top" constant="8" id="8vW-YK-hEf"/>
+                                                <constraint firstItem="0yC-Ws-J34" firstAttribute="top" secondItem="mUB-9g-uOV" secondAttribute="top" constant="8" id="Gln-ug-vZu"/>
                                                 <constraint firstAttribute="bottom" secondItem="86c-tr-ccg" secondAttribute="bottom" constant="8" id="MpM-rK-k3k"/>
                                                 <constraint firstItem="seU-lX-ObD" firstAttribute="leading" secondItem="mUB-9g-uOV" secondAttribute="leading" constant="15" id="RlF-8M-u9O"/>
                                                 <constraint firstItem="86c-tr-ccg" firstAttribute="top" secondItem="Jw2-mN-V2I" secondAttribute="bottom" constant="8" id="aLe-kE-YhU"/>
@@ -191,9 +197,11 @@
                                                 <constraint firstAttribute="trailing" secondItem="86c-tr-ccg" secondAttribute="trailing" constant="15" id="ccx-V8-Hkn"/>
                                                 <constraint firstItem="Jw2-mN-V2I" firstAttribute="leading" secondItem="mUB-9g-uOV" secondAttribute="leading" constant="15" id="dSo-LV-jCT"/>
                                                 <constraint firstItem="Jw2-mN-V2I" firstAttribute="top" secondItem="seU-lX-ObD" secondAttribute="bottom" constant="8" id="e4T-ZK-Hh2"/>
+                                                <constraint firstAttribute="trailing" secondItem="0yC-Ws-J34" secondAttribute="trailing" constant="15" id="nzg-L8-BjM"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="changeDateLabel" destination="0yC-Ws-J34" id="fMZ-ky-Nq5"/>
                                             <outlet property="changeDescriptionLabel" destination="Jw2-mN-V2I" id="awe-78-KcT"/>
                                             <outlet property="idLabel" destination="seU-lX-ObD" id="cz9-DQ-asW"/>
                                             <outlet property="nameLabel" destination="86c-tr-ccg" id="E0P-Dh-WXs"/>
