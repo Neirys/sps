@@ -30,6 +30,9 @@
 		F82043F01DAAF9F2006741F8 /* ProposalChange+Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82043EF1DAAF9F2006741F8 /* ProposalChange+Realm.swift */; };
 		F82043F31DAB0993006741F8 /* ProposalsHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82043F21DAB0993006741F8 /* ProposalsHistoryViewController.swift */; };
 		F82043F61DAC092B006741F8 /* ProposalHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82043F51DAC092B006741F8 /* ProposalHistoryTableViewCell.swift */; };
+		F82043F81DAC0A06006741F8 /* ProposalChangeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82043F71DAC0A06006741F8 /* ProposalChangeViewModel.swift */; };
+		F82043FA1DAC0CB0006741F8 /* ProposalsHistoryViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82043F91DAC0CB0006741F8 /* ProposalsHistoryViewCoordinator.swift */; };
+		F82043FC1DAC0D36006741F8 /* ProposalChangeViewModel+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82043FB1DAC0D36006741F8 /* ProposalChangeViewModel+Rx.swift */; };
 		F84C31601DA9753C0013AD2C /* ApplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84C315F1DA9753C0013AD2C /* ApplicationController.swift */; };
 		F84C31631DA97D610013AD2C /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84C31621DA97D610013AD2C /* Section.swift */; };
 		F84C31651DA98E960013AD2C /* ProposalStatus+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84C31641DA98E960013AD2C /* ProposalStatus+UI.swift */; };
@@ -84,6 +87,9 @@
 		F82043EF1DAAF9F2006741F8 /* ProposalChange+Realm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ProposalChange+Realm.swift"; sourceTree = "<group>"; };
 		F82043F21DAB0993006741F8 /* ProposalsHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProposalsHistoryViewController.swift; sourceTree = "<group>"; };
 		F82043F51DAC092B006741F8 /* ProposalHistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProposalHistoryTableViewCell.swift; sourceTree = "<group>"; };
+		F82043F71DAC0A06006741F8 /* ProposalChangeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProposalChangeViewModel.swift; sourceTree = "<group>"; };
+		F82043F91DAC0CB0006741F8 /* ProposalsHistoryViewCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProposalsHistoryViewCoordinator.swift; sourceTree = "<group>"; };
+		F82043FB1DAC0D36006741F8 /* ProposalChangeViewModel+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ProposalChangeViewModel+Rx.swift"; sourceTree = "<group>"; };
 		F84C315F1DA9753C0013AD2C /* ApplicationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationController.swift; sourceTree = "<group>"; };
 		F84C31621DA97D610013AD2C /* Section.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		F84C31641DA98E960013AD2C /* ProposalStatus+UI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ProposalStatus+UI.swift"; sourceTree = "<group>"; };
@@ -237,6 +243,8 @@
 			children = (
 				F8019A911DA91EBD009DF55D /* ProposalViewModel.swift */,
 				F84C31681DA9A3C80013AD2C /* ProposalViewModel+Rx.swift */,
+				F82043F71DAC0A06006741F8 /* ProposalChangeViewModel.swift */,
+				F82043FB1DAC0D36006741F8 /* ProposalChangeViewModel+Rx.swift */,
 				F868D6D01DAA4ACE00D7C1C3 /* Proposals */,
 				F868D6D11DAA4B1100D7C1C3 /* Proposal detail */,
 				F82043F11DAB0974006741F8 /* Proposals history */,
@@ -257,6 +265,7 @@
 			isa = PBXGroup;
 			children = (
 				F82043F21DAB0993006741F8 /* ProposalsHistoryViewController.swift */,
+				F82043F91DAC0CB0006741F8 /* ProposalsHistoryViewCoordinator.swift */,
 				F82043F51DAC092B006741F8 /* ProposalHistoryTableViewCell.swift */,
 			);
 			path = "Proposals history";
@@ -527,9 +536,12 @@
 				F8019A901DA91956009DF55D /* Realm+Rx.swift in Sources */,
 				F82043F31DAB0993006741F8 /* ProposalsHistoryViewController.swift in Sources */,
 				F8019A541DA44341009DF55D /* AppDelegate.swift in Sources */,
+				F82043F81DAC0A06006741F8 /* ProposalChangeViewModel.swift in Sources */,
 				F8019A821DA5962C009DF55D /* Proposal+Realm.swift in Sources */,
+				F82043FC1DAC0D36006741F8 /* ProposalChangeViewModel+Rx.swift in Sources */,
 				F84C31631DA97D610013AD2C /* Section.swift in Sources */,
 				F8019A8D1DA90A3A009DF55D /* ProposalsViewCoordinator.swift in Sources */,
+				F82043FA1DAC0CB0006741F8 /* ProposalsHistoryViewCoordinator.swift in Sources */,
 				F84C31651DA98E960013AD2C /* ProposalStatus+UI.swift in Sources */,
 				F84C31691DA9A3C80013AD2C /* ProposalViewModel+Rx.swift in Sources */,
 				F868D6CA1DAA41E400D7C1C3 /* RGB.swift in Sources */,

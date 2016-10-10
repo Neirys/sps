@@ -12,6 +12,7 @@ import RxSwift
 import RxCocoa
 import RxDataSources
 
+// TODO: Unit tests
 class ProposalsViewCoordinator {
     
     // MARK: Properties
@@ -23,7 +24,6 @@ class ProposalsViewCoordinator {
     
     // MARK: Initializers
     
-    // TODO: Unit tests
     init(realm: Realm, proposalsStatusSynchronizer: ProposalsStatusSynchronizerType) {
         self.proposalsStatusSynchronizer = proposalsStatusSynchronizer
         

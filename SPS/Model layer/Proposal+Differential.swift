@@ -8,6 +8,7 @@
 
 import Foundation
 
+// TODO: rename to ProposalUpdate
 enum ProposalChange {
     case add(proposal: ProposalType)
     case delete(proposal: ProposalType)

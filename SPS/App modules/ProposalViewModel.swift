@@ -32,6 +32,7 @@ class ProposalViewModel {
     }
     
     var url: URL {
+        // TODO: export to Constants file
         return URL(string: "https://github.com/apple/swift-evolution/blob/master/proposals/\(proposal.filename)")!
     }
     

@@ -24,4 +24,14 @@ class ProposalHistoryTableViewCell: UITableViewCell {
         idLabel.layer.masksToBounds = true
         idLabel.layer.cornerRadius = 5.0
     }
+    
+    func configure(with proposalChange: ProposalChangeViewModel) {
+        idLabel.backgroundColor = proposalChange.cartBackgroundColor.color()
+        idLabel.textColor = proposalChange.cartTextColor.color()
+        idLabel.text = proposalChange.id
+        
+        changeDescriptionLabel.text = proposalChange.changeDescription
+        
+        nameLabel.text = proposalChange.name
+    }
 }
