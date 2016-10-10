@@ -22,12 +22,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let splitViewController = self.window!.rootViewController as! UISplitViewController
         
         #if DEBUG
-            let service = RandomProposalsStatusService()
-//            let service = ProposalsStatusService()
+//            let service = RandomProposalsStatusService()
+            let service = ProposalsStatusService()
             let synchronizer = ProposalsStatusSynchronizer(proposalsStatusService: service)
             let debugSynchronizer = PeriodicProposalsStatusSynchronizer(synchronizer: synchronizer, period: 10)
             
-            return ApplicationController(splitViewController: splitViewController, proposalsStatusSynchronizer: debugSynchronizer)
+            return ApplicationController(splitViewController: splitViewController, proposalsStatusSynchronizer: synchronizer)
         #else
             return ApplicationController(splitViewController: splitViewController, proposalsStatusService: ProposalsStatusService())
         #endif
