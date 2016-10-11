@@ -131,6 +131,7 @@ extension Realm {
         return Observable.create { observer -> Disposable in
             let realm = try! Realm(configuration: configuration)
             
+            realm.refresh()
             try! realm.write {
                 writes(realm)
             }

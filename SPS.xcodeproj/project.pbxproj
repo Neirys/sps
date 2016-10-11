@@ -33,6 +33,8 @@
 		F82043F81DAC0A06006741F8 /* ProposalChangeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82043F71DAC0A06006741F8 /* ProposalChangeViewModel.swift */; };
 		F82043FA1DAC0CB0006741F8 /* ProposalsHistoryViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82043F91DAC0CB0006741F8 /* ProposalsHistoryViewCoordinator.swift */; };
 		F82043FC1DAC0D36006741F8 /* ProposalChangeViewModel+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82043FB1DAC0D36006741F8 /* ProposalChangeViewModel+Rx.swift */; };
+		F82043FE1DAD563B006741F8 /* ProposalsStatusNotifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82043FD1DAD563B006741F8 /* ProposalsStatusNotifier.swift */; };
+		F82044001DAD5ABF006741F8 /* UNNotificationCenter+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82043FF1DAD5ABF006741F8 /* UNNotificationCenter+Rx.swift */; };
 		F84C31601DA9753C0013AD2C /* ApplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84C315F1DA9753C0013AD2C /* ApplicationController.swift */; };
 		F84C31631DA97D610013AD2C /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84C31621DA97D610013AD2C /* Section.swift */; };
 		F84C31651DA98E960013AD2C /* ProposalStatus+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84C31641DA98E960013AD2C /* ProposalStatus+UI.swift */; };
@@ -90,6 +92,8 @@
 		F82043F71DAC0A06006741F8 /* ProposalChangeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProposalChangeViewModel.swift; sourceTree = "<group>"; };
 		F82043F91DAC0CB0006741F8 /* ProposalsHistoryViewCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProposalsHistoryViewCoordinator.swift; sourceTree = "<group>"; };
 		F82043FB1DAC0D36006741F8 /* ProposalChangeViewModel+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ProposalChangeViewModel+Rx.swift"; sourceTree = "<group>"; };
+		F82043FD1DAD563B006741F8 /* ProposalsStatusNotifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProposalsStatusNotifier.swift; sourceTree = "<group>"; };
+		F82043FF1DAD5ABF006741F8 /* UNNotificationCenter+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UNNotificationCenter+Rx.swift"; sourceTree = "<group>"; };
 		F84C315F1DA9753C0013AD2C /* ApplicationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationController.swift; sourceTree = "<group>"; };
 		F84C31621DA97D610013AD2C /* Section.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		F84C31641DA98E960013AD2C /* ProposalStatus+UI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ProposalStatus+UI.swift"; sourceTree = "<group>"; };
@@ -234,6 +238,7 @@
 			children = (
 				F8019A7F1DA58A2B009DF55D /* ProposalsStatusService.swift */,
 				F8019A851DA59EEF009DF55D /* ProposalsStatusSynchronizer.swift */,
+				F82043FD1DAD563B006741F8 /* ProposalsStatusNotifier.swift */,
 			);
 			path = "Network Layer";
 			sourceTree = "<group>";
@@ -257,6 +262,7 @@
 			children = (
 				F8019A8F1DA91956009DF55D /* Realm+Rx.swift */,
 				F868D6CB1DAA429E00D7C1C3 /* UIColor+RGB.swift */,
+				F82043FF1DAD5ABF006741F8 /* UNNotificationCenter+Rx.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -531,6 +537,7 @@
 				F84C31671DA9946B0013AD2C /* Section+Rx.swift in Sources */,
 				F8019A561DA44341009DF55D /* ViewController.swift in Sources */,
 				F8019A7D1DA588FA009DF55D /* Result.swift in Sources */,
+				F82043FE1DAD563B006741F8 /* ProposalsStatusNotifier.swift in Sources */,
 				F82043F61DAC092B006741F8 /* ProposalHistoryTableViewCell.swift in Sources */,
 				F8019A781DA447C8009DF55D /* Proposal+SWXMLHash.swift in Sources */,
 				F8019A801DA58A2B009DF55D /* ProposalsStatusService.swift in Sources */,
@@ -546,6 +553,7 @@
 				F82043FC1DAC0D36006741F8 /* ProposalChangeViewModel+Rx.swift in Sources */,
 				F84C31631DA97D610013AD2C /* Section.swift in Sources */,
 				F8019A8D1DA90A3A009DF55D /* ProposalsViewCoordinator.swift in Sources */,
+				F82044001DAD5ABF006741F8 /* UNNotificationCenter+Rx.swift in Sources */,
 				F82043FA1DAC0CB0006741F8 /* ProposalsHistoryViewCoordinator.swift in Sources */,
 				F84C31651DA98E960013AD2C /* ProposalStatus+UI.swift in Sources */,
 				F84C31691DA9A3C80013AD2C /* ProposalViewModel+Rx.swift in Sources */,

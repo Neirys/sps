@@ -10,6 +10,7 @@ import UIKit
 import RxSwift
 import Fabric
 import Crashlytics
+import UserNotifications
 
 protocol ApplicationControllerType: UISplitViewControllerDelegate {
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]?) -> Bool
@@ -70,6 +71,11 @@ class ApplicationController: NSObject, ApplicationControllerType {
         #if DEBUG
             print(UserDefaults.standard.object(forKey: "background_refresh_last_updates"))
         #endif
+        
+        UNUserNotificationCenter.current()
+            .requestAuthorization(options: [.alert, .sound, .badge])
+            .subscribe()
+            .addDisposableTo(disposeBag)
         
         return true
     }

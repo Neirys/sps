@@ -21,11 +21,14 @@ class ProposalsStatusSynchronizer: ProposalsStatusSynchronizerType {
     
     private let disposeBag = DisposeBag()
     private let proposalsStatusService: ProposalsStatusServiceType
+    private let proposalsStatusNotifier: ProposalsStatusNotifierType
     
     // MARK: Initializers
     
-    init(proposalsStatusService: ProposalsStatusServiceType = ProposalsStatusService()) {
+    init(proposalsStatusService: ProposalsStatusServiceType = ProposalsStatusService(),
+        proposalsStatusNotifier: ProposalsStatusNotifierType = ProposalsStatusNotifier()) {
         self.proposalsStatusService = proposalsStatusService
+        self.proposalsStatusNotifier = proposalsStatusNotifier
     }
     
     func synchronize() -> (observableFactory: () -> Observable<Void>, activity: Driver<Bool>) {
@@ -43,6 +46,10 @@ class ProposalsStatusSynchronizer: ProposalsStatusSynchronizerType {
 
                     return diffs
                 }
+                // FIXME: Tests
+                .do(onNext: { changes in
+                    self.proposalsStatusNotifier.notify(with: changes)
+                })
                 .flatMapLatest { changes in
                     return Realm.write { realm in
                         let realmChanges = changes.map { RealmProposalChange($0) }
