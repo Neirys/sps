@@ -46,7 +46,9 @@ class ProposalsStatusSynchronizer: ProposalsStatusSynchronizerType {
 
                     return diffs
                 }
-                // FIXME: Tests
+                // TODO: Should notifier be an observer ? 
+                // But then it will force me to change the architecture, i.e subscribe would be called here
+                // or I'll need to bind the observer anytime I call `synchronize` (which can lead to oversight I forget to bind it)
                 .do(onNext: { changes in
                     self.proposalsStatusNotifier.notify(with: changes)
                 })

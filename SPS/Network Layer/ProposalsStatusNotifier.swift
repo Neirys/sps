@@ -8,6 +8,7 @@
 
 import Foundation
 import UserNotifications
+import RxSwift
 
 protocol ProposalsStatusNotifierType {
     func notify(with changes: [ProposalChange])
@@ -15,8 +16,17 @@ protocol ProposalsStatusNotifierType {
 
 class ProposalsStatusNotifier: ProposalsStatusNotifierType {
     
+    // MARK: Properties
+    
+    private let disposeBag = DisposeBag()
+    private let currentNotificationIdentifier = "currentNotificationIdentifier"
+    
+    // MARK: Methods
+    
     func notify(with changes: [ProposalChange]) {
-        let notifications = changes.map { change -> UNNotificationRequest in
+        guard !changes.isEmpty else { return }
+        
+        let requests = changes.map { change -> UNNotificationRequest in
             let content = UNMutableNotificationContent()
             let viewModel = ProposalChangeViewModel(change: change, createdAt: Date()) // date is not important here
             content.title = viewModel.id
@@ -30,10 +40,8 @@ class ProposalsStatusNotifier: ProposalsStatusNotifierType {
             return request
         }
         
-        notifications.forEach { request in
-            UNUserNotificationCenter.current().add(request) { error in
-                print("Request notification \(request.identifier) finish with error \(error)")
-            }
-        }
+        UNUserNotificationCenter.current().add(requests: requests)
+            .subscribe()
+            .addDisposableTo(disposeBag)
     }
 }

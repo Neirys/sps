@@ -37,4 +37,35 @@ extension UNUserNotificationCenter {
             return Disposables.create()
         }
     }
+    
+    func add(request: UNNotificationRequest) -> Observable<Void> {
+        return Observable.create { observer in
+            self.add(request) { error in
+                if let error = error {
+                    observer.onError(error)
+                } else {
+                    observer.onNext(())
+                    observer.onCompleted()
+                }
+            }
+            
+            return Disposables.create()
+        }
+    }
+    
+    func add(requests: [UNNotificationRequest]) -> Observable<[Void]> {
+        let requests = requests.map { add(request: $0) }
+        return Observable.from(requests).merge().toArray()
+    }
+    
+    func getPendingNotificationRequests() -> Observable<[UNNotificationRequest]> {
+        return Observable.create { observer in
+            self.getPendingNotificationRequests { requests in
+                observer.onNext(requests)
+                observer.onCompleted()
+            }
+            
+            return Disposables.create()
+        }
+    }
 }
