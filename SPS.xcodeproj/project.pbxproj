@@ -10,7 +10,6 @@
 		A41F014D27B3764522F31D01 /* Pods_SPS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 219C81D67F82898F3BB9B110 /* Pods_SPS.framework */; };
 		ACC9668FBC222A185F8DCCAE /* Pods_SPSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FD4F89698B211F2E330ED39 /* Pods_SPSTests.framework */; };
 		F8019A541DA44341009DF55D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8019A531DA44341009DF55D /* AppDelegate.swift */; };
-		F8019A561DA44341009DF55D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8019A551DA44341009DF55D /* ViewController.swift */; };
 		F8019A591DA44341009DF55D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8019A571DA44341009DF55D /* Main.storyboard */; };
 		F8019A5B1DA44341009DF55D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8019A5A1DA44341009DF55D /* Assets.xcassets */; };
 		F8019A5E1DA44341009DF55D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8019A5C1DA44341009DF55D /* LaunchScreen.storyboard */; };
@@ -35,6 +34,7 @@
 		F82043FC1DAC0D36006741F8 /* ProposalChangeViewModel+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82043FB1DAC0D36006741F8 /* ProposalChangeViewModel+Rx.swift */; };
 		F82043FE1DAD563B006741F8 /* ProposalsStatusNotifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82043FD1DAD563B006741F8 /* ProposalsStatusNotifier.swift */; };
 		F82044001DAD5ABF006741F8 /* UNNotificationCenter+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82043FF1DAD5ABF006741F8 /* UNNotificationCenter+Rx.swift */; };
+		F82044021DAD9480006741F8 /* ApplicationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82044011DAD9480006741F8 /* ApplicationRouter.swift */; };
 		F84C31601DA9753C0013AD2C /* ApplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84C315F1DA9753C0013AD2C /* ApplicationController.swift */; };
 		F84C31631DA97D610013AD2C /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84C31621DA97D610013AD2C /* Section.swift */; };
 		F84C31651DA98E960013AD2C /* ProposalStatus+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84C31641DA98E960013AD2C /* ProposalStatus+UI.swift */; };
@@ -66,7 +66,6 @@
 		F4166BF9798BEBB00C4FD198 /* Pods-SPSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SPSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SPSTests/Pods-SPSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F8019A501DA44341009DF55D /* SPS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SPS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8019A531DA44341009DF55D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F8019A551DA44341009DF55D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F8019A581DA44341009DF55D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F8019A5A1DA44341009DF55D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
 		F8019A5D1DA44341009DF55D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -94,6 +93,7 @@
 		F82043FB1DAC0D36006741F8 /* ProposalChangeViewModel+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ProposalChangeViewModel+Rx.swift"; sourceTree = "<group>"; };
 		F82043FD1DAD563B006741F8 /* ProposalsStatusNotifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProposalsStatusNotifier.swift; sourceTree = "<group>"; };
 		F82043FF1DAD5ABF006741F8 /* UNNotificationCenter+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UNNotificationCenter+Rx.swift"; sourceTree = "<group>"; };
+		F82044011DAD9480006741F8 /* ApplicationRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationRouter.swift; sourceTree = "<group>"; };
 		F84C315F1DA9753C0013AD2C /* ApplicationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationController.swift; sourceTree = "<group>"; };
 		F84C31621DA97D610013AD2C /* Section.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		F84C31641DA98E960013AD2C /* ProposalStatus+UI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ProposalStatus+UI.swift"; sourceTree = "<group>"; };
@@ -171,7 +171,7 @@
 			children = (
 				F8019A531DA44341009DF55D /* AppDelegate.swift */,
 				F84C315F1DA9753C0013AD2C /* ApplicationController.swift */,
-				F8019A551DA44341009DF55D /* ViewController.swift */,
+				F82044011DAD9480006741F8 /* ApplicationRouter.swift */,
 				F8019A571DA44341009DF55D /* Main.storyboard */,
 				F8019A5C1DA44341009DF55D /* LaunchScreen.storyboard */,
 				F8019A891DA909F1009DF55D /* App modules */,
@@ -535,13 +535,13 @@
 				F868D6CC1DAA429E00D7C1C3 /* UIColor+RGB.swift in Sources */,
 				F8990FB91DAA85BF00008213 /* ActivityIndicator.swift in Sources */,
 				F84C31671DA9946B0013AD2C /* Section+Rx.swift in Sources */,
-				F8019A561DA44341009DF55D /* ViewController.swift in Sources */,
 				F8019A7D1DA588FA009DF55D /* Result.swift in Sources */,
 				F82043FE1DAD563B006741F8 /* ProposalsStatusNotifier.swift in Sources */,
 				F82043F61DAC092B006741F8 /* ProposalHistoryTableViewCell.swift in Sources */,
 				F8019A781DA447C8009DF55D /* Proposal+SWXMLHash.swift in Sources */,
 				F8019A801DA58A2B009DF55D /* ProposalsStatusService.swift in Sources */,
 				F8019A921DA91EBD009DF55D /* ProposalViewModel.swift in Sources */,
+				F82044021DAD9480006741F8 /* ApplicationRouter.swift in Sources */,
 				F8019A841DA59D48009DF55D /* RealmObjectConvertible.swift in Sources */,
 				F82043F01DAAF9F2006741F8 /* ProposalChange+Realm.swift in Sources */,
 				F84C31601DA9753C0013AD2C /* ApplicationController.swift in Sources */,

@@ -25,23 +25,19 @@ class ApplicationController: NSObject, ApplicationControllerType {
     // MARK: Properties
     
     private let disposeBag = DisposeBag()
-    private let splitViewController: UISplitViewController
     
+    private let applicationRouter: ApplicationRouter
     private let proposalsStatusSynchronizer: ProposalsStatusSynchronizerType
     
     // MARK: Initializers
     
     init(splitViewController: UISplitViewController, proposalsStatusSynchronizer: ProposalsStatusSynchronizerType) {
-        self.splitViewController = splitViewController
+        self.applicationRouter = ApplicationRouter(splitViewController: splitViewController)
         self.proposalsStatusSynchronizer = proposalsStatusSynchronizer
         
         super.init()
         
-        self.splitViewController.delegate = self
-        
-        // TODO: find a better / safer way that injection
-        let masterViewController = (splitViewController.viewControllers[0] as! UINavigationController).topViewController as! ProposalsViewController
-        masterViewController.inject(proposalsStatusSynchronizer: proposalsStatusSynchronizer)
+        self.applicationRouter.masterViewController.inject(proposalsStatusSynchronizer: proposalsStatusSynchronizer)
     }
     
     convenience init(splitViewController: UISplitViewController, proposalsStatusService: ProposalsStatusServiceType) {
