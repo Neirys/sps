@@ -9,10 +9,9 @@
 import Foundation
 import RxDataSources
 
-// FIXME: Can't be animated because 2 different changes can have the same identity
 extension ProposalChangeViewModel: IdentifiableType, Equatable {
     var identity: String {
-        return id
+        return id + createdAt.description
     }
     
     static func == (lhs: ProposalChangeViewModel, rhs: ProposalChangeViewModel) -> Bool {

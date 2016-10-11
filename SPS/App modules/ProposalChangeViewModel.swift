@@ -13,7 +13,7 @@ class ProposalChangeViewModel {
     // MARK: Properties
     
     private let change: ProposalChange
-    private let createdAt: Date
+    let createdAt: Date
     
     private lazy var dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
