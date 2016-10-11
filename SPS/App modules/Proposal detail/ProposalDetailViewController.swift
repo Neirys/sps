@@ -30,6 +30,8 @@ class ProposalDetailViewController: UIViewController {
         
         webView.delegate = self
         webView.loadRequest(URLRequest(url: proposal.url))
+        
+        print("Loading \(proposal.url)")
     }
 }
 

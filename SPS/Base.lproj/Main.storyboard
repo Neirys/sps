@@ -125,7 +125,7 @@
                     <navigationItem key="navigationItem" id="hR4-qi-rDE">
                         <barButtonItem key="rightBarButtonItem" title="History" id="cYk-PD-saB">
                             <connections>
-                                <segue destination="6SV-o6-Hvy" kind="presentation" modalPresentationStyle="formSheet" id="aR3-Yx-n5g"/>
+                                <segue destination="6SV-o6-Hvy" kind="presentation" identifier="ProposalsHistorySegueID" modalPresentationStyle="formSheet" id="aR3-Yx-n5g"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

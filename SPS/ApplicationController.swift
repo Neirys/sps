@@ -26,7 +26,7 @@ class ApplicationController: NSObject, ApplicationControllerType {
     
     private let disposeBag = DisposeBag()
     
-    private let applicationRouter: ApplicationRouter
+    fileprivate let applicationRouter: ApplicationRouter
     private let proposalsStatusSynchronizer: ProposalsStatusSynchronizerType
     
     // MARK: Initializers
@@ -109,6 +109,9 @@ class ApplicationController: NSObject, ApplicationControllerType {
 
 extension ApplicationController: UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        guard let notification = response.notification.request.content.proposalStatusNotificationType else { return }
+        
+        applicationRouter.route(afterReceiving: notification)
         completionHandler()
     }
     

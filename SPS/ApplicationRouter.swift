@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class ApplicationRouter {
     
@@ -16,12 +17,28 @@ class ApplicationRouter {
     
     // TODO: Safer ?
     var masterViewController: ProposalsViewController {
-        return (splitViewController.viewControllers[0] as! UINavigationController).topViewController as! ProposalsViewController
+        return (splitViewController.viewControllers[0] as! UINavigationController).viewControllers.first as! ProposalsViewController
     }
     
     // MARK: Initializers
     
     init(splitViewController: UISplitViewController) {
         self.splitViewController = splitViewController
+    }
+    
+    // MARK: Methods
+    
+    func route(afterReceiving notification: ProposalStatusNotificationType) {
+        switch notification {
+        case .multiple, .unknown:
+            masterViewController.performSegue(withIdentifier: "ProposalsHistorySegueID", sender: nil)
+        case .solo(let proposalID):
+            let realm = try! Realm()
+            // TODO: Do we need some DataManagers to abstract these kind of call ?
+            guard let proposal = realm.object(ofType: Proposal.RealmObject.self, forPrimaryKey: proposalID) else { return }
+            // FIXME: Still not OK on passing proposal in sender. I should consider banning storyboard in order to avoid falling into that kind of laziness
+            let proposalViewModel = ProposalViewModel(proposal)
+            masterViewController.performSegue(withIdentifier: "ProposalDetailSegueID", sender: proposalViewModel)
+        }
     }
 }
