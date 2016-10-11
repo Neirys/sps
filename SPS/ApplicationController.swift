@@ -52,11 +52,12 @@ class ApplicationController: NSObject, ApplicationControllerType {
     // MARK: ApplicationControllerType conformance
     
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]?) -> Bool {
+        // TODO: move to constants file
         let interval: TimeInterval
         #if DEBUG
         interval = UIApplicationBackgroundFetchIntervalMinimum
         #else
-        interval = 60 * 60 * 4
+        interval = 60 * 60 * 2
         #endif
         
         application.setMinimumBackgroundFetchInterval(interval)

@@ -26,21 +26,20 @@ class ProposalsStatusNotifier: ProposalsStatusNotifierType {
     func notify(with changes: [ProposalChange]) {
         guard !changes.isEmpty else { return }
         
-        let requests = changes.map { change -> UNNotificationRequest in
-            let content = UNMutableNotificationContent()
-            let viewModel = ProposalChangeViewModel(change: change, createdAt: Date()) // date is not important here
+        let content: UNMutableNotificationContent = UNMutableNotificationContent()
+        content.sound = UNNotificationSound.default()
+        
+        if changes.count == 1 {
+            let viewModel = ProposalChangeViewModel(change: changes.first!, createdAt: Date()) // date is not important here
             content.title = viewModel.id
             content.body = viewModel.changeDescription
-            content.sound = UNNotificationSound.default()
-            
-            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
-            
-            let request = UNNotificationRequest(identifier: viewModel.id, content: content, trigger: trigger)
-            
-            return request
+        } else {
+            content.body = "\(changes.count) new updates"
         }
         
-        UNUserNotificationCenter.current().add(requests: requests)
+        let request = UNNotificationRequest(identifier: currentNotificationIdentifier, content: content, trigger: nil)
+        
+        UNUserNotificationCenter.current().add(request: request)
             .subscribe()
             .addDisposableTo(disposeBag)
     }

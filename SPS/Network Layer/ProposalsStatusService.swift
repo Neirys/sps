@@ -64,7 +64,7 @@ class ProposalsStatusService: ProposalsStatusServiceType {
                 Proposal(id: "004", status: .implemented, swiftVersion: "3.0", name: "004", filename: ""),
                 Proposal(id: "005", status: .rejected, swiftVersion: nil, name: "005", filename: ""),
                 Proposal(id: "006", status: .active, swiftVersion: nil, name: "006", filename: ""),
-                Proposal(id: "007", status: .rejected, swiftVersion: nil, name: "007", filename: ""),
+                Proposal(id: "007", status: .active, swiftVersion: nil, name: "007", filename: ""),
                 Proposal(id: "008", status: .accepted, swiftVersion: "4.0", name: "008", filename: "")
             ]
             
