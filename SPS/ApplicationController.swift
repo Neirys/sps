@@ -62,6 +62,8 @@ class ApplicationController: NSObject, ApplicationControllerType {
         
         application.setMinimumBackgroundFetchInterval(interval)
         
+        UNUserNotificationCenter.current().delegate = self
+        
         return true
     }
     
@@ -106,5 +108,17 @@ class ApplicationController: NSObject, ApplicationControllerType {
             }
         )
         .addDisposableTo(disposeBag)
+    }
+}
+
+extension ApplicationController: UNUserNotificationCenterDelegate {
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        print("Notification center did receive response \(response)")
+        completionHandler()
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        print("Notification center will present notification \(notification)")
+        completionHandler([.alert, .badge, .sound])
     }
 }
