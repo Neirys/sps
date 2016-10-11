@@ -37,7 +37,7 @@ class ProposalsStatusNotifier: ProposalsStatusNotifierType {
             content.body = "\(changes.count) new updates"
         }
         
-        let request = UNNotificationRequest(identifier: currentNotificationIdentifier, content: content, trigger: nil)
+        let request = UNNotificationRequest(identifier: Date().description, content: content, trigger: nil)
         
         UNUserNotificationCenter.current().add(request: request)
             .subscribe()
