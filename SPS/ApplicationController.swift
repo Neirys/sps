@@ -51,13 +51,25 @@ class ApplicationController: NSObject, ApplicationControllerType {
     // MARK: ApplicationControllerType conformance
     
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]?) -> Bool {
-        application.setMinimumBackgroundFetchInterval(60 * 60 * 4)
+        let interval: TimeInterval
+        #if DEBUG
+        interval = UIApplicationBackgroundFetchIntervalMinimum
+        #else
+        interval = 60 * 60 * 4
+        #endif
+        
+        application.setMinimumBackgroundFetchInterval(interval)
         
         return true
     }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]?) -> Bool {
         Fabric.with([Crashlytics.self])
+        
+        // FIXME: TO REMOVE
+        #if DEBUG
+            print(UserDefaults.standard.object(forKey: "background_refresh_last_updates"))
+        #endif
         
         return true
     }
@@ -69,6 +81,13 @@ class ApplicationController: NSObject, ApplicationControllerType {
     }
     
     func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        // FIXME: TO REMOVE
+        #if DEBUG
+            var lastUpdates = (UserDefaults.standard.object(forKey: "background_refresh_last_updates") as? [Date]) ?? []
+            lastUpdates.append(Date())
+            UserDefaults.standard.set(lastUpdates, forKey: "background_refresh_last_updates")
+        #endif
+        
         let (factory, _) = proposalsStatusSynchronizer.synchronize()
         let observable = factory()
         observable.subscribe(
