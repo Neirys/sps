@@ -44,6 +44,12 @@ class ProposalsHistoryViewController: UIViewController {
             .addDisposableTo(disposeBag)
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        viewCoordinator.markAllAsRead()
+    }
+    
     // MARK: IBActions
     
     @IBAction private func closeButtonTouched(_ sender: AnyObject) {

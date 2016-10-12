@@ -35,5 +35,7 @@ class ProposalHistoryTableViewCell: UITableViewCell {
         changeDateLabel.text = proposalChange.changeDate
         
         nameLabel.text = proposalChange.name
+        
+        backgroundColor = proposalChange.cellBackgroundColor.color()
     }
 }

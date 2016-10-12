@@ -31,7 +31,7 @@ class ProposalsStatusNotifier: ProposalsStatusNotifierType {
         
         if changes.count == 1 {
             let change = changes.first!
-            let viewModel = ProposalChangeViewModel(change: change, createdAt: Date()) // date is not important here
+            let viewModel = ProposalChangeViewModel(change: change, createdAt: Date(), isNew: false) // date & isNew is not important here
             content.title = viewModel.id
             content.body = viewModel.changeDescription
             content.userInfo = ProposalStatusNotificationType.solo(proposalID: change.proposal.id).userInfo

@@ -55,7 +55,7 @@ class ProposalsViewController: UIViewController {
         tableView.rx.modelSelected(ProposalViewModel.self)
             .subscribe(onNext: { proposal in
                 // FIXME: I'm not OK with passing model through `sender`
-                self.performSegue(withIdentifier: "ProposalDetailSegueID", sender: proposal)
+                self.performSegue(withIdentifier: "@    (§è", sender: proposal)
             })
             .addDisposableTo(disposeBag)
         

@@ -14,6 +14,7 @@ class ProposalChangeViewModel {
     
     private let change: ProposalChange
     let createdAt: Date
+    private let isNew: Bool
     
     private lazy var dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -23,9 +24,10 @@ class ProposalChangeViewModel {
     
     // MARK: Initializers
     
-    init(change: ProposalChange, createdAt: Date) {
+    init(change: ProposalChange, createdAt: Date, isNew: Bool) {
         self.change = change
         self.createdAt = createdAt
+        self.isNew = isNew
     }
     
     // MARK: Computed properties
@@ -66,5 +68,9 @@ class ProposalChangeViewModel {
     
     var changeDate: String {
         return dateFormatter.string(from: createdAt)
+    }
+    
+    var cellBackgroundColor: RGB {
+        return isNew ? RGB(66, 179, 244, 10) : RGB.white()
     }
 }
