@@ -11,7 +11,7 @@ import RxDataSources
 
 extension ProposalChangeViewModel: IdentifiableType, Equatable {
     var identity: String {
-        return id + createdAt.description
+        return "\(id)\(createdAt.timeIntervalSince1970)"
     }
     
     static func == (lhs: ProposalChangeViewModel, rhs: ProposalChangeViewModel) -> Bool {

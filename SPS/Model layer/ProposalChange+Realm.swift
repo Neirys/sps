@@ -9,6 +9,8 @@
 import Foundation
 import RealmSwift
 
+// I didn't make a relationship to RealmProposal here because I wanted to prevent model inconsistency in case that the related proposal was deleted.
+// But it's unliky that a proposal would be totally deleted so .. yeah, I'm kind of dumb
 class RealmProposalChange: Object, ProposalType {
     enum ChangeType: String {
         case add
