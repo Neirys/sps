@@ -8,6 +8,12 @@
 
 import UIKit
 
+// TODO: Create another file just for this one ?
+protocol ProposalDetailType {
+    var id: String { get }
+    var url: URL { get }
+}
+
 class ProposalDetailViewController: UIViewController {
     
     // MARK: IBOutlets
@@ -17,7 +23,7 @@ class ProposalDetailViewController: UIViewController {
     
     // MARK: Properties
     
-    var proposal: ProposalViewModel?
+    var proposal: ProposalDetailType?
     
     // MARK: Life cycle
     
@@ -30,8 +36,6 @@ class ProposalDetailViewController: UIViewController {
         
         webView.delegate = self
         webView.loadRequest(URLRequest(url: proposal.url))
-        
-        print("Loading \(proposal.url)")
     }
 }
 

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ProposalViewModel {
+class ProposalViewModel: ProposalDetailType {
     
     // MARK: Properties
     
