@@ -30,6 +30,9 @@ class ProposalDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
+        navigationItem.leftItemsSupplementBackButton = true
+        
         guard let proposal = proposal else { return }
 
         title = proposal.id
