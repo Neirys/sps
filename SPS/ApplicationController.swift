@@ -66,11 +66,6 @@ class ApplicationController: NSObject, ApplicationControllerType {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]?) -> Bool {
         Fabric.with([Crashlytics.self])
         
-        // FIXME: TO REMOVE
-        #if DEBUG
-            print(UserDefaults.standard.object(forKey: "background_refresh_last_updates"))
-        #endif
-        
         UNUserNotificationCenter.current()
             .requestAuthorization(options: [.alert, .sound, .badge])
             .subscribe()
@@ -86,13 +81,6 @@ class ApplicationController: NSObject, ApplicationControllerType {
     }
     
     func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        // FIXME: TO REMOVE
-        #if DEBUG
-            var lastUpdates = (UserDefaults.standard.object(forKey: "background_refresh_last_updates") as? [Date]) ?? []
-            lastUpdates.append(Date())
-            UserDefaults.standard.set(lastUpdates, forKey: "background_refresh_last_updates")
-        #endif
-        
         let (factory, _) = proposalsStatusSynchronizer.synchronize()
         let observable = factory()
         observable.subscribe(

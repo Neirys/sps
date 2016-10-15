@@ -23,8 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let splitViewController = self.window!.rootViewController as! UISplitViewController
         
         #if DEBUG
-            let service = RandomProposalsStatusService()
-//            let service = ProposalsStatusService()
+//            let service = RandomProposalsStatusService()
+            let service = ProposalsStatusService()
             let synchronizer = ProposalsStatusSynchronizer(proposalsStatusService: service)
             let debugSynchronizer = PeriodicProposalsStatusSynchronizer(synchronizer: synchronizer, period: 10)
             
@@ -47,8 +47,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidBecomeActive(_ application: UIApplication) {
         applicationController.applicationDidBecomeActive(application)
     }
-    
-    private let disposeBag = DisposeBag()
     
     func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         applicationController.application(application, performFetchWithCompletionHandler: completionHandler)
