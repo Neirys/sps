@@ -17,6 +17,7 @@ class ProposalsViewController: UIViewController {
     
     @IBOutlet private weak var tableView: UITableView!
     private var refreshControl: UIRefreshControl!
+    @IBOutlet private weak var emptyLabel: UILabel!
     
     // MARK: Properties
     
@@ -63,6 +64,11 @@ class ProposalsViewController: UIViewController {
             .subscribe(onNext: { indexPath in
                 self.tableView.deselectRow(at: indexPath, animated: true)
             })
+            .addDisposableTo(disposeBag)
+        
+        viewCoordinator.isEmpty
+            .map { !$0 }
+            .drive(emptyLabel.rx.hidden)
             .addDisposableTo(disposeBag)
     }
     

@@ -20,6 +20,7 @@ class ProposalDetailViewController: UIViewController {
     
     @IBOutlet private weak var webView: UIWebView!
     @IBOutlet fileprivate weak var activityIndicatorView: UIActivityIndicatorView!
+    @IBOutlet private weak var emptyLabel: UILabel!
     
     // MARK: Properties
     
@@ -32,6 +33,8 @@ class ProposalDetailViewController: UIViewController {
         
         navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
         navigationItem.leftItemsSupplementBackButton = true
+        
+        emptyLabel.isHidden = proposal != nil
         
         guard let proposal = proposal else { return }
 

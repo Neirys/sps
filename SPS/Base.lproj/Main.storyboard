@@ -22,20 +22,31 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </webView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="uzj-1n-wzO"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eDX-FL-bY0">
+                                <string key="text">Select a proposal first.
+Bad UX you said ? Naa, it's a feature bro.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="uzj-1n-wzO" firstAttribute="centerX" secondItem="6Iu-x1-Wl7" secondAttribute="centerX" id="4Dd-PY-ucd"/>
+                            <constraint firstItem="eDX-FL-bY0" firstAttribute="centerY" secondItem="6Iu-x1-Wl7" secondAttribute="centerY" id="AYG-he-hAd"/>
                             <constraint firstItem="JMl-S9-Cna" firstAttribute="top" secondItem="6Iu-x1-Wl7" secondAttribute="top" id="DTK-Ge-1pq"/>
                             <constraint firstAttribute="trailing" secondItem="JMl-S9-Cna" secondAttribute="trailing" id="O0g-4i-q4M"/>
+                            <constraint firstAttribute="trailing" secondItem="eDX-FL-bY0" secondAttribute="trailing" constant="15" id="eQz-x1-f6y"/>
                             <constraint firstItem="JMl-S9-Cna" firstAttribute="leading" secondItem="6Iu-x1-Wl7" secondAttribute="leading" id="eqG-vr-1hY"/>
                             <constraint firstItem="uzj-1n-wzO" firstAttribute="centerY" secondItem="6Iu-x1-Wl7" secondAttribute="centerY" id="gYF-76-OFH"/>
+                            <constraint firstItem="eDX-FL-bY0" firstAttribute="leading" secondItem="6Iu-x1-Wl7" secondAttribute="leading" constant="15" id="ksc-4i-80F"/>
                             <constraint firstItem="0ux-1V-sO4" firstAttribute="top" secondItem="JMl-S9-Cna" secondAttribute="bottom" id="ovh-2h-Glk"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="MnL-38-nOe"/>
                     <connections>
                         <outlet property="activityIndicatorView" destination="uzj-1n-wzO" id="4h3-OW-h1t"/>
+                        <outlet property="emptyLabel" destination="eDX-FL-bY0" id="ZjT-I3-Wtd"/>
                         <outlet property="webView" destination="JMl-S9-Cna" id="3b3-gC-Cpl"/>
                     </connections>
                 </viewController>
@@ -113,10 +124,20 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fbk-sn-vUa">
+                                <string key="text">Whoops, something went wrong I guess. 
+Try to pray to refresh maybe ?</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="7sb-y6-EUa" firstAttribute="top" secondItem="8OI-0T-Tdx" secondAttribute="bottom" id="59o-bN-mPk"/>
+                            <constraint firstItem="fbk-sn-vUa" firstAttribute="leading" secondItem="4eF-Uq-1Z3" secondAttribute="leading" constant="15" id="O2U-YK-9nO"/>
+                            <constraint firstAttribute="trailing" secondItem="fbk-sn-vUa" secondAttribute="trailing" constant="15" id="fFo-IW-q9C"/>
+                            <constraint firstItem="fbk-sn-vUa" firstAttribute="centerY" secondItem="4eF-Uq-1Z3" secondAttribute="centerY" id="uwC-TW-Pk2"/>
                             <constraint firstItem="8OI-0T-Tdx" firstAttribute="top" secondItem="4eF-Uq-1Z3" secondAttribute="top" id="wHg-4N-U8X"/>
                             <constraint firstAttribute="trailing" secondItem="8OI-0T-Tdx" secondAttribute="trailing" id="xEl-cp-J2R"/>
                             <constraint firstItem="8OI-0T-Tdx" firstAttribute="leading" secondItem="4eF-Uq-1Z3" secondAttribute="leading" id="zHy-Ye-I4l"/>
@@ -130,6 +151,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="emptyLabel" destination="fbk-sn-vUa" id="b40-0x-vbQ"/>
                         <outlet property="tableView" destination="8OI-0T-Tdx" id="fY6-TM-dY5"/>
                         <segue destination="RWV-wh-qbe" kind="showDetail" identifier="ProposalDetailSegueID" id="3EI-sI-s2v"/>
                     </connections>

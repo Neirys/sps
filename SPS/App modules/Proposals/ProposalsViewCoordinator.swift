@@ -21,6 +21,7 @@ class ProposalsViewCoordinator {
 
     // outputs
     let proposalSections: Driver<[AnimatableSection<ProposalViewModel>]>
+    let isEmpty: Driver<Bool>
     
     // MARK: Initializers
     
@@ -66,6 +67,10 @@ class ProposalsViewCoordinator {
             }
             .asDriver(onErrorJustReturn: [])
             .debug()
+        
+        self.isEmpty = self.proposalSections.map { sections in
+            return sections.isEmpty
+        }
     }
     
     // MARK: Methods
