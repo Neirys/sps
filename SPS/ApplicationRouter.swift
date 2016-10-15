@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class ApplicationRouter {
+class ApplicationRouter: NSObject {
     
     // MARK: Properties
     
@@ -24,6 +24,8 @@ class ApplicationRouter {
     
     init(splitViewController: UISplitViewController) {
         self.splitViewController = splitViewController
+        super.init()
+        self.splitViewController.delegate = self
     }
     
     // MARK: Methods
@@ -40,5 +42,11 @@ class ApplicationRouter {
             let proposalViewModel = ProposalViewModel(proposal)
             masterViewController.performSegue(withIdentifier: "ProposalDetailSegueID", sender: proposalViewModel)
         }
+    }
+}
+
+extension ApplicationRouter: UISplitViewControllerDelegate {
+    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
+        return true
     }
 }
