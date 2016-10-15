@@ -66,11 +66,24 @@ class ProposalsViewController: UIViewController {
             .addDisposableTo(disposeBag)
     }
     
+    // Man, the following code looks weird ... time to get ride off storyboards ?
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let navigationController = segue.destination as? UINavigationController,
+        if segue.identifier == "ProposalDetailSegueID",
+            let navigationController = segue.destination as? UINavigationController,
             let proposalDetailViewController = navigationController.topViewController as? ProposalDetailViewController,
-            let proposal = sender as? ProposalViewModel else { return }
-        proposalDetailViewController.proposal = proposal
+            let proposal = sender as? ProposalDetailType {
+            
+            proposalDetailViewController.proposal = proposal
+        }
+        else if segue.identifier == "ProposalsHistorySegueID",
+            let navigationController = segue.destination as? UINavigationController,
+            let proposalsHistoryViewController = navigationController.topViewController as? ProposalsHistoryViewController {
+            
+            proposalsHistoryViewController.selectionHandler = { [weak self] change in
+                guard let strongSelf = self else { return }
+                strongSelf.performSegue(withIdentifier: "ProposalDetailSegueID", sender: change)
+            }
+        }
     }
     
     // WARNING: should be called before viewDidLoad, crash otherwise

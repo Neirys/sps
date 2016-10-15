@@ -22,6 +22,8 @@ class ProposalsHistoryViewController: UIViewController {
     private let disposeBag = DisposeBag()
     private let viewCoordinator = ProposalsHistoryViewCoordinator(realm: try! Realm())
     
+    var selectionHandler: ((ProposalChangeViewModel) -> Void)?
+    
     // MARK: Life cycle
     
     override func viewDidLoad() {
@@ -38,6 +40,14 @@ class ProposalsHistoryViewController: UIViewController {
             cell.configure(with: proposalChange)
             return cell
         }
+        
+        tableView.rx.modelSelected(ProposalChangeViewModel.self)
+            .subscribe(onNext: { change in
+                self.dismiss(animated: true) {
+                    self.selectionHandler?(change)
+                }
+            })
+            .addDisposableTo(disposeBag)
         
         viewCoordinator.history
             .drive(tableView.rx.items(dataSource: dataSource))
