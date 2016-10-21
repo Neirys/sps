@@ -16,18 +16,29 @@ class ProposalsViewController: UIViewController {
     // MARK: IBOutlets
     
     @IBOutlet private weak var tableView: UITableView!
-    private var refreshControl: UIRefreshControl!
+    @IBOutlet private weak var searchBar: UISearchBar!
     @IBOutlet private weak var emptyLabel: UILabel!
+    private var refreshControl: UIRefreshControl!
     
     // MARK: Properties
     
     private let disposeBag = DisposeBag()
     private var viewCoordinator: ProposalsViewCoordinator!
+    private var proposalsStatusSynchronizer: ProposalsStatusSynchronizerType!
     
     // MARK: Life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // FIXME: I wanted to initialize this in `inject` so I can avoid having to retain `proposalsStatusSynchronizer`
+        // But `inject` method would likely be called before `viewDidLoad` and `searchBar` isn't initialized at that time
+        // I could declare a Varible into the view coordinator then bind this variable to my search bar in `viewDidLoad` but I don't like this approach (I don't like the current one neither ..)
+        viewCoordinator = ProposalsViewCoordinator(
+            realm: try! Realm(),
+            proposalsStatusSynchronizer: proposalsStatusSynchronizer,
+            searchInput: searchBar.rx.text.asDriver()
+        )
 
         title = "Proposal Status"
         
@@ -94,7 +105,7 @@ class ProposalsViewController: UIViewController {
     
     // WARNING: should be called before viewDidLoad, crash otherwise
     func inject(proposalsStatusSynchronizer: ProposalsStatusSynchronizerType) {
-        viewCoordinator = ProposalsViewCoordinator(realm: try! Realm(), proposalsStatusSynchronizer: proposalsStatusSynchronizer)
+        self.proposalsStatusSynchronizer = proposalsStatusSynchronizer
     }
     
     // MARK: Methods

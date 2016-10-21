@@ -25,12 +25,23 @@ class ProposalsViewCoordinator {
     
     // MARK: Initializers
     
-    init(realm: Realm, proposalsStatusSynchronizer: ProposalsStatusSynchronizerType) {
+    init(realm: Realm, proposalsStatusSynchronizer: ProposalsStatusSynchronizerType, searchInput: Driver<String>) {
         self.proposalsStatusSynchronizer = proposalsStatusSynchronizer
         
         let results = realm.objects(Proposal.RealmObject.self)
+        let resultsObservable = Observable.arrayFrom(results)
         
-        self.proposalSections = Observable.arrayFrom(results)
+        let searchInput = searchInput
+            .withLatestFrom(resultsObservable.asDriver(onErrorJustReturn: [])) { (searchInput, proposals) -> [ProposalType] in
+                guard !searchInput.isEmpty else { return proposals }
+                return proposals.filter { $0.name.lowercased().contains(searchInput.lowercased()) }
+            }
+            // FIXME:
+            // I need this because that observable won't "fire" until some text is enter in search bar, resulting to empty table view at the beginning
+            // Not sure it's the only / best solution here
+            .startWith(Array(results))
+        
+        self.proposalSections = searchInput
             // separate proposals by status
             .map { proposals -> [ProposalStatusVersion: [ProposalType]] in
                 let dic = proposals.reduce([:]) { (dic, proposal) -> [ProposalStatusVersion: [ProposalType]] in
@@ -66,7 +77,6 @@ class ProposalsViewCoordinator {
                 }
             }
             .asDriver(onErrorJustReturn: [])
-            .debug()
         
         self.isEmpty = self.proposalSections.map { sections in
             return sections.isEmpty
