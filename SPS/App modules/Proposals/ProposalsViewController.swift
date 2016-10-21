@@ -16,7 +16,7 @@ class ProposalsViewController: UIViewController {
     // MARK: IBOutlets
     
     @IBOutlet private weak var tableView: UITableView!
-    @IBOutlet private weak var searchBar: UISearchBar!
+    @IBOutlet fileprivate weak var searchBar: UISearchBar!
     @IBOutlet private weak var emptyLabel: UILabel!
     private var refreshControl: UIRefreshControl!
     
@@ -31,8 +31,8 @@ class ProposalsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // FIXME: I wanted to initialize this in `inject` so I can avoid having to retain `proposalsStatusSynchronizer`
-        // But `inject` method would likely be called before `viewDidLoad` and `searchBar` isn't initialized at that time
+        // FIXME: I wanted to initialize `viewCoordinator` in `inject` so I can avoid having to retain `proposalsStatusSynchronizer` in the VC
+        // But `inject` method is called before `viewDidLoad` and `searchBar` isn't initialized yet at that time
         // I could declare a Varible into the view coordinator then bind this variable to my search bar in `viewDidLoad` but I don't like this approach (I don't like the current one neither ..)
         viewCoordinator = ProposalsViewCoordinator(
             realm: try! Realm(),
@@ -130,5 +130,9 @@ extension ProposalsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        searchBar.resignFirstResponder()
     }
 }

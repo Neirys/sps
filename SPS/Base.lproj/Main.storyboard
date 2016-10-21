@@ -87,7 +87,7 @@ Bad UX you said ? Naa, it's a feature bro.</string>
                                 <searchBar key="tableHeaderView" contentMode="redraw" id="L3K-aU-Dhf">
                                     <rect key="frame" x="0.0" y="64" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                    <textInputTraits key="textInputTraits"/>
+                                    <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                 </searchBar>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProposalCellID" rowHeight="78" id="hfv-Os-H91" customClass="ProposalsTableViewCell" customModule="SPS" customModuleProvider="target">
