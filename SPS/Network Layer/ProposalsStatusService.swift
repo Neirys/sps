@@ -33,7 +33,7 @@ class ProposalsStatusService: ProposalsStatusServiceType {
         let url = URL(string: "https://apple.github.io/swift-evolution/")!
         let request = URLRequest(url: url)
         
-        return session.rx.data(request)
+        return session.rx.data(request: request)
             .map { data in
                 let xml = SWXMLHash.parse(data)
                 let proposals: [Proposal] = try xml["proposals"]["proposal"].value()

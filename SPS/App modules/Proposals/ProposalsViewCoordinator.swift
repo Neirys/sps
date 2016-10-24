@@ -25,14 +25,14 @@ class ProposalsViewCoordinator {
     
     // MARK: Initializers
     
-    init(realm: Realm, proposalsStatusSynchronizer: ProposalsStatusSynchronizerType, searchInput: Driver<String>) {
+    init(realm: Realm, proposalsStatusSynchronizer: ProposalsStatusSynchronizerType, searchInput: Observable<String?>) {
         self.proposalsStatusSynchronizer = proposalsStatusSynchronizer
         
         let results = realm.objects(Proposal.RealmObject.self)
         let resultsObservable = Observable.arrayFrom(results)
 
-        let searchResult = Observable.combineLatest(searchInput.asObservable(), resultsObservable) { (searchInput, proposals) -> [ProposalType] in
-            guard !searchInput.isEmpty else { return proposals }
+        let searchResult = Observable.combineLatest(searchInput, resultsObservable) { (searchInput, proposals) -> [ProposalType] in
+            guard let searchInput = searchInput, !searchInput.isEmpty else { return proposals }
             return proposals.filter { $0.name.lowercased().contains(searchInput.lowercased()) }
         }
         

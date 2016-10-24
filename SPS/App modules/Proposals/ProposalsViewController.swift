@@ -37,7 +37,7 @@ class ProposalsViewController: UIViewController {
         viewCoordinator = ProposalsViewCoordinator(
             realm: try! Realm(),
             proposalsStatusSynchronizer: proposalsStatusSynchronizer,
-            searchInput: searchBar.rx.text.asDriver()
+            searchInput: searchBar.rx.text.asObservable()
         )
 
         title = "Proposal Status"
@@ -79,7 +79,7 @@ class ProposalsViewController: UIViewController {
         
         viewCoordinator.isEmpty
             .map { !$0 }
-            .drive(emptyLabel.rx.hidden)
+            .drive(emptyLabel.rx.isHidden)
             .addDisposableTo(disposeBag)
     }
     
