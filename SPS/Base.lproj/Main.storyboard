@@ -248,7 +248,7 @@ Try to pray to refresh maybe ?</string>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="P17-5z-y0y">
-                        <barButtonItem key="rightBarButtonItem" title="Close" id="11B-O2-Hwa">
+                        <barButtonItem key="rightBarButtonItem" systemItem="stop" id="11B-O2-Hwa">
                             <connections>
                                 <action selector="closeButtonTouched:" destination="hiR-tU-d2u" id="Auk-Wq-rJv"/>
                             </connections>
