@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let service = ProposalsStatusService()
             let synchronizer = ProposalsStatusSynchronizer(proposalsStatusService: service)
             let debugSynchronizer = synchronizer
-//            let debugSynchronizer = PeriodicProposalsStatusSynchronizer(synchronizer: synchronizer, period: 5)
+//            let debugSynchronizer = PeriodicProposalsStatusSynchronizer(synchronizer: synchronizer, period: 10)
             
             return ApplicationController(splitViewController: splitViewController, proposalsStatusSynchronizer: debugSynchronizer)
         #else

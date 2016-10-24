@@ -58,7 +58,7 @@ Bad UX you said ? Naa, it's a feature bro.</string>
         <scene sceneID="SkA-wg-Bq4">
             <objects>
                 <navigationController id="FhN-QQ-XB1" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="uTm-Ay-8BC">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="uTm-Ay-8BC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -94,7 +94,7 @@ Bad UX you said ? Naa, it's a feature bro.</string>
                                         <rect key="frame" x="0.0" y="164" width="375" height="78"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hfv-Os-H91" id="dhy-K0-hZD">
-                                            <frame key="frameInset" width="375" height="77"/>
+                                            <frame key="frameInset" width="375" height="78"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="SE-0001" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yS9-as-h0A">
@@ -149,7 +149,7 @@ Try to pray to refresh maybe ?</string>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="hR4-qi-rDE">
-                        <barButtonItem key="rightBarButtonItem" title="History" id="cYk-PD-saB">
+                        <barButtonItem key="rightBarButtonItem" image="notification" id="cYk-PD-saB">
                             <connections>
                                 <segue destination="6SV-o6-Hvy" kind="presentation" identifier="ProposalsHistorySegueID" modalPresentationStyle="formSheet" id="aR3-Yx-n5g"/>
                             </connections>
@@ -157,6 +157,7 @@ Try to pray to refresh maybe ?</string>
                     </navigationItem>
                     <connections>
                         <outlet property="emptyLabel" destination="fbk-sn-vUa" id="b40-0x-vbQ"/>
+                        <outlet property="historyBarButtonItem" destination="cYk-PD-saB" id="4tC-uW-XaU"/>
                         <outlet property="searchBar" destination="L3K-aU-Dhf" id="RCL-oX-gZA"/>
                         <outlet property="tableView" destination="8OI-0T-Tdx" id="fY6-TM-dY5"/>
                         <segue destination="RWV-wh-qbe" kind="showDetail" identifier="ProposalDetailSegueID" id="3EI-sI-s2v"/>
@@ -185,7 +186,7 @@ Try to pray to refresh maybe ?</string>
                                         <rect key="frame" x="0.0" y="92" width="375" height="96"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="C7R-vv-wdo" id="mUB-9g-uOV">
-                                            <frame key="frameInset" width="375" height="95"/>
+                                            <frame key="frameInset" width="375" height="96"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="SE-0001" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="seU-lX-ObD">
@@ -311,6 +312,9 @@ Try to pray to refresh maybe ?</string>
             <point key="canvasLocation" x="1806" y="-418"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="notification" width="30" height="30"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="3EI-sI-s2v"/>
     </inferredMetricsTieBreakers>

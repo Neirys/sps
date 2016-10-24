@@ -19,6 +19,7 @@ class ProposalsViewController: UIViewController {
     @IBOutlet fileprivate weak var searchBar: UISearchBar!
     @IBOutlet private weak var emptyLabel: UILabel!
     private var refreshControl: UIRefreshControl!
+    @IBOutlet private weak var historyBarButtonItem: UIBarButtonItem!
     
     // MARK: Properties
     
@@ -78,8 +79,17 @@ class ProposalsViewController: UIViewController {
             .addDisposableTo(disposeBag)
         
         viewCoordinator.isEmpty
-            .map { !$0 }
+            .map { !$0 } // FIXME: I don't like view controllers performing any Rx operator
             .drive(emptyLabel.rx.isHidden)
+            .addDisposableTo(disposeBag)
+        
+        
+        viewCoordinator.hasUnreadChanges
+            .drive(onNext: { hasUnreadChanges in
+                let iconName = hasUnreadChanges ? "notification_plain" : "notification"
+                let image = UIImage(named: iconName)
+                self.historyBarButtonItem.image = image
+            })
             .addDisposableTo(disposeBag)
     }
     

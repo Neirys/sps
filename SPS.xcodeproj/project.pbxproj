@@ -212,6 +212,7 @@
 		F8019A7A1DA588E4009DF55D /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				F80EA7431DBEA3A400E1B74E /* Views */,
 				F84C31611DA97D5A0013AD2C /* Generics */,
 				F8019A8E1DA9194C009DF55D /* Extensions */,
 				F8019A7B1DA588F2009DF55D /* Enums */,
@@ -259,6 +260,13 @@
 				F82043FF1DAD5ABF006741F8 /* UNNotificationCenter+Rx.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F80EA7431DBEA3A400E1B74E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		F82043F11DAB0974006741F8 /* Proposals history */ = {

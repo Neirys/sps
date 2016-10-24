@@ -22,6 +22,7 @@ class ProposalsViewCoordinator {
     // outputs
     let proposalSections: Driver<[AnimatableSection<ProposalViewModel>]>
     let isEmpty: Driver<Bool>
+    let hasUnreadChanges: Driver<Bool>
     
     // MARK: Initializers
     
@@ -76,6 +77,12 @@ class ProposalsViewCoordinator {
         self.isEmpty = self.proposalSections.map { sections in
             return sections.isEmpty
         }
+        
+        let hasUnreadPredicate = NSPredicate(format: "isNew = %@", NSNumber(booleanLiteral: true))
+        self.hasUnreadChanges = Observable.from(realm.objects(RealmProposalChange.self).filter(hasUnreadPredicate))
+            .map { $0.count > 0 }
+            .distinctUntilChanged()
+            .asDriver(onErrorJustReturn: false)
     }
     
     // MARK: Methods
