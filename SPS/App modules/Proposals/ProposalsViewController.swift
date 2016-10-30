@@ -26,6 +26,7 @@ class ProposalsViewController: UIViewController {
     private let disposeBag = DisposeBag()
     private var viewCoordinator: ProposalsViewCoordinator!
     private var proposalsStatusSynchronizer: ProposalsStatusSynchronizerType!
+    fileprivate let dataSource = RxTableViewSectionedAnimatedDataSource<AnimatableSection<ProposalViewModel>>()
     
     // MARK: Life cycle
     
@@ -49,16 +50,10 @@ class ProposalsViewController: UIViewController {
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         tableView.addSubview(refreshControl)
         
-        let dataSource = RxTableViewSectionedAnimatedDataSource<AnimatableSection<ProposalViewModel>>()
-        
         dataSource.configureCell = { dataSource, tableView, indexPath, proposal in
             let cell = tableView.dequeueReusableCell(withIdentifier: "ProposalCellID", for: indexPath) as! ProposalsTableViewCell
             cell.configure(with: proposal)
             return cell
-        }
-        
-        dataSource.titleForHeaderInSection = { dataSource, index in
-            return dataSource.sectionModels[index].title
         }
         
         viewCoordinator.proposalSections
@@ -93,7 +88,7 @@ class ProposalsViewController: UIViewController {
             .addDisposableTo(disposeBag)
     }
     
-    // Man, the following code looks weird ... time to get ride off storyboards ?
+    // Man, the following code looks weird ... time to get ride of storyboards ?
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ProposalDetailSegueID",
             let navigationController = segue.destination as? UINavigationController,
@@ -140,6 +135,29 @@ extension ProposalsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let title = dataSource.sectionModels[section].title.uppercased()
+        
+        let containerView = UIView()
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.systemFont(ofSize: 11)
+        label.textColor = UIColor.darkGray
+        label.text = title
+        
+        containerView.addSubview(label)
+        containerView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-15-[label]-15-|", options: [], metrics: nil, views: ["label": label]))
+        containerView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[label]-5-|", options: [], metrics: nil, views: ["label": label]))
+        
+        return containerView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        let height: CGFloat = 35
+        // Because Apple won't let me set a 0 height footer on a grouped table view ...
+        return section == 0 ? height + tableView.sectionFooterHeight : height
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
