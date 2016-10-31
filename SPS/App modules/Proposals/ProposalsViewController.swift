@@ -144,8 +144,8 @@ extension ProposalsViewController: UITableViewDelegate {
         let containerView = RxView()
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.systemFont(ofSize: 11)
-        label.textColor = UIColor.darkGray
+        label.font = UIFont.systemFont(ofSize: 13)
+        label.textColor = UIColor(white: 0.4, alpha: 1.0)
         label.text = title
         
         containerView.addSubview(label)
