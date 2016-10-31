@@ -44,6 +44,7 @@
 		F868D6CC1DAA429E00D7C1C3 /* UIColor+RGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = F868D6CB1DAA429E00D7C1C3 /* UIColor+RGB.swift */; };
 		F868D6D31DAA4B4E00D7C1C3 /* ProposalsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F868D6D21DAA4B4E00D7C1C3 /* ProposalsTableViewCell.swift */; };
 		F8990FB91DAA85BF00008213 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8990FB81DAA85BF00008213 /* ActivityIndicator.swift */; };
+		F8DAFA531DC6670100B78D59 /* RxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DAFA521DC6670100B78D59 /* RxView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +102,7 @@
 		F868D6CB1DAA429E00D7C1C3 /* UIColor+RGB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+RGB.swift"; sourceTree = "<group>"; };
 		F868D6D21DAA4B4E00D7C1C3 /* ProposalsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProposalsTableViewCell.swift; sourceTree = "<group>"; };
 		F8990FB81DAA85BF00008213 /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		F8DAFA521DC6670100B78D59 /* RxView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -286,6 +288,7 @@
 				F84C31661DA9946B0013AD2C /* Section+Rx.swift */,
 				F868D6C91DAA41E400D7C1C3 /* RGB.swift */,
 				F8990FB81DAA85BF00008213 /* ActivityIndicator.swift */,
+				F8DAFA521DC6670100B78D59 /* RxView.swift */,
 			);
 			path = Generics;
 			sourceTree = "<group>";
@@ -492,6 +495,7 @@
 				F8019A7D1DA588FA009DF55D /* Result.swift in Sources */,
 				F82043FE1DAD563B006741F8 /* ProposalsStatusNotifier.swift in Sources */,
 				F82043F61DAC092B006741F8 /* ProposalHistoryTableViewCell.swift in Sources */,
+				F8DAFA531DC6670100B78D59 /* RxView.swift in Sources */,
 				F8019A781DA447C8009DF55D /* Proposal+SWXMLHash.swift in Sources */,
 				F8019A801DA58A2B009DF55D /* ProposalsStatusService.swift in Sources */,
 				F8019A921DA91EBD009DF55D /* ProposalViewModel.swift in Sources */,

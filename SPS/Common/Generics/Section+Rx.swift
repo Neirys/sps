@@ -11,7 +11,7 @@ import RxDataSources
 
 extension Section: SectionModelType {
     var items: [Element] {
-        return elements
+        return isCollapsed ? [] : elements
     }
     
     init(original: Section<Element>, items: [Element]) {
@@ -29,7 +29,7 @@ extension AnimatableSection: AnimatableSectionModelType {
     }
     
     var items: [Element] {
-        return elements
+        return isCollapsed ? [] : elements
     }
     
     init(original: AnimatableSection<Element>, items: [Element]) {

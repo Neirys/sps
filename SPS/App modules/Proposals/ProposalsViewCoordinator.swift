@@ -18,11 +18,16 @@ class ProposalsViewCoordinator {
     // MARK: Properties
     
     private let proposalsStatusSynchronizer: ProposalsStatusSynchronizerType
+    private let disposeBag = DisposeBag()
 
     // outputs
     let proposalSections: Driver<[AnimatableSection<ProposalViewModel>]>
     let isEmpty: Driver<Bool>
     let hasUnreadChanges: Driver<Bool>
+    
+    // inputs
+    let headerTapped: PublishSubject<AnimatableSection<ProposalViewModel>> = PublishSubject()
+    private let hiddenSections: Variable<[AnimatableSection<ProposalViewModel>]> = Variable([])
     
     // MARK: Initializers
     
@@ -32,12 +37,14 @@ class ProposalsViewCoordinator {
         let results = realm.objects(Proposal.RealmObject.self)
         let resultsObservable = Observable.arrayFrom(results)
 
+        // filter result from DB with search input string
         let searchResult = Observable.combineLatest(searchInput, resultsObservable) { (searchInput, proposals) -> [ProposalType] in
             guard let searchInput = searchInput, !searchInput.isEmpty else { return proposals }
             return proposals.filter { $0.name.lowercased().contains(searchInput.lowercased()) }
         }
         
-        self.proposalSections = searchResult
+        // map filtered result into animatable sections of ProposalViewModel
+        var proposalSections = searchResult
             // separate proposals by status
             .map { proposals -> [ProposalStatusVersion: [ProposalType]] in
                 let dic = proposals.reduce([:]) { (dic, proposal) -> [ProposalStatusVersion: [ProposalType]] in
@@ -72,7 +79,17 @@ class ProposalsViewCoordinator {
                     return AnimatableSection(title: title, elements: proposalViewModels)
                 }
             }
-            .asDriver(onErrorJustReturn: [])
+        
+        // collapse / expand sections
+        proposalSections = Observable.combineLatest(proposalSections, hiddenSections.asObservable()) { proposalSections, hiddenSections in
+            return proposalSections.map { section in
+                var section = section
+                section.isCollapsed = hiddenSections.contains(where: { $0.identity == section.identity })
+                return section
+            }
+        }
+        
+        self.proposalSections = proposalSections.asDriver(onErrorJustReturn: [])
         
         self.isEmpty = self.proposalSections.map { sections in
             return sections.isEmpty
@@ -83,6 +100,20 @@ class ProposalsViewCoordinator {
             .map { $0.count > 0 }
             .distinctUntilChanged()
             .asDriver(onErrorJustReturn: false)
+        
+        // update collapsed/expanded sections state when user cliked on a section header
+        // FIXME: I'm gonna vomit ... Better way please ?
+        headerTapped.subscribe(onNext: { section in
+            var hiddenSections = self.hiddenSections.value
+            if let index = hiddenSections.index(where: { $0.identity == section.identity }) {
+                hiddenSections.remove(at: index)
+            } else {
+                hiddenSections.append(section)
+            }
+            
+            self.hiddenSections.value = hiddenSections
+        })
+        .addDisposableTo(disposeBag)
     }
     
     // MARK: Methods

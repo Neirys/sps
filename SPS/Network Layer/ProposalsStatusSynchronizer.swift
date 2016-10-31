@@ -67,7 +67,6 @@ class ProposalsStatusSynchronizer: ProposalsStatusSynchronizerType {
                     }
                 }
                 .trackActivity(activity)
-                .debug()
         }
         
         return (observableFactory, activityDriver)

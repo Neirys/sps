@@ -24,7 +24,7 @@ class ProposalsViewController: UIViewController {
     // MARK: Properties
     
     private let disposeBag = DisposeBag()
-    private var viewCoordinator: ProposalsViewCoordinator!
+    fileprivate var viewCoordinator: ProposalsViewCoordinator!
     private var proposalsStatusSynchronizer: ProposalsStatusSynchronizerType!
     fileprivate let dataSource = RxTableViewSectionedAnimatedDataSource<AnimatableSection<ProposalViewModel>>()
     
@@ -138,9 +138,10 @@ extension ProposalsViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let title = dataSource.sectionModels[section].title.uppercased()
+        let model = dataSource.sectionModels[section]
+        let title = model.title.uppercased()
         
-        let containerView = UIView()
+        let containerView = RxView()
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 11)
@@ -150,6 +151,15 @@ extension ProposalsViewController: UITableViewDelegate {
         containerView.addSubview(label)
         containerView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-15-[label]-15-|", options: [], metrics: nil, views: ["label": label]))
         containerView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[label]-5-|", options: [], metrics: nil, views: ["label": label]))
+        
+        let gesture = UITapGestureRecognizer()
+        gesture.rx.event.asObservable()
+            .debug()
+            .map { _ in model }
+            .bindTo(viewCoordinator.headerTapped)
+            .addDisposableTo(containerView.disposeBag)
+        
+        containerView.addGestureRecognizer(gesture)
         
         return containerView
     }
