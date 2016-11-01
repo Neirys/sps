@@ -27,7 +27,6 @@ class ProposalsViewCoordinator {
     
     // inputs
     let headerTapped: PublishSubject<AnimatableSection<ProposalViewModel>> = PublishSubject()
-    private let hiddenSections: Variable<[AnimatableSection<ProposalViewModel>]> = Variable([])
     
     // MARK: Initializers
     
@@ -36,15 +35,9 @@ class ProposalsViewCoordinator {
         
         let results = realm.objects(Proposal.RealmObject.self)
         let resultsObservable = Observable.arrayFrom(results)
-
-        // filter result from DB with search input string
-        let searchResult = Observable.combineLatest(searchInput, resultsObservable) { (searchInput, proposals) -> [ProposalType] in
-            guard let searchInput = searchInput, !searchInput.isEmpty else { return proposals }
-            return proposals.filter { $0.name.lowercased().contains(searchInput.lowercased()) }
-        }
         
         // map filtered result into animatable sections of ProposalViewModel
-        var proposalSections = searchResult
+        let proposalSections = resultsObservable
             // separate proposals by status
             .map { proposals -> [ProposalStatusVersion: [ProposalType]] in
                 let dic = proposals.reduce([:]) { (dic, proposal) -> [ProposalStatusVersion: [ProposalType]] in
@@ -80,16 +73,38 @@ class ProposalsViewCoordinator {
                 }
             }
         
-        // collapse / expand sections
-        proposalSections = Observable.combineLatest(proposalSections, hiddenSections.asObservable()) { proposalSections, hiddenSections in
-            return proposalSections.map { section in
-                var section = section
-                section.isCollapsed = hiddenSections.contains(where: { $0.identity == section.identity })
-                return section
+        // collapse / expand sections on header tapped
+        let collapsedSections = headerTapped.scan(proposalSections) { sections, toggledSection in
+            return sections.map { sections in
+                var sections = sections
+                if let index = sections.index(where: { $0.identity == toggledSection.identity }) {
+                    var updatedSection = sections[index]
+                    updatedSection.isCollapsed = !updatedSection.isCollapsed
+                    sections[index] = updatedSection
+                }
+                
+                return sections
             }
         }
+        .startWith(proposalSections)
+        .flatMap { $0 }
         
-        self.proposalSections = proposalSections.asDriver(onErrorJustReturn: [])
+        // filter result from DB with search input string
+        let filteredSections = Observable.combineLatest(collapsedSections, searchInput) {
+            (proposalSections, searchInput) -> [AnimatableSection<ProposalViewModel>] in
+            guard let searchInput = searchInput, !searchInput.isEmpty else {
+                return proposalSections
+            }
+            
+            return proposalSections.map { section in
+                var section = section
+                section.elements = section.elements.filter { $0.name.lowercased().contains(searchInput.lowercased()) }
+                return section
+            }
+            .filter { !$0.elements.isEmpty }
+        }
+        
+        self.proposalSections = filteredSections.asDriver(onErrorJustReturn: [])
         
         self.isEmpty = self.proposalSections.map { sections in
             return sections.isEmpty
@@ -100,20 +115,6 @@ class ProposalsViewCoordinator {
             .map { $0.count > 0 }
             .distinctUntilChanged()
             .asDriver(onErrorJustReturn: false)
-        
-        // update collapsed/expanded sections state when user cliked on a section header
-        // FIXME: I'm gonna vomit ... Better way please ?
-        headerTapped.subscribe(onNext: { section in
-            var hiddenSections = self.hiddenSections.value
-            if let index = hiddenSections.index(where: { $0.identity == section.identity }) {
-                hiddenSections.remove(at: index)
-            } else {
-                hiddenSections.append(section)
-            }
-            
-            self.hiddenSections.value = hiddenSections
-        })
-        .addDisposableTo(disposeBag)
     }
     
     // MARK: Methods

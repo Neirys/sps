@@ -156,7 +156,6 @@ extension ProposalsViewController: UITableViewDelegate {
         
         let gesture = UITapGestureRecognizer()
         gesture.rx.event.asObservable()
-            .debug()
             .map { _ in model }
             .bindTo(viewCoordinator.headerTapped)
             .addDisposableTo(containerView.disposeBag)
