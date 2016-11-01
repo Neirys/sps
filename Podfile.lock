@@ -1,5 +1,5 @@
 PODS:
-  - Crashlytics (3.8.2):
+  - Crashlytics (3.8.3):
     - Fabric (~> 1.6.3)
   - Fabric (1.6.9)
   - Realm (2.0.2):
@@ -25,7 +25,7 @@ DEPENDENCIES:
   - SWXMLHash (~> 3.0.0)
 
 SPEC CHECKSUMS:
-  Crashlytics: 27acca95a01b042a8294291dd6dff27f8f6af6d7
+  Crashlytics: 2b6dbe138a42395577cfa73dfa1aa7248cadf39e
   Fabric: bc5bec42cef4bcf1ee3ce0e218fc518e4b44dfbb
   Realm: 0f5a194af0b7e6158b83db41b4ee1a00be7ddf1a
   RealmSwift: 0eb5070d851cba7c66e841ca756d83609dc78bc8
