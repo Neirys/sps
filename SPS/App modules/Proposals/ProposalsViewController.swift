@@ -149,10 +149,21 @@ extension ProposalsViewController: UITableViewDelegate {
         label.font = UIFont.systemFont(ofSize: 13)
         label.textColor = UIColor(white: 0.4, alpha: 1.0)
         label.text = title
+        label.minimumScaleFactor = 0.5
+        label.adjustsFontSizeToFitWidth = true
         
         containerView.addSubview(label)
-        containerView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-15-[label]-15-|", options: [], metrics: nil, views: ["label": label]))
+        containerView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-15-[label]", options: [], metrics: nil, views: ["label": label]))
         containerView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[label]-5-|", options: [], metrics: nil, views: ["label": label]))
+        
+        let toggleImageView = UIImageView(image: UIImage(named: "toggle-section"))
+        toggleImageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        containerView.addSubview(toggleImageView)
+        containerView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:[toggle(16)]-8-|", options: [], metrics: nil, views: ["toggle": toggleImageView]))
+        containerView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[toggle(16)]-5-|", options: [], metrics: nil, views: ["toggle": toggleImageView]))
+        
+        containerView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:[label]-5-[toggle]", options: [], metrics: nil, views: ["label": label, "toggle": toggleImageView]))
         
         let gesture = UITapGestureRecognizer()
         gesture.rx.event.asObservable()
