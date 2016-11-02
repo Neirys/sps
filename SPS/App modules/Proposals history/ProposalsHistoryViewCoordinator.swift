@@ -11,7 +11,6 @@ import RxSwift
 import RxCocoa
 import RealmSwift
 
-// TODO: Unit tests
 class ProposalsHistoryViewCoordinator {
     
     // MARK: Properties

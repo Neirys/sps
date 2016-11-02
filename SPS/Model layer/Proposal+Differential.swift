@@ -48,7 +48,6 @@ enum ProposalChange {
 }
 
 // very bad differential with no optimization at all but yeah, i'm lazy
-// TODO: Unit test
 func differential(from proposals1: [ProposalType], to proposals2: [ProposalType]) -> [ProposalChange] {
     
     let adds = proposals2.filter { p2 in

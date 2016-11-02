@@ -12,7 +12,6 @@ import RxSwift
 import RxCocoa
 import RxDataSources
 
-// TODO: Unit tests
 class ProposalsViewCoordinator {
     
     // MARK: Properties

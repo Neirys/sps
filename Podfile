@@ -2,10 +2,8 @@
 # platform :ios, '9.0'
 
 target 'SPS' do
-  # Comment this line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
 
-  # Pods for SPS
   pod 'SWXMLHash', '~> 3.0.0'
   pod 'RealmSwift'
   pod 'RxSwift', '~> 3.0'
@@ -13,4 +11,8 @@ target 'SPS' do
   pod 'RxDataSources', '~> 1.0'
   pod 'Fabric'
   pod 'Crashlytics'
+
+  target 'SPSTests' do
+    pod 'RxTest'
+  end
 end
