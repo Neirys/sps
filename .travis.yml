@@ -4,4 +4,4 @@ xcode_workspace: SPS.xcworkspace
 xcode_scheme: SPS
 
 script:
-- xcodebuild clean build test -workspace SPS.xcworkspace -scheme SPS
+- set -o pipefail && xcodebuild clean build test -workspace SPS.xcworkspace -scheme SPS | xcpretty -c
