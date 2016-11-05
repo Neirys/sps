@@ -1,4 +1,5 @@
-[![Build Status](https://travis-ci.org/Neirys/sps.svg)](https://travis-ci.org/Neirys/sps)
+[![Build Status](https://travis-ci.org/Neirys/sps.svg)](https://travis-ci.org/Neirys/sps) [![codecov](https://codecov.io/gh/Neirys/sps/branch/develop/graph/badge.svg)](https://codecov.io/gh/Neirys/sps)
+
 Swift Proposal Status (SPS)
 ===========================
 
