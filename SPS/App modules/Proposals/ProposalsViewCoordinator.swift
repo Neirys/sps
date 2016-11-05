@@ -97,7 +97,11 @@ class ProposalsViewCoordinator {
             
             return proposalSections.map { section in
                 var section = section
-                section.elements = section.elements.filter { $0.name.lowercased().contains(searchInput.lowercased()) }
+                section.elements = section.elements.filter { proposal in
+                    let searchInput = searchInput.lowercased()
+                    return proposal.name.lowercased().contains(searchInput) || proposal.id.lowercased().contains(searchInput)
+                }
+                
                 return section
             }
             .filter { !$0.elements.isEmpty }
