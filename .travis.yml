@@ -7,4 +7,4 @@ script:
 - set -o pipefail && xcodebuild clean build test -workspace SPS.xcworkspace -scheme SPS -destination "OS=10.0,name=iPhone 6s" -sdk "iphonesimulator10.0" | xcpretty -c
 
 after_success:
-- bash <(curl -s https://codecov.io/bash)
+- bash <(curl -s https://codecov.io/bash) -J 'SPS'
