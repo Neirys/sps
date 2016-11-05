@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/Neirys/sps.svg)](https://travis-ci.org/Neirys/sps)
 Swift Proposal Status (SPS)
 ===========================
 
