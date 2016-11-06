@@ -752,7 +752,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E8CE850440A390A8C680A607 /* Pods-SPS.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 4GA57MT5DC;
@@ -770,7 +769,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 631D728449DBAE97B04E87A8 /* Pods-SPS.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 4GA57MT5DC;
 				INFOPLIST_FILE = "$(SRCROOT)/SPS/Resources/Info.plist";
@@ -787,7 +785,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2F424E8E4B6C5119FAC0F746 /* Pods-SPS-SPSTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 4GA57MT5DC;
@@ -805,7 +802,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 33010C05484FA5C16A7F9478 /* Pods-SPS-SPSTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 4GA57MT5DC;
