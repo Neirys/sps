@@ -54,7 +54,7 @@ class ProposalsViewCoordinator {
             // apply a custom display order
             .map { proposals in
                 return proposals.sorted() { p1, p2 in
-                    var ordered = p1.key.status.displayOrder < p2.key.status.displayOrder
+                    var ordered = p1.key.status.displayPriority < p2.key.status.displayPriority
                     if let s1 = p1.key.swiftVersion, let s2 = p2.key.swiftVersion {
                         ordered = ordered || (!ordered && s1 > s2)
                     }

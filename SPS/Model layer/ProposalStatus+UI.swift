@@ -9,7 +9,7 @@
 import Foundation
 
 extension Proposal.Status {
-    var displayOrder: Int {
+    var displayPriority: Int {
         switch self {
         case .accepted:     return 40
         case .active:       return 10
