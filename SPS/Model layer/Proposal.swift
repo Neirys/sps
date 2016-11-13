@@ -19,6 +19,7 @@ protocol ProposalType {
 struct Proposal: ProposalType {
     enum Status: String {
         case implemented
+        case implementing
         case accepted
         case active
         case scheduled
