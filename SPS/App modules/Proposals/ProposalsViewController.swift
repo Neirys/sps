@@ -62,12 +62,12 @@ class ProposalsViewController: UIViewController {
             .drive(tableView.rx.items(dataSource: dataSource))
             .addDisposableTo(disposeBag)
         
-        tableView.rx.modelSelected(ProposalViewModel.self)
-            .subscribe(onNext: { proposal in
-                // FIXME: I'm not OK with passing model through `sender`
-                self.performSegue(withIdentifier: "ProposalDetailSegueID", sender: proposal)
-            })
-            .addDisposableTo(disposeBag)
+//        tableView.rx.modelSelected(ProposalViewModel.self)
+//            .subscribe(onNext: { proposal in
+//                // FIXME: I'm not OK with passing model through `sender`
+//                self.performSegue(withIdentifier: "ProposalDetailSegueID", sender: proposal)
+//            })
+//            .addDisposableTo(disposeBag)
         
         tableView.rx.itemSelected
             .subscribe(onNext: { indexPath in
@@ -93,9 +93,11 @@ class ProposalsViewController: UIViewController {
     // Man, the following code looks weird ... time to get ride of storyboards ?
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ProposalDetailSegueID",
+            let cell = sender as? UITableViewCell,
+            let indexPath = tableView.indexPath(for: cell),
+            let proposal = try? dataSource.model(at: indexPath) as? ProposalDetailType,
             let navigationController = segue.destination as? UINavigationController,
-            let proposalDetailViewController = navigationController.topViewController as? ProposalDetailViewController,
-            let proposal = sender as? ProposalDetailType {
+            let proposalDetailViewController = navigationController.topViewController as? ProposalDetailViewController {
             
             proposalDetailViewController.proposal = proposal
         }
