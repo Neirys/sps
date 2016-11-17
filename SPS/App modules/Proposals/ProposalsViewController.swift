@@ -62,13 +62,6 @@ class ProposalsViewController: UIViewController {
             .drive(tableView.rx.items(dataSource: dataSource))
             .addDisposableTo(disposeBag)
         
-//        tableView.rx.modelSelected(ProposalViewModel.self)
-//            .subscribe(onNext: { proposal in
-//                // FIXME: I'm not OK with passing model through `sender`
-//                self.performSegue(withIdentifier: "ProposalDetailSegueID", sender: proposal)
-//            })
-//            .addDisposableTo(disposeBag)
-        
         tableView.rx.itemSelected
             .subscribe(onNext: { indexPath in
                 self.tableView.deselectRow(at: indexPath, animated: true)
@@ -93,13 +86,26 @@ class ProposalsViewController: UIViewController {
     // Man, the following code looks weird ... time to get ride of storyboards ?
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ProposalDetailSegueID",
-            let cell = sender as? UITableViewCell,
-            let indexPath = tableView.indexPath(for: cell),
-            let proposal = try? dataSource.model(at: indexPath) as? ProposalDetailType,
             let navigationController = segue.destination as? UINavigationController,
             let proposalDetailViewController = navigationController.topViewController as? ProposalDetailViewController {
             
-            proposalDetailViewController.proposal = proposal
+            // FIXME: Okayyy this is getting weirder and weirder
+            // Here what happened : I enabled Peek & Pop so I begin to check that sender is a table view cell
+            // But I forgot that in some case I was passing the proposal model straight into `performSegue` (as a sender)
+            // So I broke some of my feature. Yepppp.
+            // I'm quick fixing it right now and considering moving to an application flow pattern (adios storyboard)
+            var _proposal: ProposalDetailType? = nil
+            
+            if let cell = sender as? UITableViewCell,
+                let indexPath = tableView.indexPath(for: cell),
+                let proposal = try? dataSource.model(at: indexPath) as? ProposalDetailType {
+                _proposal = proposal
+            }
+            else if let proposal = sender as? ProposalDetailType {
+                _proposal = proposal
+            }
+            
+            proposalDetailViewController.proposal = _proposal
         }
         else if segue.identifier == "ProposalsHistorySegueID",
             let navigationController = segue.destination as? UINavigationController,
