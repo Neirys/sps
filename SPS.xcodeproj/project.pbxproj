@@ -14,7 +14,7 @@
 		F8019A5B1DA44341009DF55D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8019A5A1DA44341009DF55D /* Assets.xcassets */; };
 		F8019A5E1DA44341009DF55D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8019A5C1DA44341009DF55D /* LaunchScreen.storyboard */; };
 		F8019A761DA44749009DF55D /* Proposal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8019A751DA44749009DF55D /* Proposal.swift */; };
-		F8019A781DA447C8009DF55D /* Proposal+SWXMLHash.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8019A771DA447C8009DF55D /* Proposal+SWXMLHash.swift */; };
+		F8019A781DA447C8009DF55D /* Proposal+JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8019A771DA447C8009DF55D /* Proposal+JSON.swift */; };
 		F8019A7D1DA588FA009DF55D /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8019A7C1DA588FA009DF55D /* Result.swift */; };
 		F8019A801DA58A2B009DF55D /* ProposalsStatusService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8019A7F1DA58A2B009DF55D /* ProposalsStatusService.swift */; };
 		F8019A821DA5962C009DF55D /* Proposal+Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8019A811DA5962C009DF55D /* Proposal+Realm.swift */; };
@@ -84,7 +84,7 @@
 		F8019A641DA44341009DF55D /* SPSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SPSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8019A6A1DA44341009DF55D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F8019A751DA44749009DF55D /* Proposal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Proposal.swift; sourceTree = "<group>"; };
-		F8019A771DA447C8009DF55D /* Proposal+SWXMLHash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Proposal+SWXMLHash.swift"; sourceTree = "<group>"; };
+		F8019A771DA447C8009DF55D /* Proposal+JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Proposal+JSON.swift"; sourceTree = "<group>"; };
 		F8019A7C1DA588FA009DF55D /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		F8019A7F1DA58A2B009DF55D /* ProposalsStatusService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProposalsStatusService.swift; sourceTree = "<group>"; };
 		F8019A811DA5962C009DF55D /* Proposal+Realm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Proposal+Realm.swift"; sourceTree = "<group>"; };
@@ -238,7 +238,7 @@
 				F8019A831DA59D48009DF55D /* RealmObjectConvertible.swift */,
 				F8019A751DA44749009DF55D /* Proposal.swift */,
 				F8019A811DA5962C009DF55D /* Proposal+Realm.swift */,
-				F8019A771DA447C8009DF55D /* Proposal+SWXMLHash.swift */,
+				F8019A771DA447C8009DF55D /* Proposal+JSON.swift */,
 				F84C31641DA98E960013AD2C /* ProposalStatus+UI.swift */,
 				F868D6C71DA9B4D900D7C1C3 /* Proposal+Differential.swift */,
 				F82043EF1DAAF9F2006741F8 /* ProposalChange+Realm.swift */,
@@ -580,8 +580,7 @@
 				F8019A7D1DA588FA009DF55D /* Result.swift in Sources */,
 				F82043FE1DAD563B006741F8 /* ProposalsStatusNotifier.swift in Sources */,
 				F82043F61DAC092B006741F8 /* ProposalHistoryTableViewCell.swift in Sources */,
-				F8DAFA531DC6670100B78D59 /* RxView.swift in Sources */,
-				F8019A781DA447C8009DF55D /* Proposal+SWXMLHash.swift in Sources */,
+				F8019A781DA447C8009DF55D /* Proposal+JSON.swift in Sources */,
 				F8019A801DA58A2B009DF55D /* ProposalsStatusService.swift in Sources */,
 				F8019A921DA91EBD009DF55D /* ProposalViewModel.swift in Sources */,
 				F82044021DAD9480006741F8 /* ApplicationRouter.swift in Sources */,

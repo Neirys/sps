@@ -31,11 +31,11 @@ class ProposalChangeViewModel: ProposalDetailType {
     // MARK: Computed properties
     
     var id: String {
-        return "SE-\(change.proposal.id)"
+        return change.proposal.id
     }
     
     var name: String {
-        return change.proposal.name
+        return change.proposal.name.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
     }
     
     var url: URL {
