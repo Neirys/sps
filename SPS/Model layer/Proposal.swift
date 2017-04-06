@@ -20,11 +20,12 @@ struct Proposal: ProposalType {
     enum Status: String {
         case implemented = ".implemented"
         case accepted = ".accepted"
-        case active = ".active"
-        case scheduled = ".scheduled"
-        case awaiting = ".awaiting"
+        case acceptedWithRevision = ".acceptedWithRevisions"
+        case active = ".activeReview"
+        case scheduled = ".scheduled"                           // Do not appear anymore
+        case awaiting = ".awaiting"                             // Do not appear anymore
         case deferred = ".deferred"
-        case returned = ".returned"
+        case returned = ".returned"                             // Do not appear anymore
         case rejected = ".rejected"
         case withdrawn = ".withdrawn"
         case unknown = ".unknown"
