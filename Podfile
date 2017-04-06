@@ -6,7 +6,6 @@ target 'SPS' do
   use_frameworks!
 
   # Pods for SPS
-  pod 'SWXMLHash', '~> 3.0.0'
   pod 'SwiftyJSON'
   pod 'RealmSwift'
   pod 'RxSwift', '~> 3.0'
