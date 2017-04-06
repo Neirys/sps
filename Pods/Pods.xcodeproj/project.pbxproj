@@ -1382,7 +1382,7 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		45A6B51ED289B3326F790ACF2A1BF279 /* Frameworks */ = {
+		62B9023FE44AB3E235540C0FC453E0CA /* Fabric */ = {
 			isa = PBXGroup;
 			children = (
 				C80FBD77C4B2D18029858D865ABAD996 /* Realm.framework */,
@@ -1390,7 +1390,7 @@
 				464DE4EB66DC74B289249EE5EE56C247 /* RxSwift.framework */,
 				417DB2E966B6AD6BEAD5FB0146623ACD /* iOS */,
 			);
-			name = Frameworks;
+			path = Fabric;
 			sourceTree = "<group>";
 		};
 		4910340C01F8A917EBBBA4BA553F6AC3 /* Support Files */ = {
@@ -1407,22 +1407,13 @@
 			path = "../Target Support Files/SwiftyJSON";
 			sourceTree = "<group>";
 		};
-		4A44A52AEEDFFA1FAA7DEB3DBB018112 /* Pods-SPS */ = {
+		6904B9D58D0F1F9DD5A230154C0D3279 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				4F3D64E0DD3EE805DD74A779E8A9CF0E /* Info.plist */,
-				35DC33A8C9DC06BA72C6B3E72BB73A70 /* Pods-SPS.modulemap */,
-				1DECD8121167CDD3117841CA83DF3B65 /* Pods-SPS-acknowledgements.markdown */,
-				FDEE4EDD068543BA199C6C8E272098CC /* Pods-SPS-acknowledgements.plist */,
-				72D471F2D857582A1A5E45A201A8EB6D /* Pods-SPS-dummy.m */,
-				DE234AFA51601B2BEFD5500917247239 /* Pods-SPS-frameworks.sh */,
-				2E73AD07B053F65A705B0C5B562FDA7B /* Pods-SPS-resources.sh */,
-				88A67DF52BC155F5EDA7A6DB905B7CC9 /* Pods-SPS-umbrella.h */,
-				515623295919D1037448C3DF07D1CB1F /* Pods-SPS.debug.xcconfig */,
-				B899896D7BB3B7FDA03E5DA852C6A822 /* Pods-SPS.release.xcconfig */,
+				FF87FBF818C2644F051CF7E706CBF4F6 /* Pods-SPS */,
+				C261095C5E55258A289457B8CFEA6EFF /* Pods-SPS-SPSTests */,
 			);
-			name = "Pods-SPS";
-			path = "Target Support Files/Pods-SPS";
+			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
 		4E1DEE6F8AB1BBDC3E722E0CC27F346C /* Support Files */ = {
@@ -1438,12 +1429,17 @@
 			path = "../Target Support Files/Realm";
 			sourceTree = "<group>";
 		};
-		52F26A374AAE6E70A4EB44C5428C24CE /* Targets Support Files */ = {
+		6F01854A6F4DEF7C16BDD019DCD846A1 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				4A44A52AEEDFFA1FAA7DEB3DBB018112 /* Pods-SPS */,
+				3795CD94B7A9758C8BE1D464CBF776AA /* Info.plist */,
+				3105979011352DD95DDF1D0C36FB7D76 /* Realm.modulemap */,
+				76491EA27B91FC80F505EADCD7926052 /* Realm.xcconfig */,
+				28B02CAEC08069F575D48F762413E83F /* Realm-dummy.m */,
+				F0C7CC4EB2F9900B17B66B1F28AEBA62 /* Realm-prefix.pch */,
 			);
-			name = "Targets Support Files";
+			name = "Support Files";
+			path = "../Target Support Files/Realm";
 			sourceTree = "<group>";
 		};
 		785FC6C806DACC803EB9A31320C36743 /* RealmSwift */ = {
@@ -2028,6 +2024,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7186A2D0EFA04969EE1662D8D3556D2 /* RealmSwift-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BD9BB08D2521355F10D4582F497E2E45 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5FDDBCD809D2774AFDB97CA6488855A /* Pods-SPS-SPSTests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C49F95A7838146D09C4A4A50239B1008 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FEBE2A079A30E5CA783608D617D70F55 /* RxTest-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3339,6 +3351,15 @@
 			buildConfigurations = (
 				F4C1428B05F758252807A25C4A46DA25 /* Debug */,
 				9BF1C232A33A73A5FF56AB9CF6D3A473 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FE7BB948937FC129F1BC47003D6B0E4B /* Build configuration list for PBXNativeTarget "RxTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				19C7BD8652CB9687CA8EDA3575E78CD5 /* Debug */,
+				CF18858A900F22D2E4EC3729C74DC705 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

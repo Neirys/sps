@@ -27,3 +27,9 @@ struct RGB {
         return RGB(0, 0, 0)
     }
 }
+
+extension RGB: Equatable {
+    static func == (lhs: RGB, rhs: RGB) -> Bool {
+        return lhs.r == rhs.r && lhs.g == rhs.g && lhs.b == rhs.b && lhs.a == rhs.a
+    }
+}

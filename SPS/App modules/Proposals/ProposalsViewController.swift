@@ -24,8 +24,9 @@ class ProposalsViewController: UIViewController {
     // MARK: Properties
     
     private let disposeBag = DisposeBag()
-    private var viewCoordinator: ProposalsViewCoordinator!
+    fileprivate var viewCoordinator: ProposalsViewCoordinator!
     private var proposalsStatusSynchronizer: ProposalsStatusSynchronizerType!
+    fileprivate let dataSource = RxTableViewSectionedAnimatedDataSource<AnimatableSection<ProposalViewModel>>()
     
     // MARK: Life cycle
     
@@ -49,7 +50,7 @@ class ProposalsViewController: UIViewController {
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         tableView.addSubview(refreshControl)
         
-        let dataSource = RxTableViewSectionedAnimatedDataSource<AnimatableSection<ProposalViewModel>>()
+        dataSource.animationConfiguration = AnimationConfiguration(insertAnimation: .fade, reloadAnimation: .fade, deleteAnimation: .fade)
         
         dataSource.configureCell = { dataSource, tableView, indexPath, proposal in
             let cell = tableView.dequeueReusableCell(withIdentifier: "ProposalCellID", for: indexPath) as! ProposalsTableViewCell
@@ -57,19 +58,8 @@ class ProposalsViewController: UIViewController {
             return cell
         }
         
-        dataSource.titleForHeaderInSection = { dataSource, index in
-            return dataSource.sectionModels[index].title
-        }
-        
         viewCoordinator.proposalSections
             .drive(tableView.rx.items(dataSource: dataSource))
-            .addDisposableTo(disposeBag)
-        
-        tableView.rx.modelSelected(ProposalViewModel.self)
-            .subscribe(onNext: { proposal in
-                // FIXME: I'm not OK with passing model through `sender`
-                self.performSegue(withIdentifier: "ProposalDetailSegueID", sender: proposal)
-            })
             .addDisposableTo(disposeBag)
         
         tableView.rx.itemSelected
@@ -93,14 +83,29 @@ class ProposalsViewController: UIViewController {
             .addDisposableTo(disposeBag)
     }
     
-    // Man, the following code looks weird ... time to get ride off storyboards ?
+    // Man, the following code looks weird ... time to get ride of storyboards ?
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ProposalDetailSegueID",
             let navigationController = segue.destination as? UINavigationController,
-            let proposalDetailViewController = navigationController.topViewController as? ProposalDetailViewController,
-            let proposal = sender as? ProposalDetailType {
+            let proposalDetailViewController = navigationController.topViewController as? ProposalDetailViewController {
             
-            proposalDetailViewController.proposal = proposal
+            // FIXME: Okayyy this is getting weirder and weirder
+            // Here what happened : I enabled Peek & Pop so I begin to check that sender is a table view cell
+            // But I forgot that in some case I was passing the proposal model straight into `performSegue` (as a sender)
+            // So I broke some of my feature. Yepppp.
+            // I'm quick fixing it right now and considering moving to an application flow pattern (adios storyboard)
+            var _proposal: ProposalDetailType? = nil
+            
+            if let cell = sender as? UITableViewCell,
+                let indexPath = tableView.indexPath(for: cell),
+                let proposal = try? dataSource.model(at: indexPath) as? ProposalDetailType {
+                _proposal = proposal
+            }
+            else if let proposal = sender as? ProposalDetailType {
+                _proposal = proposal
+            }
+            
+            proposalDetailViewController.proposal = _proposal
         }
         else if segue.identifier == "ProposalsHistorySegueID",
             let navigationController = segue.destination as? UINavigationController,
@@ -140,6 +145,49 @@ extension ProposalsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let model = dataSource.sectionModels[section]
+        let title = model.title.uppercased()
+        
+        let containerView = RxView()
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.systemFont(ofSize: 13)
+        label.textColor = UIColor(white: 0.4, alpha: 1.0)
+        label.text = title
+        label.minimumScaleFactor = 0.5
+        label.adjustsFontSizeToFitWidth = true
+        
+        containerView.addSubview(label)
+        containerView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-15-[label]", options: [], metrics: nil, views: ["label": label]))
+        containerView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[label]-5-|", options: [], metrics: nil, views: ["label": label]))
+        
+        let toggleImageView = UIImageView(image: UIImage(named: "toggle-section"))
+        toggleImageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        containerView.addSubview(toggleImageView)
+        containerView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:[toggle(16)]-8-|", options: [], metrics: nil, views: ["toggle": toggleImageView]))
+        containerView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[toggle(16)]-5-|", options: [], metrics: nil, views: ["toggle": toggleImageView]))
+        
+        containerView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:[label]-5-[toggle]", options: [], metrics: nil, views: ["label": label, "toggle": toggleImageView]))
+        
+        let gesture = UITapGestureRecognizer()
+        gesture.rx.event.asObservable()
+            .map { _ in model }
+            .bindTo(viewCoordinator.headerTapped)
+            .addDisposableTo(containerView.disposeBag)
+        
+        containerView.addGestureRecognizer(gesture)
+        
+        return containerView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        let height: CGFloat = 35
+        // Because Apple won't let me set a 0 height footer on a grouped table view ...
+        return section == 0 ? height + tableView.sectionFooterHeight : height
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

@@ -53,7 +53,7 @@ class ApplicationController: NSObject, ApplicationControllerType {
         #if DEBUG
         interval = UIApplicationBackgroundFetchIntervalMinimum
         #else
-        interval = 60 * 60 * 2
+        interval = 60.0 * 60.0 * 2.0
         #endif
         
         application.setMinimumBackgroundFetchInterval(interval)

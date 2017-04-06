@@ -15,19 +15,17 @@ class ProposalChangeViewModel: ProposalDetailType {
     private let change: ProposalChange
     let createdAt: Date
     private let isNew: Bool
-    
-    private lazy var dateFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "yyMMMd", options: 0, locale: Locale.current)
-        return formatter
-    }()
+    private let dateFormatter: DateFormatter
     
     // MARK: Initializers
     
-    init(change: ProposalChange, createdAt: Date, isNew: Bool) {
+    init(change: ProposalChange, createdAt: Date, isNew: Bool, locale: Locale = Locale.current) {
         self.change = change
         self.createdAt = createdAt
         self.isNew = isNew
+        
+        self.dateFormatter = DateFormatter()
+        self.dateFormatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "yyMMMd", options: 0, locale: locale)
     }
     
     // MARK: Computed properties

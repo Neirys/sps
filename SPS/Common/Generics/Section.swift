@@ -12,9 +12,23 @@ import RxDataSources
 struct Section<Element> {
     var title: String
     var elements: [Element]
+    var isCollapsed: Bool
+    
+    init(title: String, elements: [Element], isCollapsed: Bool = false) {
+        self.title = title
+        self.elements = elements
+        self.isCollapsed = isCollapsed
+    }
 }
 
 struct AnimatableSection<Element: IdentifiableType & Equatable> {
     var title: String
     var elements: [Element]
+    var isCollapsed: Bool
+    
+    init(title: String, elements: [Element], isCollapsed: Bool = false) {
+        self.title = title
+        self.elements = elements
+        self.isCollapsed = isCollapsed
+    }
 }
