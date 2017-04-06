@@ -7,16 +7,25 @@
 //
 
 import Foundation
-import SWXMLHash
+import SwiftyJSON
 
-extension Proposal: XMLIndexerDeserializable {
-    static func deserialize(_ node: XMLIndexer) throws -> Proposal {
-        return try Proposal(
-            id: node.value(ofAttribute: "id"),
-            status: Status(rawValue: node.value(ofAttribute: "status")) ?? .unknown,
-            swiftVersion: node.value(ofAttribute: "swift-version"),
-            name: node.value(ofAttribute: "name"),
-            filename: node.value(ofAttribute: "filename")
-        )
+extension Proposal {
+    static func deserialize(_ node: Any) -> Proposal? {
+        let json = JSON(node)
+        
+        guard let identifier = json["id"].string,
+            let swiftVersion = json["status"]["version"].string,
+            let name = json["title"].string,
+            let filename = json["link"].string else {
+            return nil
+        }
+        
+        let status = Status(rawValue: json["status"]["state"].stringValue) ?? .unknown
+        
+        return Proposal(id: identifier,
+                        status: status,
+                        swiftVersion: swiftVersion,
+                        name: name,
+                        filename: filename)
     }
 }

@@ -18,16 +18,16 @@ protocol ProposalType {
 
 struct Proposal: ProposalType {
     enum Status: String {
-        case implemented
-        case accepted
-        case active
-        case scheduled
-        case awaiting
-        case deferred
-        case returned
-        case rejected
-        case withdrawn
-        case unknown
+        case implemented = ".implemented"
+        case accepted = ".accepted"
+        case active = ".active"
+        case scheduled = ".scheduled"
+        case awaiting = ".awaiting"
+        case deferred = ".deferred"
+        case returned = ".returned"
+        case rejected = ".rejected"
+        case withdrawn = ".withdrawn"
+        case unknown = ".unknown"
     }
     
     let id: String
