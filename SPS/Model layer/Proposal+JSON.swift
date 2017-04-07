@@ -14,7 +14,7 @@ extension Proposal {
         let json = JSON(node)
         
         guard let identifier = json["id"].string,
-            let name = json["title"].string,
+            let name = json["title"].string?.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines),
             let filename = json["link"].string else {
                 return nil
         }
