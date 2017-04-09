@@ -133,7 +133,7 @@ class ProposalsViewController: UIViewController {
             .addDisposableTo(disposeBag)
         
         activity
-            .drive(refreshControl.rx.refreshing)
+            .drive(refreshControl.rx.isRefreshing)
             .addDisposableTo(disposeBag)
     }
 }

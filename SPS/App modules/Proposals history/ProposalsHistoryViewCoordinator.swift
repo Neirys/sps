@@ -25,7 +25,7 @@ class ProposalsHistoryViewCoordinator {
     
     init(realm: Realm) {
         self.realm = realm
-        let history = realm.objects(RealmProposalChange.self).sorted(byProperty: "createdAt", ascending: false)
+        let history = realm.objects(RealmProposalChange.self).sorted(byKeyPath: "createdAt", ascending: false)
         
         self.history = Observable.arrayFrom(history)
             .map { $0.map { ProposalChangeViewModel(change: $0.change, createdAt: ($0.createdAt as Date), isNew: $0.isNew) } }
