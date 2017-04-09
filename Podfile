@@ -3,6 +3,7 @@
 
 target 'SPS' do
   use_frameworks!
+  inhibit_all_warnings!
 
   pod 'RealmSwift'
   pod 'RxSwift', '~> 3.0'
