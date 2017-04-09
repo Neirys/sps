@@ -7,20 +7,19 @@
 //
 
 import Foundation
-import SwiftyJSON
 
 extension Proposal {
     static func deserialize(_ node: Any) -> Proposal? {
-        let json = JSON(node)
+        guard let json = node as? [String: AnyObject] else { return nil }
         
-        guard let identifier = json["id"].string,
-            let name = json["title"].string?.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines),
-            let filename = json["link"].string else {
+        guard let identifier = json["id"] as? String,
+            let name = (json["title"] as? String)?.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines),
+            let filename = json["link"] as? String else {
                 return nil
         }
         
-        let swiftVersion = json["status"]["version"].string
-        let status = Status(rawValue: json["status"]["state"].stringValue) ?? .unknown
+        let swiftVersion = json["status"]?["version"] as? String
+        let status = Status(rawValue: (json["status"]?["state"] as? String) ?? "") ?? .unknown
         
         return Proposal(id: identifier,
                         status: status,
