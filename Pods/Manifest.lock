@@ -15,7 +15,6 @@ PODS:
   - RxSwift (3.3.1)
   - RxTest (3.3.1):
     - RxSwift (~> 3.3)
-  - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
   - Crashlytics
@@ -25,7 +24,6 @@ DEPENDENCIES:
   - RxDataSources (~> 1.0)
   - RxSwift (~> 3.0)
   - RxTest
-  - SwiftyJSON
 
 SPEC CHECKSUMS:
   Crashlytics: 79e236942ca1e7fc641df1feb9a275360a78ab6a
@@ -36,8 +34,7 @@ SPEC CHECKSUMS:
   RxDataSources: a021a0e944ba5f7991259829d973afdbfa719c0b
   RxSwift: 8fc9f2de6275a9101d518444e00bf32f1a42caac
   RxTest: f4e7360033fafa743f2f85097efa958402ed442a
-  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: bb1fd85c6d26ab539fe1034bc8b57ee7dbbe7620
+PODFILE CHECKSUM: aa9acab98c03b41558559b3c62c59799db996a16
 
 COCOAPODS: 1.2.0
