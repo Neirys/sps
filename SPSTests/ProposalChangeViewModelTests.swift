@@ -26,7 +26,7 @@ class ProposalChangeViewModelTests: XCTestCase {
         dateFormatter.dateFormat = "dd/MM/yyyy"
         let date = dateFormatter.date(from: "26/12/1990")!
         
-        let proposal = Proposal(id: "001", status: .accepted, swiftVersion: nil, name: "Test proposal", filename: "001-test")
+        let proposal = Proposal(id: "SE-001", status: .accepted, swiftVersion: nil, name: "Test proposal", filename: "001-test")
         let change = ProposalChange.add(proposal: proposal)
         let locale = Locale(identifier: "en_GB")
         let proposalChangeViewModel = ProposalChangeViewModel(change: change, createdAt: date, isNew: false, locale: locale)

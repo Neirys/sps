@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		010682AE1E9AC6EA00A95042 /* test-proposals.json in Resources */ = {isa = PBXBuildFile; fileRef = 01A2ED481E9AB9EA00B0E8FF /* test-proposals.json */; };
 		1C6A70D836763C42F04CF496 /* Pods_SPS_SPSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACAA11F6016C427C01869C88 /* Pods_SPS_SPSTests.framework */; };
 		A41F014D27B3764522F31D01 /* Pods_SPS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 219C81D67F82898F3BB9B110 /* Pods_SPS.framework */; };
 		F8019A541DA44341009DF55D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8019A531DA44341009DF55D /* AppDelegate.swift */; };
@@ -35,8 +36,7 @@
 		F82044001DAD5ABF006741F8 /* UNNotificationCenter+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82043FF1DAD5ABF006741F8 /* UNNotificationCenter+Rx.swift */; };
 		F82044021DAD9480006741F8 /* ApplicationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82044011DAD9480006741F8 /* ApplicationRouter.swift */; };
 		F842878B1DCCC4C60019FF1E /* ProposalsHistoryViewCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F842878A1DCCC4C60019FF1E /* ProposalsHistoryViewCoordinatorTests.swift */; };
-		F842878F1DCCCC400019FF1E /* Proposal_SWXMLHashTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F842878E1DCCCC400019FF1E /* Proposal_SWXMLHashTests.swift */; };
-		F84287901DCCCE310019FF1E /* test-proposals.xml in Resources */ = {isa = PBXBuildFile; fileRef = F842878C1DCCCBDE0019FF1E /* test-proposals.xml */; };
+		F842878F1DCCCC400019FF1E /* Proposal_JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = F842878E1DCCCC400019FF1E /* Proposal_JSON.swift */; };
 		F84287921DCCD0810019FF1E /* Proposal_DifferentialTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84287911DCCD0810019FF1E /* Proposal_DifferentialTests.swift */; };
 		F84287941DCCD5F20019FF1E /* SectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84287931DCCD5F20019FF1E /* SectionTests.swift */; };
 		F84287961DCCD7B70019FF1E /* RBGTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84287951DCCD7B70019FF1E /* RBGTests.swift */; };
@@ -68,6 +68,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		01A2ED481E9AB9EA00B0E8FF /* test-proposals.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "test-proposals.json"; sourceTree = "<group>"; };
 		0FD4F89698B211F2E330ED39 /* Pods_SPSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SPSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		219C81D67F82898F3BB9B110 /* Pods_SPS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SPS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F424E8E4B6C5119FAC0F746 /* Pods-SPS-SPSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SPS-SPSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SPS-SPSTests/Pods-SPS-SPSTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -105,8 +106,7 @@
 		F82043FF1DAD5ABF006741F8 /* UNNotificationCenter+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UNNotificationCenter+Rx.swift"; sourceTree = "<group>"; };
 		F82044011DAD9480006741F8 /* ApplicationRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationRouter.swift; sourceTree = "<group>"; };
 		F842878A1DCCC4C60019FF1E /* ProposalsHistoryViewCoordinatorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProposalsHistoryViewCoordinatorTests.swift; sourceTree = "<group>"; };
-		F842878C1DCCCBDE0019FF1E /* test-proposals.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "test-proposals.xml"; sourceTree = "<group>"; };
-		F842878E1DCCCC400019FF1E /* Proposal_SWXMLHashTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Proposal_SWXMLHashTests.swift; sourceTree = "<group>"; };
+		F842878E1DCCCC400019FF1E /* Proposal_JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Proposal_JSON.swift; sourceTree = "<group>"; };
 		F84287911DCCD0810019FF1E /* Proposal_DifferentialTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Proposal_DifferentialTests.swift; sourceTree = "<group>"; };
 		F84287931DCCD5F20019FF1E /* SectionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionTests.swift; sourceTree = "<group>"; };
 		F84287951DCCD7B70019FF1E /* RBGTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RBGTests.swift; sourceTree = "<group>"; };
@@ -211,8 +211,8 @@
 				F84287951DCCD7B70019FF1E /* RBGTests.swift */,
 				F84287931DCCD5F20019FF1E /* SectionTests.swift */,
 				F84287911DCCD0810019FF1E /* Proposal_DifferentialTests.swift */,
-				F842878E1DCCCC400019FF1E /* Proposal_SWXMLHashTests.swift */,
-				F842878C1DCCCBDE0019FF1E /* test-proposals.xml */,
+				F842878E1DCCCC400019FF1E /* Proposal_JSON.swift */,
+				01A2ED481E9AB9EA00B0E8FF /* test-proposals.json */,
 				F842878A1DCCC4C60019FF1E /* ProposalsHistoryViewCoordinatorTests.swift */,
 				F87696E01DCA88FB00E1E830 /* RxTestCase.swift */,
 				F87696DE1DCA864500E1E830 /* ProposalsViewCoordinatorTests.swift */,
@@ -445,9 +445,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8019A5E1DA44341009DF55D /* LaunchScreen.storyboard in Resources */,
-				F84287901DCCCE310019FF1E /* test-proposals.xml in Resources */,
 				F8019A5B1DA44341009DF55D /* Assets.xcassets in Resources */,
 				F8019A591DA44341009DF55D /* Main.storyboard in Resources */,
+				010682AE1E9AC6EA00A95042 /* test-proposals.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -614,7 +614,7 @@
 				F87696DD1DCA7B6D00E1E830 /* ProposalChangeViewModelTests.swift in Sources */,
 				F842878B1DCCC4C60019FF1E /* ProposalsHistoryViewCoordinatorTests.swift in Sources */,
 				F87696E11DCA88FB00E1E830 /* RxTestCase.swift in Sources */,
-				F842878F1DCCCC400019FF1E /* Proposal_SWXMLHashTests.swift in Sources */,
+				F842878F1DCCCC400019FF1E /* Proposal_JSON.swift in Sources */,
 				F87696DB1DCA686600E1E830 /* ProposalViewModelTests.swift in Sources */,
 				F84287961DCCD7B70019FF1E /* RBGTests.swift in Sources */,
 				F84287941DCCD5F20019FF1E /* SectionTests.swift in Sources */,
