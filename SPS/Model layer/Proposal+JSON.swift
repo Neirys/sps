@@ -9,13 +9,17 @@
 import Foundation
 
 extension Proposal {
-    static func deserialize(_ node: Any) -> Proposal? {
-        guard let json = node as? [String: AnyObject] else { return nil }
+    enum ProposalError: Error {
+        case incorrectParsing
+    }
+    
+    static func deserialize(_ node: Any) throws -> Proposal {
+        guard let json = node as? [String: AnyObject] else { throw ProposalError.incorrectParsing }
         
         guard let identifier = json["id"] as? String,
             let name = (json["title"] as? String)?.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines),
             let filename = json["link"] as? String else {
-                return nil
+                throw ProposalError.incorrectParsing
         }
         
         let swiftVersion = json["status"]?["version"] as? String

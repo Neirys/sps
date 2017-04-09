@@ -35,7 +35,7 @@ class ProposalsStatusService: ProposalsStatusServiceType {
         return session.rx.data(request: request)
             .map { data in
                 let json = try JSONSerialization.jsonObject(with: data, options: [])
-                let proposals: [Proposal] = (json as? [Any])?.flatMap { Proposal.deserialize($0) } ?? []
+                let proposals: [Proposal] = (json as? [Any])?.flatMap { try? Proposal.deserialize($0) } ?? []
                 return proposals
             }
     }
