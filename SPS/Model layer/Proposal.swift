@@ -23,10 +23,10 @@ struct Proposal: ProposalType {
         case accepted               = ".accepted"
         case acceptedWithRevision   = ".acceptedWithRevisions"
         case active                 = ".activeReview"
-        case scheduled              = ".scheduled"              // Do not appear anymore
-        case awaiting               = ".awaiting"               // Do not appear anymore
+        case scheduled              = ".scheduled"
+        case awaiting               = ".awaiting"
         case deferred               = ".deferred"
-        case returned               = ".returned"               // Do not appear anymore
+        case returned               = ".returned"
         case rejected               = ".rejected"
         case withdrawn              = ".withdrawn"
         case unknown                = ".unknown"
