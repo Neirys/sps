@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0800"
+   LastUpgradeVersion = "0830"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -28,7 +28,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6D14AFBAD202B75F89926705B38B1EA4"
+               BlueprintIdentifier = "BB7287C7E8E609798B81504C19E386D1"
                BuildableName = "Pods_SPS.framework"
                BlueprintName = "Pods-SPS"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
