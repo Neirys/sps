@@ -10,6 +10,7 @@ cache:
 branches:
   only:
   - master #build on push only on master branch
+  - develop
 
 script:
 - set -o pipefail
