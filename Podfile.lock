@@ -2,19 +2,19 @@ PODS:
   - Crashlytics (3.8.4):
     - Fabric (~> 1.6.3)
   - Fabric (1.6.11)
-  - Realm (2.5.1):
-    - Realm/Headers (= 2.5.1)
-  - Realm/Headers (2.5.1)
-  - RealmSwift (2.5.1):
-    - Realm (= 2.5.1)
-  - RxCocoa (3.3.1):
-    - RxSwift (~> 3.3)
+  - Realm (2.6.1):
+    - Realm/Headers (= 2.6.1)
+  - Realm/Headers (2.6.1)
+  - RealmSwift (2.6.1):
+    - Realm (= 2.6.1)
+  - RxCocoa (3.4.0):
+    - RxSwift (~> 3.4)
   - RxDataSources (1.0.3):
     - RxCocoa (~> 3.0)
     - RxSwift (~> 3.0)
-  - RxSwift (3.3.1)
-  - RxTest (3.3.1):
-    - RxSwift (~> 3.3)
+  - RxSwift (3.4.0)
+  - RxTest (3.4.0):
+    - RxSwift (~> 3.4)
 
 DEPENDENCIES:
   - Crashlytics
@@ -28,13 +28,13 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   Crashlytics: 79e236942ca1e7fc641df1feb9a275360a78ab6a
   Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
-  Realm: 32f86104d37c8521f864d4274050b38ba6190733
-  RealmSwift: f719e7511c902b8908593e8f143f59e47931bdb6
-  RxCocoa: 7dcb7a1860fc9cd0e23dae67ab105fc2916670b6
+  Realm: 9abfd4f87519376daa5ae3a4603155de408bf8b3
+  RealmSwift: a54d3e8931cf7d3afa5a1fac9c8f88109d7f02b3
+  RxCocoa: d14ef6b6029e1ddc6e966508c09289090de68ff9
   RxDataSources: a021a0e944ba5f7991259829d973afdbfa719c0b
-  RxSwift: 8fc9f2de6275a9101d518444e00bf32f1a42caac
-  RxTest: f4e7360033fafa743f2f85097efa958402ed442a
+  RxSwift: 3789a1af753002a14edecdb698a2424624296a9c
+  RxTest: beb6beb882cf1dcac5fc9fdbd4760a5254e7f3a6
 
-PODFILE CHECKSUM: 5d24a69ce0a854b46aa65d45280c02647cd5a031
+PODFILE CHECKSUM: dca7f5e47538cb5d5615b8b818e0a7cf305d745d
 
-COCOAPODS: 1.2.0
+COCOAPODS: 1.2.1

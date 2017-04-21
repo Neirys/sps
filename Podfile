@@ -1,9 +1,9 @@
 # Uncomment this line to define a global platform for your project
-# platform :ios, '9.0'
+platform :ios, '10.0'
+use_frameworks!
+inhibit_all_warnings!
 
 target 'SPS' do
-  use_frameworks!
-  inhibit_all_warnings!
 
   pod 'RealmSwift'
   pod 'RxSwift', '~> 3.0'
