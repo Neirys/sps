@@ -24,7 +24,7 @@ class ProposalViewModel: ProposalDetailType {
     // MARK: Computed properties
     
     var id: String {
-        return "SE-\(proposal.id)"
+        return proposal.id
     }
     
     var name: String {

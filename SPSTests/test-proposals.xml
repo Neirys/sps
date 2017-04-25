@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="index.xslt"?>
-<proposals>
-<proposal id="0001" status="implemented" swift-version="2.2" name="Allow (most) keywords as argument labels" filename="0001-keywords-as-argument-labels.md"/>
-</proposals>

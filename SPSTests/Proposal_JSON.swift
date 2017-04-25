@@ -7,17 +7,16 @@
 //
 
 import XCTest
-import SWXMLHash
 
 @testable import SPS
 
-class Proposal_SWXMLHashTests: XCTestCase {
+class Proposal_JSON: XCTestCase {
     
-    private lazy var xml: XMLIndexer = {
-        let filePath = Bundle.main.path(forResource: "test-proposals", ofType: "xml")!
+    private lazy var json: Any = {
+        let filePath = Bundle.main.path(forResource: "test-proposals", ofType: "json")!
         let url = URL(fileURLWithPath: filePath)
         let data = try! Data(contentsOf: url)
-        return SWXMLHash.parse(data)
+        return try! JSONSerialization.jsonObject(with: data, options: [])
     }()
     
     override func setUp() {
@@ -32,10 +31,10 @@ class Proposal_SWXMLHashTests: XCTestCase {
     
     func testThatParsingXMLHasCorrectOutputs() {
         do {
-            let proposals: [Proposal] = try xml["proposals"]["proposal"].value()
+            let proposals: [Proposal] = try (self.json as? [Any])?.flatMap { try Proposal.deserialize($0) } ?? []
             
             XCTAssertEqual(proposals.count, 1)
-            XCTAssertEqual(proposals[0].id, "0001")
+            XCTAssertEqual(proposals[0].id, "SE-0001")
             XCTAssertEqual(proposals[0].status, .implemented)
             XCTAssertEqual(proposals[0].swiftVersion, "2.2")
             XCTAssertEqual(proposals[0].name, "Allow (most) keywords as argument labels")

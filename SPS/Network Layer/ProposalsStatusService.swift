@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import SWXMLHash
 import RxSwift
 import RxCocoa
 
@@ -30,13 +29,13 @@ class ProposalsStatusService: ProposalsStatusServiceType {
     // MARK: Public methods
     
     func request() -> Observable<[Proposal]> {
-        let url = URL(string: "https://apple.github.io/swift-evolution/")!
+        let url = URL(string: "https://data.swift.org/swift-evolution/proposals")!
         let request = URLRequest(url: url)
         
         return session.rx.data(request: request)
             .map { data in
-                let xml = SWXMLHash.parse(data)
-                let proposals: [Proposal] = try xml["proposals"]["proposal"].value()
+                let json = try JSONSerialization.jsonObject(with: data, options: [])
+                let proposals: [Proposal] = (json as? [Any])?.flatMap { try? Proposal.deserialize($0) } ?? []
                 return proposals
             }
     }

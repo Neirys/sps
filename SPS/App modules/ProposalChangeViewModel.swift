@@ -31,7 +31,7 @@ class ProposalChangeViewModel: ProposalDetailType {
     // MARK: Computed properties
     
     var id: String {
-        return "SE-\(change.proposal.id)"
+        return change.proposal.id
     }
     
     var name: String {

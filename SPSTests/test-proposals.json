@@ -1,0 +1,42 @@
+[
+  {
+    "title": " Allow (most) keywords as argument labels\n",
+    "trackingBugs": [
+      {
+        "title": "Implement SE-0001: Allow (most) keywords as argument labels",
+        "link": "https://bugs.swift.org/browse/SR-344",
+        "id": "SR-344",
+        "assignee": "Doug Gregor",
+        "radar": "rdar://problem/22415674",
+        "status": "Resolved",
+        "resolution": "Done",
+        "updated": "2015-12-22T18:20:12.000-0600"
+      }
+    ],
+    "warnings": [
+      {
+        "message": "Missing review manager.",
+        "stage": "parse",
+        "kind": "warning"
+      }
+    ],
+    "link": "0001-keywords-as-argument-labels.md",
+    "reviewManager": {
+      "name": "",
+      "link": ""
+    },
+    "id": "SE-0001",
+    "sha": "db324b7f0b397008c72d0e2a33dfaf8e5292160e",
+    "status": {
+      "version": "2.2",
+      "state": ".implemented"
+    },
+    "summary": "Argument labels are an important part of the interface of a Swift function,\ndescribing what particular arguments to the function do and improving\nreadability. Sometimes, the most natural label for an argument coincides with a\nlanguage keyword, such as `in`, `repeat`, or `defer`. Such keywords should be\nallowed as argument labels, allowing better expression of these interfaces.\n",
+    "authors": [
+      {
+        "name": "Doug Gregor",
+        "link": "https://github.com/DougGregor"
+      }
+    ]
+  }
+]

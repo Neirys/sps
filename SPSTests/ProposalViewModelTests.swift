@@ -22,7 +22,7 @@ class ProposalViewModelTests: XCTestCase {
     }
     
     func testThatProposalViewModelHasCorrectOutputs() {
-        let proposal: ProposalType = Proposal(id: "001", status: .accepted, swiftVersion: "3.0", name: "This is a test proposal", filename: "001-test-proposal")
+        let proposal: ProposalType = Proposal(id: "SE-001", status: .accepted, swiftVersion: "3.0", name: "This is a test proposal", filename: "001-test-proposal")
         let proposalViewModel = ProposalViewModel(proposal)
         
         XCTAssertEqual(proposalViewModel.id, "SE-001")
